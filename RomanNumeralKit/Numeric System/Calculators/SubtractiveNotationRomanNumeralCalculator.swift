@@ -32,11 +32,12 @@ extension SubtractiveNotationRomanNumeralCalculator: RomanNumeralCalculator {
                 } else {
                     runningResult += symbol.rawValue + nextSymbol.rawValue
                 }
+                
+                lastProcessedIndex = index + 1
             } else {
                 runningResult += symbol.rawValue
+                lastProcessedIndex = index
             }
-            
-            lastProcessedIndex = index
         }
         
         return runningResult

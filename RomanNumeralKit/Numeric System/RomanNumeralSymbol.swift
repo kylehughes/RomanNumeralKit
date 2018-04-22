@@ -59,7 +59,7 @@ public enum RomanNumeralSymbol: Int {
     
     //MARK: Public Interface
     
-    func subtractiveFor(_ otherSymbol: RomanNumeralSymbol) -> Bool {
+    func isSubtractiveFor(_ otherSymbol: RomanNumeralSymbol) -> Bool {
         switch self {
         case .I:
             return otherSymbol == .V || otherSymbol == .X
