@@ -8,6 +8,8 @@
 
 import Foundation
 
+//MARK: - Implementation
+
 protocol RomanNumeralCalculator {
     
     func calculcate(_ romanNumeralSymbols: [RomanNumeralSymbol]) -> Int

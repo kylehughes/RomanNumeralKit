@@ -8,6 +8,8 @@
 
 import Foundation
 
+//MARK: - Implementation
+
 protocol IntRomanNumeralSymbolConverter {
     
     func romanNumeralSymbols(fromInt intValue: Int) -> [RomanNumeralSymbol]

@@ -281,9 +281,7 @@ extension RomanNumeral: Numeric {
 extension RomanNumeral: CustomStringConvertible {
     
     public var description: String {
-        return symbols.reduce("") { result, symbol in
-            return "\(result)\(symbol.characterValue)"
-        }
+        return stringValue
     }
     
 }
