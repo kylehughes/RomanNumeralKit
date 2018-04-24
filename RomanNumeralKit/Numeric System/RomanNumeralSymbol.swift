@@ -60,22 +60,23 @@ public enum RomanNumeralSymbol: Int {
     //MARK: Public Interface
     
     func isSubtractiveFor(_ otherSymbol: RomanNumeralSymbol) -> Bool {
-        switch self {
-        case .I:
-            return otherSymbol == .V || otherSymbol == .X
-        case .V:
-            return otherSymbol == .X || otherSymbol == .L
-        case .X:
-            return otherSymbol == .L || otherSymbol == .C
-        case .L:
-            return otherSymbol == .C || otherSymbol == .D
-        case .C:
-            return otherSymbol == .D || otherSymbol == .M
-        case .D:
-            return otherSymbol == .M
-        case .M:
-            return false
-        }
+//        switch self {
+//        case .I:
+//            return otherSymbol == .V || otherSymbol == .X
+//        case .V:
+//            return otherSymbol == .X || otherSymbol == .L
+//        case .X:
+//            return otherSymbol == .L || otherSymbol == .C
+//        case .L:
+//            return otherSymbol == .C || otherSymbol == .D
+//        case .C:
+//            return otherSymbol == .D || otherSymbol == .M
+//        case .D:
+//            return otherSymbol == .M
+//        case .M:
+//            return false
+//        }
+        return false
     }
     
 }

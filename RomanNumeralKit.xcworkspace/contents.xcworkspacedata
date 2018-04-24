@@ -4,7 +4,4 @@
    <FileRef
       location = "group:RomanNumeralKit.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:/Users/kyle/workspace/code/swift/RomanNumeralKit/Playgrounds/Sandbox Playground.playground">
-   </FileRef>
 </Workspace>

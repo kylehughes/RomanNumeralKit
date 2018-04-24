@@ -20,14 +20,14 @@ extension BasicNotationIntRomanNumeralSymbolConverter: IntRomanNumeralSymbolConv
         var remainingIntValue = intValue
         var convertedSymbols: [RomanNumeralSymbol] = []
         RomanNumeralSymbol.allSymbolsDescending.forEach { symbol in
-            let symbolCount = remainingIntValue / symbol.rawValue
+            let symbolCount: Int = remainingIntValue / symbol.rawValue
             guard 0 < symbolCount else {
                 return
             }
             
             let consecutiveSymbols = Array(repeating: symbol, count: symbolCount)
             convertedSymbols.append(contentsOf: consecutiveSymbols)
-            remainingIntValue /= symbol.rawValue
+            remainingIntValue -= symbolCount * symbol.rawValue
         }
         
         return convertedSymbols

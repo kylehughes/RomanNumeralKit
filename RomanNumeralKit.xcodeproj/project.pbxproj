@@ -21,6 +21,7 @@
 		27667FD02084CDE000AB8A66 /* RomanNumeralValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27667FCF2084CDE000AB8A66 /* RomanNumeralValidationError.swift */; };
 		27667FD52084D42C00AB8A66 /* RomanNumeralNotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27667FD42084D42C00AB8A66 /* RomanNumeralNotation.swift */; };
 		2783664B208ADB06001D131B /* RomanNumeralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783664A208ADB06001D131B /* RomanNumeralTests.swift */; };
+		2783664D208F1186001D131B /* RomanNumeralError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783664C208F1186001D131B /* RomanNumeralError.swift */; };
 		27C773D0208AC7700029E8C0 /* SubtractiveNotationIntRomanNumeralSymbolConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C773CF208AC7700029E8C0 /* SubtractiveNotationIntRomanNumeralSymbolConverter.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		27667FCF2084CDE000AB8A66 /* RomanNumeralValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralValidationError.swift; sourceTree = "<group>"; };
 		27667FD42084D42C00AB8A66 /* RomanNumeralNotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralNotation.swift; sourceTree = "<group>"; };
 		2783664A208ADB06001D131B /* RomanNumeralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralTests.swift; sourceTree = "<group>"; };
+		2783664C208F1186001D131B /* RomanNumeralError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralError.swift; sourceTree = "<group>"; };
 		27C773CF208AC7700029E8C0 /* SubtractiveNotationIntRomanNumeralSymbolConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractiveNotationIntRomanNumeralSymbolConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 		27667FD62084D4BD00AB8A66 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
+				2783664C208F1186001D131B /* RomanNumeralError.swift */,
 				27667FCD2084CA4000AB8A66 /* RomanNumeralSymbolValidationError.swift */,
 				27667FCF2084CDE000AB8A66 /* RomanNumeralValidationError.swift */,
 			);
@@ -314,6 +317,7 @@
 				27667FCE2084CA4000AB8A66 /* RomanNumeralSymbolValidationError.swift in Sources */,
 				272831D62089A01A000029C2 /* IntRomanNumeralSymbolConverter.swift in Sources */,
 				272831D3208995DC000029C2 /* SubtractiveNotationRomanNumeralCalculator.swift in Sources */,
+				2783664D208F1186001D131B /* RomanNumeralError.swift in Sources */,
 				27667FD02084CDE000AB8A66 /* RomanNumeralValidationError.swift in Sources */,
 				272831D120899520000029C2 /* BasicNotationRomanNumeralCalculator.swift in Sources */,
 			);

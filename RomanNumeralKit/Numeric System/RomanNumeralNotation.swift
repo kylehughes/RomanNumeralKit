@@ -16,3 +16,21 @@ public enum RomanNumeralNotation {
     case subtractive
     
 }
+
+//MARK: - CustomStringConvertible Extension
+
+extension RomanNumeralNotation: CustomStringConvertible {
+    
+    public var description: String {
+        let description: String
+        switch self {
+        case .basic:
+            description = "Basic"
+        case .subtractive:
+            description = "Subtractive"
+        }
+        
+        return description
+    }
+    
+}

@@ -7,12 +7,7 @@
 //
 
 import Foundation
-
-enum RomanNumeralError: Error {
-    
-    case incompatibleNotationOperation
-    
-}
+import os
 
 //MARK: - Implementation
 
@@ -20,21 +15,28 @@ public struct RomanNumeral {
     
     //MARK: Public Static Properties
     
-    public static let zero = RomanNumeral(intValue: 0, notation: .basic)
+    public static let maximumValue = RomanNumeral(intValue: RomanNumeral.maximumIntValue)
+    public static let minimumValue = RomanNumeral(intValue: RomanNumeral.minimumIntValue)
+    public static let zero = RomanNumeral(intValue: 0)
     
     public static let defaultNotation = RomanNumeralNotation.subtractive
+    
+    public static let maximumIntValue = 3999
+    public static let minimumIntValue = 0
     
     //MARK: Public Properties
     
     public var intValue: Int {
         didSet {
             symbols = symbolConverter.romanNumeralSymbols(fromInt: intValue)
+            stringValue = RomanNumeral.stringRepresentation(fromSymbols: symbols)
         }
     }
     
     public let notation: RomanNumeralNotation
     
     public private(set) var symbols: [RomanNumeralSymbol]
+    public private(set) var stringValue: String
     
     //MARK: Private Properties
     
@@ -54,54 +56,51 @@ public struct RomanNumeral {
         self.symbols = symbols
         self.notation = notation
         
-        self.calculator = RomanNumeral.newCalculator(forNotation: self.notation)
-        self.symbolConverter = RomanNumeral.newSymbolConverter(forNotation: self.notation)
-        self.intValue = calculator.calculcate(self.symbols)
+        self.calculator = RomanNumeral.initCalculator(forNotation: self.notation)
+        self.symbolConverter = RomanNumeral.initSymbolConverter(forNotation: self.notation)
+        self.intValue = self.calculator.calculcate(self.symbols)
+        self.stringValue = RomanNumeral.stringRepresentation(fromSymbols: self.symbols)
     }
     
     public init(intValue: Int, notation: RomanNumeralNotation = RomanNumeral.defaultNotation) {
         self.intValue = intValue
         self.notation = notation
         
-        self.calculator = RomanNumeral.newCalculator(forNotation: self.notation)
-        self.symbolConverter = RomanNumeral.newSymbolConverter(forNotation: self.notation)
+        self.calculator = RomanNumeral.initCalculator(forNotation: self.notation)
+        self.symbolConverter = RomanNumeral.initSymbolConverter(forNotation: self.notation)
+        self.symbols = self.symbolConverter.romanNumeralSymbols(fromInt: self.intValue)
+        self.stringValue = RomanNumeral.stringRepresentation(fromSymbols: self.symbols)
+    }
+    
+    //MARK: Private Static Interface
+    
+    private static func initCalculator(forNotation notation: RomanNumeralNotation) -> RomanNumeralCalculator {
+        let calculator: RomanNumeralCalculator
+        switch notation {
+        case .basic:
+            calculator = BasicNotationRomanNumeralCalculator()
+        case .subtractive:
+            calculator = SubtractiveNotationRomanNumeralCalculator()
+        }
         
-        var symbols: [RomanNumeralSymbol] = []
-        var remainingIntValue = self.intValue
-        RomanNumeralSymbol.allSymbolsDescending.forEach { symbol in
-            let symbolCount = remainingIntValue / symbol.rawValue
-            
-            guard symbolCount > 0 else {
-                return
-            }
-            
-            if symbolCount == 4 {
-                //TODO
-            }
-            
-            symbols.append(contentsOf: Array(repeating: symbol, count: symbolCount))
-            remainingIntValue = remainingIntValue - (symbol.rawValue * symbolCount)
-        }
-        self.symbols = symbols
+        return calculator
     }
     
-    //MARK: Private Interface
-    
-    private static func newCalculator(forNotation notation: RomanNumeralNotation) -> RomanNumeralCalculator {
+    private static func initSymbolConverter(forNotation notation: RomanNumeralNotation) -> IntRomanNumeralSymbolConverter {
+        let symbolConverter: IntRomanNumeralSymbolConverter
         switch notation {
         case .basic:
-            return BasicNotationRomanNumeralCalculator()
+            symbolConverter = BasicNotationIntRomanNumeralSymbolConverter()
         case .subtractive:
-            return SubtractiveNotationRomanNumeralCalculator()
+            symbolConverter = SubtractiveNotationIntRomanNumeralSymbolConverter()
         }
+        
+        return symbolConverter
     }
     
-    private static func newSymbolConverter(forNotation notation: RomanNumeralNotation) -> IntRomanNumeralSymbolConverter {
-        switch notation {
-        case .basic:
-            return BasicNotationIntRomanNumeralSymbolConverter()
-        case .subtractive:
-            return SubtractiveNotationIntRomanNumeralSymbolConverter()
+    private static func stringRepresentation(fromSymbols symbols: [RomanNumeralSymbol]) -> String {
+        return symbols.reduce("") { partialResult, symbol in
+            return partialResult.appending(String(symbol.characterValue))
         }
     }
     
@@ -113,7 +112,11 @@ extension RomanNumeral {
     
     static public func +(left: RomanNumeral, right: RomanNumeral) -> RomanNumeral {
         guard left.notation == right.notation else {
-//            throw RomanNumeralError.incompatibleNotationOperation
+            os_log("Invalid + operation between %s ($s) and %s (%s)",
+                   log: .default,
+                   type: .error,
+                   [left, left.notation, right, right.notation])
+            
             return .zero
         }
         
@@ -125,7 +128,11 @@ extension RomanNumeral {
     
     static public func -(left: RomanNumeral, right: RomanNumeral) -> RomanNumeral {
         guard left.notation == right.notation else {
-//            throw RomanNumeralError.incompatibleNotationOperation
+            os_log("Invalid - operation between %s ($s) and %s (%s)",
+                   log: .default,
+                   type: .error,
+                   [left, left.notation, right, right.notation])
+            
             return .zero
         }
         
@@ -144,10 +151,28 @@ extension RomanNumeral {
 extension RomanNumeral: Comparable {
     
     static public func <(lhs: RomanNumeral, rhs: RomanNumeral) -> Bool {
+        guard lhs.notation == rhs.notation else {
+            os_log("Invalid == operation between %s ($s) and %s (%s)",
+                   log: .default,
+                   type: .error,
+                   [lhs, lhs.notation, rhs, rhs.notation])
+            
+            return false
+        }
+        
         return lhs.intValue < rhs.intValue
     }
     
     static public func ==(lhs: RomanNumeral, rhs: RomanNumeral) -> Bool {
+        guard lhs.notation == rhs.notation else {
+            os_log("Invalid == operation between %s ($s) and %s (%s)",
+                   log: .default,
+                   type: .error,
+                   [lhs, lhs.notation, rhs, rhs.notation])
+            
+            return false
+        }
+        
         return lhs.intValue == rhs.intValue
     }
  
@@ -203,16 +228,38 @@ extension RomanNumeral: Numeric {
     //MARK: Public Static Interface
     
     public static func -=(lhs: inout RomanNumeral, rhs: RomanNumeral) {
+        guard lhs.notation == rhs.notation else {
+            os_log("Invalid -= operation between %s ($s) and %s (%s)",
+                   log: .default,
+                   type: .error,
+                   [lhs, lhs.notation, rhs, rhs.notation])
+            
+            return
+        }
+        
         lhs.intValue -= rhs.intValue
     }
     
     public static func +=(lhs: inout RomanNumeral, rhs: RomanNumeral) {
+        guard lhs.notation == rhs.notation else {
+            os_log("Invalid += operation between %s ($s) and %s (%s)",
+                   log: .default,
+                   type: .error,
+                   [lhs, lhs.notation, rhs, rhs.notation])
+            
+            return
+        }
+        
         lhs.intValue += rhs.intValue
     }
     
     public static func *(lhs: RomanNumeral, rhs: RomanNumeral) -> RomanNumeral {
         guard lhs.notation == rhs.notation else {
-//            throw RomanNumeralError.incompatibleNotationOperation
+            os_log("Invalid * operation between %s ($s) and %s (%s)",
+                   log: .default,
+                   type: .error,
+                   [lhs, lhs.notation, rhs, rhs.notation])
+            
             return .zero
         }
         
@@ -225,6 +272,37 @@ extension RomanNumeral: Numeric {
     
     public static func *=(lhs: inout RomanNumeral, rhs: RomanNumeral) {
         lhs.intValue *= rhs.intValue
+    }
+    
+}
+
+//MARK: - CustomStringConvertible Extension
+
+extension RomanNumeral: CustomStringConvertible {
+    
+    public var description: String {
+        return symbols.reduce("") { result, symbol in
+            return "\(result)\(symbol.characterValue)"
+        }
+    }
+    
+}
+
+//MARK: - ExpressibleByStringLiteral Extension
+
+extension RomanNumeral: ExpressibleByStringLiteral {
+    
+    public init(stringLiteral value: String) {
+        do {
+            try self.init(from: value)
+        } catch {
+            os_log("Failed to decode Roman Numeral from String \"%s\" with error: %s",
+                   log: .default,
+                   type: .error,
+                   [value, error.localizedDescription])
+            
+            self.init(intValue: 0)
+        }
     }
     
 }
