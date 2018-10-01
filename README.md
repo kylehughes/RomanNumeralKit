@@ -1,6 +1,6 @@
 # RomanNumeralKit
 
-The numeric system of (a) the gods.
+The numeric system of the gods.
 
 ## Introduction
 
@@ -11,8 +11,10 @@ Meaningful usage of this framework requires understanding what Roman numerals ar
 #### Subtractive Notation Example
 
 ```swift
-XCTAssert(XXIV - V == 19)
-XCTAssert(XXIV + V == XXIX)
+print(CDLIV + MMMCCCIII)                // Prints "MMMDCCLVII"
+print(CDLIV + MMMCCCIII == MMMDCCLVII)  // Prints "true"
+print((CDLIV + MMMCCCIII).intValue)     // Prints "3757"
+print(CDLIV + MMMCCCIII == 3757)        // Prints "true"
 ```
 
 ### Basic Notation
@@ -35,35 +37,59 @@ import RomanNumeralKit
 
 The constants are only provided for *subtractive notation*. This is the default experience that the majority of consumers want.
 
+##### Global Constants Definition Example
+
+```swift
+...
+public let CMXCIII = try! SubtractiveNotationRomanNumeral(intValue:993)
+public let CMXCIV = try! SubtractiveNotationRomanNumeral(intValue:994)
+public let CMXCV = try! SubtractiveNotationRomanNumeral(intValue:995)
+public let CMXCVI = try! SubtractiveNotationRomanNumeral(intValue:996)
+public let CMXCVII = try! SubtractiveNotationRomanNumeral(intValue:997)
+public let CMXCVIII = try! SubtractiveNotationRomanNumeral(intValue:998)
+public let CMXCIX = try! SubtractiveNotationRomanNumeral(intValue:999)
+public let M = try! SubtractiveNotationRomanNumeral(intValue:1000)
+public let MI = try! SubtractiveNotationRomanNumeral(intValue:1001)
+public let MII = try! SubtractiveNotationRomanNumeral(intValue:1002)
+public let MIII = try! SubtractiveNotationRomanNumeral(intValue:1003)
+public let MIV = try! SubtractiveNotationRomanNumeral(intValue:1004)
+public let MV = try! SubtractiveNotationRomanNumeral(intValue:1005)
+public let MVI = try! SubtractiveNotationRomanNumeral(intValue:1006)
+public let MVII = try! SubtractiveNotationRomanNumeral(intValue:1007)
+public let MVIII = try! SubtractiveNotationRomanNumeral(intValue:1008)
+public let MIX = try! SubtractiveNotationRomanNumeral(intValue:1009)
+public let MX = try! SubtractiveNotationRomanNumeral(intValue:1010)
+...
+```
+
 #### Manual Initialization
+
+The only practical reason to manually instantiate a `RomanNumeral` is to do conversion from a type (e.g. `String`) (consider using a `*RomanNumeralConvertible` property instead). Otherwise, there are a fixed set of values and they are all provided as constants. Do as you please.
 
 There are two primary initializers that must be supplied by all `RomanNumeral`s:
 - `init(intValue: Int)`
 - `init(symbols: [RomanNumeralSymbol])`
 
-A variety of other convenient initializers are provided. The common ways to initialize `RomanNumeral`s are:
+A variety of other initializers are provided for convenience.
+
+The protocols `BasicNotationRomanNumeralConvertible` and `SubtractiveNotationRomanNumeralConvertible` are available for types that can transform themselves into `RomanNumeral`s. Extensions for `Foundation` classes (e.g. `Array`, `Int`, `String`) are provided.
+
+##### Manual Initialization Example
 
 ```swift
-// Subtractive Notation
 let XIX = SubtractiveNotationRomanNumeral(intValue: 19)
 let XIX = SubtractiveNotationRomanNumeral(symbols: [.X, .I, .X])
 let XIX = SubtractiveNotationRomanNumeral(.X, .I, .X)
 let XIX = SubtractiveNotationRomanNumeral(from: "XIX")
-
-// Basic Notation
-let basicXIX = BasicNotationRomanNumeral(intValue: 21)
-let basicXIX = BasicNotationRomanNumeral(symbols: [.X, .I, .X])
-let basicXIX = BasicNotationRomanNumeral(.X, .I, .X)
-let basicXIX = BasicNotationRomanNumeral(from: "XIX")
 ```
-
-The protocols `BasicNotationRomanNumeralConvertible` and `SubtractiveNotationRomanNumeralConvertible` are available for types that can transform themselves into `RomanNumeral`s. Extensions for `Foundation` classes (e.g. `Array`, `Int`, `String`) are provided.
 
 ## Limitations
 
 ### Fixed Numerical Range
 
 Most* programs don't deal with numbers higher than 3999.
+
+### iPhone & macOS Names
 
 ## License
 
