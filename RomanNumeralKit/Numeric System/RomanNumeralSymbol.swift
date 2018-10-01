@@ -20,10 +20,10 @@ public enum RomanNumeralSymbol: Int {
     
     //MARK: Public Static Properties
     
-    static let allSymbols: [RomanNumeralSymbol] = [.I, .V, .X, .L, .C, .D, .M]
-    static let allSymbolsDescending: [RomanNumeralSymbol] = allSymbols.reversed()
+    public static let allSymbols: [RomanNumeralSymbol] = [.I, .V, .X, .L, .C, .D, .M]
+    public static let allSymbolsDescending: [RomanNumeralSymbol] = allSymbols.reversed()
     
-    //MARK: Public Computed Properties
+    //MARK: Public Properties
     
     var characterValue: Character {
         switch self {
@@ -46,7 +46,7 @@ public enum RomanNumeralSymbol: Int {
     
     //MARK: Initialization
     
-    init(from characterValue: Character) throws {
+    public init(from characterValue: Character) throws {
         let potentialSymbols = RomanNumeralSymbol.allSymbols.filter { $0.characterValue == characterValue }
         guard potentialSymbols.count == 1, let symbol = potentialSymbols.first else {
             throw RomanNumeralSymbolValidationError.invalidSymbol
@@ -57,7 +57,7 @@ public enum RomanNumeralSymbol: Int {
     
     //MARK: Public Interface
     
-    func isSubtractiveFor(_ otherSymbol: RomanNumeralSymbol) -> Bool {
+    public func isSubtractiveFor(_ otherSymbol: RomanNumeralSymbol) -> Bool {
 //        switch self {
 //        case .I:
 //            return otherSymbol == .V || otherSymbol == .X
@@ -83,7 +83,7 @@ public enum RomanNumeralSymbol: Int {
 
 extension RomanNumeralSymbol: Comparable {
     
-    static public func <(lhs: RomanNumeralSymbol, rhs: RomanNumeralSymbol) -> Bool {
+    public static func <(lhs: RomanNumeralSymbol, rhs: RomanNumeralSymbol) -> Bool {
         return lhs.rawValue < rhs.rawValue
     }
     
