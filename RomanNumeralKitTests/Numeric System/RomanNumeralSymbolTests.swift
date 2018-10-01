@@ -9,7 +9,7 @@
 import Foundation
 import XCTest
 
-@testable import RomanNumeralKit
+@testable import RomanNumeralKit_iOS
 
 //MARK: - Implementation Tests
 
@@ -17,11 +17,9 @@ class RomanNumeralSymbolTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
@@ -38,6 +36,13 @@ extension RomanNumeralSymbolTests {
         XCTAssert(RomanNumeralSymbol.L < RomanNumeralSymbol.C)
         XCTAssert(RomanNumeralSymbol.C < RomanNumeralSymbol.D)
         XCTAssert(RomanNumeralSymbol.D < RomanNumeralSymbol.M)
+        
+        XCTAssertFalse(RomanNumeralSymbol.V < RomanNumeralSymbol.I)
+        XCTAssertFalse(RomanNumeralSymbol.X < RomanNumeralSymbol.V)
+        XCTAssertFalse(RomanNumeralSymbol.L < RomanNumeralSymbol.X)
+        XCTAssertFalse(RomanNumeralSymbol.C < RomanNumeralSymbol.L)
+        XCTAssertFalse(RomanNumeralSymbol.D < RomanNumeralSymbol.C)
+        XCTAssertFalse(RomanNumeralSymbol.M < RomanNumeralSymbol.D)
         
         XCTAssertFalse(RomanNumeralSymbol.I < RomanNumeralSymbol.I)
         XCTAssertFalse(RomanNumeralSymbol.V < RomanNumeralSymbol.V)

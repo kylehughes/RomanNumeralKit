@@ -15,8 +15,8 @@ public struct RomanNumeral {
     
     //MARK: Public Static Properties
     
-    public static let maximumValue = RomanNumeral(intValue: RomanNumeral.maximumIntValue)
-    public static let minimumValue = RomanNumeral(intValue: RomanNumeral.minimumIntValue)
+    public static let maximum = RomanNumeral(intValue: RomanNumeral.maximumIntValue)
+    public static let minimum = RomanNumeral(intValue: RomanNumeral.minimumIntValue)
     public static let zero = RomanNumeral(intValue: 0)
     
     public static let defaultNotation = RomanNumeralNotation.subtractive
@@ -72,6 +72,16 @@ public struct RomanNumeral {
         self.stringValue = RomanNumeral.stringRepresentation(fromSymbols: self.symbols)
     }
     
+    public init(_ otherRomanNumeral: RomanNumeral, notation: RomanNumeralNotation) {
+        self.symbols = otherRomanNumeral.symbols
+        self.notation = notation
+        
+        self.calculator = RomanNumeral.initCalculator(forNotation: self.notation)
+        self.symbolConverter = RomanNumeral.initSymbolConverter(forNotation: self.notation)
+        self.intValue = self.calculator.calculcate(self.symbols)
+        self.stringValue = RomanNumeral.stringRepresentation(fromSymbols: self.symbols)
+    }
+    
     //MARK: Private Static Interface
     
     private static func initCalculator(forNotation notation: RomanNumeralNotation) -> RomanNumeralCalculator {
@@ -112,7 +122,7 @@ extension RomanNumeral {
     
     static public func +(left: RomanNumeral, right: RomanNumeral) -> RomanNumeral {
         guard left.notation == right.notation else {
-            os_log("Invalid + operation between %s ($s) and %s (%s)",
+            os_log("Invalid `+` operation between %s ($s) and %s (%s)",
                    log: .default,
                    type: .error,
                    [left, left.notation, right, right.notation])
@@ -128,7 +138,7 @@ extension RomanNumeral {
     
     static public func -(left: RomanNumeral, right: RomanNumeral) -> RomanNumeral {
         guard left.notation == right.notation else {
-            os_log("Invalid - operation between %s ($s) and %s (%s)",
+            os_log("Invalid `-` operation between %s ($s) and %s (%s)",
                    log: .default,
                    type: .error,
                    [left, left.notation, right, right.notation])
@@ -152,7 +162,7 @@ extension RomanNumeral: Comparable {
     
     static public func <(lhs: RomanNumeral, rhs: RomanNumeral) -> Bool {
         guard lhs.notation == rhs.notation else {
-            os_log("Invalid == operation between %s ($s) and %s (%s)",
+            os_log("Invalid `==` operation between %s ($s) and %s (%s)",
                    log: .default,
                    type: .error,
                    [lhs, lhs.notation, rhs, rhs.notation])
@@ -165,7 +175,7 @@ extension RomanNumeral: Comparable {
     
     static public func ==(lhs: RomanNumeral, rhs: RomanNumeral) -> Bool {
         guard lhs.notation == rhs.notation else {
-            os_log("Invalid == operation between %s ($s) and %s (%s)",
+            os_log("Invalid `==` operation between %s ($s) and %s (%s)",
                    log: .default,
                    type: .error,
                    [lhs, lhs.notation, rhs, rhs.notation])

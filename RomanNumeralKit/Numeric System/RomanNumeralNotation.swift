@@ -8,8 +8,6 @@
 
 import Foundation
 
-//MARK: - Implementation
-
 public enum RomanNumeralNotation {
     
     case basic
@@ -23,11 +21,12 @@ extension RomanNumeralNotation: CustomStringConvertible {
     
     public var description: String {
         let description: String
+        
         switch self {
         case .basic:
-            description = "Basic"
+            description = "Basic Roman Numeral Notation"
         case .subtractive:
-            description = "Subtractive"
+            description = "Subtractive Roman Numeral Notation"
         }
         
         return description

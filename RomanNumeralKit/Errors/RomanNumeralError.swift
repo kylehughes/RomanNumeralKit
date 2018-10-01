@@ -10,6 +10,15 @@ import Foundation
 
 enum RomanNumeralError: Error {
     
-    case incompatibleNotationOperation
+    
+}
+
+//MARK: - LocalizedError Extension
+
+extension RomanNumeralError: LocalizedError {
+    
+    var errorDescription: String? {
+        return nil
+    }
     
 }

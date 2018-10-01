@@ -8,8 +8,6 @@
 
 import Foundation
 
-//MARK: - Implementation
-
 class BasicNotationRomanNumeralCalculator {
 }
 

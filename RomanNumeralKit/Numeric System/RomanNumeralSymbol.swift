@@ -8,8 +8,6 @@
 
 import Foundation
 
-//MARK: - Implementation
-
 public enum RomanNumeralSymbol: Int {
     
     case I = 1
@@ -22,8 +20,8 @@ public enum RomanNumeralSymbol: Int {
     
     //MARK: Public Static Properties
     
-    static let allSymbolsAscending: [RomanNumeralSymbol] = [.I, .V, .X, .L, .C, .D, .M]
-    static let allSymbolsDescending: [RomanNumeralSymbol] = [.M, .D, .C, .L, .X, .V, .I]
+    static let allSymbols: [RomanNumeralSymbol] = [.I, .V, .X, .L, .C, .D, .M]
+    static let allSymbolsDescending: [RomanNumeralSymbol] = allSymbols.reversed()
     
     //MARK: Public Computed Properties
     
@@ -49,7 +47,7 @@ public enum RomanNumeralSymbol: Int {
     //MARK: Initialization
     
     init(from characterValue: Character) throws {
-        let potentialSymbols = RomanNumeralSymbol.allSymbolsAscending.filter { $0.characterValue == characterValue }
+        let potentialSymbols = RomanNumeralSymbol.allSymbols.filter { $0.characterValue == characterValue }
         guard potentialSymbols.count == 1, let symbol = potentialSymbols.first else {
             throw RomanNumeralSymbolValidationError.invalidSymbol
         }

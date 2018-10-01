@@ -12,7 +12,7 @@
 import Foundation
 import XCTest
 
-@testable import RomanNumeralKit
+@testable import RomanNumeralKit_iOS
 
 //MARK: - Implementation
 
@@ -25,7 +25,7 @@ class RomanNumeralTests: XCTestCase {
         
         let notation = RomanNumeralNotation.basic
         
-        let mcmxcixSymbolsExpectation: [RomanNumeralSymbol] = [.M, .M, .C, .C, .X, .X, .I] // 1999 for subtractive lol
+        let expectationMcmxcixSymbols: [RomanNumeralSymbol] = [.M, .M, .C, .C, .X, .X, .I] // 1999 for subtractive lol
         
         // When...
         
@@ -34,7 +34,7 @@ class RomanNumeralTests: XCTestCase {
         
         // Then...
         
-        XCTAssert(mcmxcix.symbols == mcmxcixSymbolsExpectation)
+        XCTAssert(mcmxcix.symbols == expectationMcmxcixSymbols)
     }
     
     //MARK: String Initialization Tests
