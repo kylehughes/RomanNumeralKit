@@ -1,5 +1,5 @@
 //
-//  RomanNumeralValidationError.swift
+//  RomanNumeralError.swift
 //  RomanNumeralKit
 //
 //  Created by Kyle Hughes on 4/16/18.
@@ -8,10 +8,8 @@
 
 import Foundation
 
-//MARK: - Implementation
-
-public enum RomanNumeralValidationError: Error {
+public enum RomanNumeralError: Error {
     
-    case invalidSymbolOrder
+    
     
 }

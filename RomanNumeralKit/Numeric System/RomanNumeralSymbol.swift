@@ -47,9 +47,9 @@ public enum RomanNumeralSymbol: Int {
     //MARK: Initialization
     
     public init(from characterValue: Character) throws {
-        let potentialSymbols = RomanNumeralSymbol.allSymbols.filter { $0.characterValue == characterValue }
-        guard potentialSymbols.count == 1, let symbol = potentialSymbols.first else {
-            throw RomanNumeralSymbolValidationError.invalidSymbol
+        let potentialSymbol = RomanNumeralSymbol.allSymbols.filter { $0.characterValue == characterValue }.first
+        guard let symbol = potentialSymbol else {
+            throw RomanNumeralSymbolError.unrecognizedCharacter(character: characterValue)
         }
         
         self = symbol
