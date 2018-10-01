@@ -12,7 +12,7 @@
 import Foundation
 import XCTest
 
-@testable import RomanNumeralKit_iOS
+@testable import RomanNumeralKit
 
 class BasicNotationRomanNumeralTests: XCTestCase {
     

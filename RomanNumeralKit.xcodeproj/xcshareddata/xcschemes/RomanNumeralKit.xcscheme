@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "27667F9F2084B37D00AB8A66"
-               BuildableName = "RomanNumeralKit_iOS.framework"
-               BlueprintName = "RomanNumeralKit_iOS"
+               BuildableName = "RomanNumeralKit.framework"
+               BlueprintName = "RomanNumeralKit"
                ReferencedContainer = "container:RomanNumeralKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "27667F9F2084B37D00AB8A66"
-            BuildableName = "RomanNumeralKit_iOS.framework"
-            BlueprintName = "RomanNumeralKit_iOS"
+            BuildableName = "RomanNumeralKit.framework"
+            BlueprintName = "RomanNumeralKit"
             ReferencedContainer = "container:RomanNumeralKit.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
@@ -44,8 +44,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "27667FA82084B37D00AB8A66"
-               BuildableName = "RomanNumeralKitTests_iOS.xctest"
-               BlueprintName = "RomanNumeralKitTests_iOS"
+               BuildableName = "RomanNumeralKitTests.xctest"
+               BlueprintName = "RomanNumeralKitTests"
                ReferencedContainer = "container:RomanNumeralKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -54,8 +54,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "27667F9F2084B37D00AB8A66"
-            BuildableName = "RomanNumeralKit_iOS.framework"
-            BlueprintName = "RomanNumeralKit_iOS"
+            BuildableName = "RomanNumeralKit.framework"
+            BlueprintName = "RomanNumeralKit"
             ReferencedContainer = "container:RomanNumeralKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -76,8 +76,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "27667F9F2084B37D00AB8A66"
-            BuildableName = "RomanNumeralKit_iOS.framework"
-            BlueprintName = "RomanNumeralKit_iOS"
+            BuildableName = "RomanNumeralKit.framework"
+            BlueprintName = "RomanNumeralKit"
             ReferencedContainer = "container:RomanNumeralKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -94,8 +94,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "27667F9F2084B37D00AB8A66"
-            BuildableName = "RomanNumeralKit_iOS.framework"
-            BlueprintName = "RomanNumeralKit_iOS"
+            BuildableName = "RomanNumeralKit.framework"
+            BlueprintName = "RomanNumeralKit"
             ReferencedContainer = "container:RomanNumeralKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
