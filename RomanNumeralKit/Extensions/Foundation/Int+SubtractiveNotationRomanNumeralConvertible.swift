@@ -15,7 +15,7 @@ extension Int: SubtractiveNotationRomanNumeralConvertible {
     //MARK: Public Properties
     
     public var subtractiveNotationRomanNumeral: SubtractiveNotationRomanNumeral? {
-        return SubtractiveNotationRomanNumeral(intValue: self)
+        return try? SubtractiveNotationRomanNumeral(intValue: self)
     }
     
 }

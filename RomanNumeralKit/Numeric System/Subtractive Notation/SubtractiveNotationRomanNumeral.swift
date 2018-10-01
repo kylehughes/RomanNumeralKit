@@ -15,8 +15,8 @@ public struct SubtractiveNotationRomanNumeral {
     public static let maximumIntValue = 3999
     public static let minimumIntValue = 0
     
-    public static let maximum = SubtractiveNotationRomanNumeral(intValue: maximumIntValue)
-    public static let minimum = SubtractiveNotationRomanNumeral(intValue: minimumIntValue)
+    public static let maximum = try! SubtractiveNotationRomanNumeral(intValue: maximumIntValue)
+    public static let minimum = try! SubtractiveNotationRomanNumeral(intValue: minimumIntValue)
     
     //MARK: Public Properties
     
@@ -25,7 +25,7 @@ public struct SubtractiveNotationRomanNumeral {
     
     public var intValue: Int {
         didSet {
-            symbols = SubtractiveNotationRomanNumeral.symbols(fromIntValue: intValue)
+            symbols = (try? SubtractiveNotationRomanNumeral.symbols(fromIntValue: intValue)) ?? SubtractiveNotationRomanNumeral.minimum.symbols
             stringValue = SubtractiveNotationRomanNumeral.string(fromSymbols: symbols)
         }
     }
@@ -60,8 +60,33 @@ public struct SubtractiveNotationRomanNumeral {
         return runningResult
     }
     
-    private static func symbols(fromIntValue intValue: Int) -> [RomanNumeralSymbol] {
-        return []
+    private static func symbols(fromIntValue intValue: Int) throws -> [RomanNumeralSymbol] {
+        guard BasicNotationRomanNumeral.minimumIntValue <= intValue else {
+            throw RomanNumeralError.valueLessThanMinimum
+        }
+        
+        guard intValue <= BasicNotationRomanNumeral.maximumIntValue else {
+            throw RomanNumeralError.valueGreaterThanMaximum
+        }
+        
+        var remainingIntValue = intValue
+        var symbols: [SubtractiveNotationRomanNumeralSymbol] = []
+        
+        SubtractiveNotationRomanNumeralSymbol.allSymbolsDescending.forEach { symbol in
+            let symbolValue = symbol.rawValue
+            
+            if symbolValue <= remainingIntValue {
+                let symbolQuantity: Int = remainingIntValue / symbolValue
+                let symbolBundle = Array(repeating: symbol, count: symbolQuantity)
+                let totalSymbolValue = symbolQuantity * symbolValue
+                remainingIntValue -= totalSymbolValue
+                symbols.append(contentsOf: symbolBundle)
+            }
+        }
+        
+        let normalizedSymbols = symbols.map { $0.subtractiveNotationRomanNumeralSymbols }.flatMap { $0 }
+        
+        return normalizedSymbols
     }
     
 }
@@ -69,13 +94,21 @@ public struct SubtractiveNotationRomanNumeral {
 //MARK: - RomanNumeral Extension
 
 extension SubtractiveNotationRomanNumeral: RomanNumeral {
-    
+
     //MARK: Public Initialization
     
-    public init(intValue: Int) {
+    public init(intValue: Int) throws {
+        guard BasicNotationRomanNumeral.minimumIntValue <= intValue else {
+            throw RomanNumeralError.valueLessThanMinimum
+        }
+        
+        guard intValue <= BasicNotationRomanNumeral.maximumIntValue else {
+            throw RomanNumeralError.valueGreaterThanMaximum
+        }
+        
         self.intValue = intValue
         
-        symbols = SubtractiveNotationRomanNumeral.symbols(fromIntValue: intValue)
+        symbols = try SubtractiveNotationRomanNumeral.symbols(fromIntValue: intValue)
         stringValue = SubtractiveNotationRomanNumeral.string(fromSymbols: symbols)
     }
     
@@ -87,6 +120,17 @@ extension SubtractiveNotationRomanNumeral: RomanNumeral {
     }
     
 }
+
+//MARK: - SubtractiveNotationRomanNumeralConvertible Extension
+
+extension SubtractiveNotationRomanNumeral: SubtractiveNotationRomanNumeralConvertible {
+    
+    public var subtractiveNotationRomanNumeral: SubtractiveNotationRomanNumeral? {
+        return self
+    }
+    
+}
+
 
 //MARK: - SubtractiveNotationRomanNumeralSymbolsConvertible Extension
 

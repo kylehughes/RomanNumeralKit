@@ -15,7 +15,7 @@ extension Int: BasicNotationRomanNumeralConvertible {
     //MARK: Public Properties
 
     public var basicNotationRomanNumeral: BasicNotationRomanNumeral? {
-        return BasicNotationRomanNumeral(intValue: self)
+        return try? BasicNotationRomanNumeral(intValue: self)
     }
     
 }

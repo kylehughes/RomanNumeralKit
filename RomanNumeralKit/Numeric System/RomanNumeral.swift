@@ -32,7 +32,7 @@ public protocol RomanNumeral:
     
     //MARK: Initialization
     
-    init(intValue: Int)
+    init(intValue: Int) throws
     init(symbols: [RomanNumeralSymbol]) throws
     
 }
@@ -40,12 +40,6 @@ public protocol RomanNumeral:
 //MARK: Public Extension
 
 public extension RomanNumeral {
-    
-    //MARK: Public Static Properties
-    
-    public static var zero: Self {
-        return Self(intValue: 0)
-    }
     
     //MARK: Public Initialization
     
@@ -78,10 +72,12 @@ public extension RomanNumeral {
 
 extension RomanNumeral {
     
+    //TODO: fix the places where I poorly avoid the intValue error by using minimum
+    
     static public func +(left: Self, right: Self) -> Self {
         let intResult = left.intValue + right.intValue
         
-        return Self(intValue: intResult)
+        return (try? Self(intValue: intResult)) ?? .minimum
     }
     
     static public func -(left: Self, right: Self) -> Self {
@@ -89,7 +85,7 @@ extension RomanNumeral {
         let lesserSymbol = (left < right) ? left : right
         let intResult = greaterSymbol.intValue - lesserSymbol.intValue
         
-        return Self(intValue: intResult)
+        return (try? Self(intValue: intResult)) ?? .minimum
     }
     
 }
@@ -111,11 +107,15 @@ extension RomanNumeral {
             return nil
         }
         
-        self.init(intValue: intValue)
+        try? self.init(intValue: intValue)
     }
     
     public init(integerLiteral value: Int) {
-        self.init(intValue: value)
+        do {
+            try self.init(intValue: value)
+        } catch {
+            self = .minimum
+        }
     }
     
     //MARK: Public Static Interface
@@ -130,7 +130,7 @@ extension RomanNumeral {
     
     public static func *(lhs: Self, rhs: Self) -> Self {
         let resultIntValue = lhs.intValue * rhs.intValue
-        let resultRomanNumeral = Self(intValue: resultIntValue)
+        let resultRomanNumeral = (try? Self(intValue: resultIntValue)) ?? .minimum
         
         return resultRomanNumeral
     }
@@ -184,7 +184,7 @@ extension RomanNumeral {
                    type: .error,
                    [value, error.localizedDescription])
             
-            self.init(intValue: 0)
+            self = .minimum
         }
     }
     

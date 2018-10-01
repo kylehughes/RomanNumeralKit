@@ -36,7 +36,7 @@ class BasicNotationRomanNumeralTests: XCTestCase {
         // When...
         
         // Long addition w/ few OOO symbols
-        let mcmxcix = BasicNotationRomanNumeral(intValue: 2221)
+        let mcmxcix = try! BasicNotationRomanNumeral(intValue: 2221)
         
         // Then...
         
@@ -66,6 +66,24 @@ class BasicNotationRomanNumeralTests: XCTestCase {
         
         XCTAssert(mmdclxxxxi.intValue == 2691)
         XCTAssert(mmcdlxxxix.intValue == 2691)
+    }
+    
+    //MARK: Performance Tests
+    
+    func test_perf_entireNumericalSpaceInitialization_Int() {
+        measure {
+            for i in BasicNotationRomanNumeral.minimumIntValue...BasicNotationRomanNumeral.maximumIntValue {
+                let _ = try! SubtractiveNotationRomanNumeral(intValue: i)
+            }
+        }
+    }
+    
+    func test_perf_entireNumericalSpaceInitialization_Symbols() {
+        let allSymbolCollections = (BasicNotationRomanNumeral.minimumIntValue...BasicNotationRomanNumeral.maximumIntValue).map { try! BasicNotationRomanNumeral(intValue: $0).symbols }
+        
+        measure {
+            allSymbolCollections.forEach { let _ = try! BasicNotationRomanNumeral(symbols: $0) }
+        }
     }
     
 }

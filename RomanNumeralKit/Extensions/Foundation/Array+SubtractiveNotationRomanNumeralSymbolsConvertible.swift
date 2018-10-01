@@ -11,6 +11,7 @@ import Foundation
 //MARK: -
 //MARK: SubtractiveNotationRomanNumeralSymbolsConvertible Extension
 //MARK: SubtractiveNotationRomanNumeralConvertible Extension
+//MARK: where Element == RomanNumeralSymbol
 
 extension Array:
     SubtractiveNotationRomanNumeralSymbolsConvertible,
