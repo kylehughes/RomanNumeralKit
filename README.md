@@ -2,15 +2,21 @@
 
 The numeric system of the gods.
 
-## Overview
+## Introduction
 
-### Numerical Range
+Meaningful usage of this framework requires understanding what Roman numerals are. Background information can be found [here on Wikipedia](https://en.wikipedia.org/wiki/Roman_numerals).
 
 ### Basic vs. Subtractive Notation
 
 ## Installation
 
 ## Usage
+
+Import `RomanNumeralKit` at the top of the Swift file you want to use it in.
+
+```swift
+import RomanNumeralKit
+```
 
 ### Constants
 
@@ -28,3 +34,5 @@ let XI = SubtractiveNotationRomanNumeral(symbols: [.X, .I])
 let XI = SubtractiveNotationRomanNumeral(.X, .I)
 let XI = SubtractiveNotationRomanNumeral(from: "XI")
 ```
+
+### Fixed Numerical Range
