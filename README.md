@@ -1,6 +1,6 @@
 # RomanNumeralKit
 
-The numeric system of the gods.
+The numeric system of (a) the gods.
 
 ## Introduction
 
