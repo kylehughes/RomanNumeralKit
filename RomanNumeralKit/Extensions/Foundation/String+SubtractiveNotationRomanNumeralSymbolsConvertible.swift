@@ -15,7 +15,7 @@ extension String: SubtractiveNotationRomanNumeralSymbolsConvertible {
     //MARK: Public Properties
     
     public var subtractiveNotationRomanNumeralSymbols: [RomanNumeralSymbol] {
-        return compactMap { try? RomanNumeralSymbol(from: $0) }
+        return (try? SubtractiveNotationRomanNumeral.symbols(fromString: self)) ?? []
     }
     
 }

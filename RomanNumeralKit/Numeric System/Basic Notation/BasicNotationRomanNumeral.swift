@@ -15,9 +15,6 @@ public struct BasicNotationRomanNumeral {
     public static let maximumIntValue = 3999
     public static let minimumIntValue = 0
     
-    public static let maximum = try! BasicNotationRomanNumeral(intValue: maximumIntValue)
-    public static let minimum = try! BasicNotationRomanNumeral(intValue: minimumIntValue)
-    
     //MARK: Public Properties
     
     public private(set) var stringValue: String

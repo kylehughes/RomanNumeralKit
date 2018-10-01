@@ -22,8 +22,8 @@ public protocol RomanNumeral:
     
     //MARK: Static Properties
     
-    static var maximum: Self { get }
-    static var minimum: Self { get }
+    static var maximumIntValue: Int { get }
+    static var minimumIntValue: Int { get }
     
     //MARK: Properties
     
@@ -41,6 +41,16 @@ public protocol RomanNumeral:
 //MARK: Public Extension
 
 public extension RomanNumeral {
+    
+    //MARK: Public Static Properties
+    
+    public static var maximum: Self {
+        return try! Self(intValue: maximumIntValue)
+    }
+    
+    public static var minimum: Self {
+        return try! Self(intValue: minimumIntValue)
+    }
     
     //MARK: Public Initialization
     

@@ -15,9 +15,6 @@ public struct SubtractiveNotationRomanNumeral {
     public static let maximumIntValue = 3999
     public static let minimumIntValue = 0
     
-    public static let maximum = try! SubtractiveNotationRomanNumeral(intValue: maximumIntValue)
-    public static let minimum = try! SubtractiveNotationRomanNumeral(intValue: minimumIntValue)
-    
     //MARK: Public Properties
     
     public private(set) var stringValue: String

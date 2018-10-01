@@ -15,7 +15,7 @@ extension String: BasicNotationRomanNumeralSymbolsConvertible {
     //MARK: Public Properties
     
     public var basicNotationRomanNumeralSymbols: [RomanNumeralSymbol] {
-        return compactMap { try? RomanNumeralSymbol(from: $0) }
+        return (try? BasicNotationRomanNumeral.symbols(fromString: self)) ?? []
     }
     
 }
