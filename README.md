@@ -6,13 +6,13 @@ The numeric system of the gods.
 
 Meaningful usage of this framework requires understanding what Roman numerals are. Background information can be found [here on Wikipedia](https://en.wikipedia.org/wiki/Roman_numerals).
 
-### Basic Notation
-
-#### Basic Notation Example
-
 ### Subtractive Notation
 
 #### Subtractive Notation Example
+
+### Basic Notation
+
+#### Basic Notation Example
 
 ## Installation
 
