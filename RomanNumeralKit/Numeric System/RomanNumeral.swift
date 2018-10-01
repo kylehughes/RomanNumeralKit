@@ -11,6 +11,7 @@ import os
 
 public protocol RomanNumeral:
     Comparable,
+    CustomDebugStringConvertible,
     CustomStringConvertible,
     ExpressibleByStringLiteral,
     Numeric
@@ -153,6 +154,18 @@ extension RomanNumeral {
     
     public static func ==(lhs: Self, rhs: Self) -> Bool {
         return lhs.intValue == rhs.intValue
+    }
+    
+}
+
+//MARK: - CustomDebugStringConvertible Extension
+
+extension RomanNumeral {
+    
+    //MARK: Public Properties
+    
+    public var debugDescription: String {
+        return stringValue
     }
     
 }

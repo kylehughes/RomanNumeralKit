@@ -141,3 +141,13 @@ extension SubtractiveNotationRomanNumeral: SubtractiveNotationRomanNumeralSymbol
     }
     
 }
+
+//MARK: - BasicNotationRomanNumeralConvertible Extension
+
+extension SubtractiveNotationRomanNumeral: BasicNotationRomanNumeralConvertible {
+    
+    public var basicNotationRomanNumeral: BasicNotationRomanNumeral? {
+        return try? BasicNotationRomanNumeral(intValue: intValue)
+    }
+
+}

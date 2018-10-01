@@ -105,3 +105,13 @@ extension BasicNotationRomanNumeral: BasicNotationRomanNumeralSymbolsConvertible
     }
     
 }
+
+//MARK: - SubtractiveNotationRomanNumeralConvertible Extension
+
+extension BasicNotationRomanNumeral: SubtractiveNotationRomanNumeralConvertible {
+    
+    public var subtractiveNotationRomanNumeral: SubtractiveNotationRomanNumeral? {
+        return try? SubtractiveNotationRomanNumeral(intValue: intValue)
+    }
+    
+}

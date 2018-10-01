@@ -70,7 +70,7 @@ class BasicNotationRomanNumeralTests: XCTestCase {
     
     //MARK: Performance Tests
     
-    func test_perf_entireNumericalSpaceInitialization_Int() {
+    func test_perf_initializaeEntireNumericalSpace_Int() {
         measure {
             for i in BasicNotationRomanNumeral.minimumIntValue...BasicNotationRomanNumeral.maximumIntValue {
                 let _ = try! SubtractiveNotationRomanNumeral(intValue: i)
@@ -78,7 +78,7 @@ class BasicNotationRomanNumeralTests: XCTestCase {
         }
     }
     
-    func test_perf_entireNumericalSpaceInitialization_Symbols() {
+    func test_perf_initializaeEntireNumericalSpace_Symbols() {
         let allSymbolCollections = (BasicNotationRomanNumeral.minimumIntValue...BasicNotationRomanNumeral.maximumIntValue).map { try! BasicNotationRomanNumeral(intValue: $0).symbols }
         
         measure {
