@@ -10,7 +10,7 @@ import Foundation
 
 //MARK: - Implementation
 
-enum RomanNumeralValidationError: Error {
+public enum RomanNumeralValidationError: Error {
     
     case invalidSymbolOrder
     

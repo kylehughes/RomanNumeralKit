@@ -8,9 +8,7 @@
 
 import Foundation
 
-//MARK: - Implementation
-
-enum RomanNumeralSymbolValidationError: Error {
+public enum RomanNumeralSymbolValidationError: Error {
     
     case invalidSymbol
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum RomanNumeralError: Error {
+public enum RomanNumeralError: Error {
     
     
 }
@@ -17,7 +17,7 @@ enum RomanNumeralError: Error {
 
 extension RomanNumeralError: LocalizedError {
     
-    var errorDescription: String? {
+    public var errorDescription: String? {
         return nil
     }
     

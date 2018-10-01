@@ -11,9 +11,9 @@ import XCTest
 
 @testable import RomanNumeralKit_iOS
 
-//MARK: - Implementation Tests
-
 class RomanNumeralSymbolTests: XCTestCase {
+    
+    //MARK: XCTestCase Implementation
     
     override func setUp() {
         super.setUp()
