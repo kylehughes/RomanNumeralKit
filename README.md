@@ -10,6 +10,11 @@ Meaningful usage of this framework requires understanding what Roman numerals ar
 
 #### Subtractive Notation Example
 
+```swift
+XCTAssert(XXIV - V == 19)
+XCTAssert(XXIV + V == XXIX)
+```
+
 ### Basic Notation
 
 #### Basic Notation Example
@@ -57,6 +62,8 @@ The protocols `BasicNotationRomanNumeralConvertible` and `SubtractiveNotationRom
 ## Limitations
 
 ### Fixed Numerical Range
+
+Most* programs don't deal with numbers higher than 3999.
 
 ## License
 
