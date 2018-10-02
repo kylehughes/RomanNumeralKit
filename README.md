@@ -48,11 +48,11 @@ import RomanNumeralKit
 
 Constants have been provided for every Roman numeral from 1 to 3999 (i.e. all). They can be referenced directly by using their Roman numeral characters as symbols. There is no namespacing.
 
-The constants are created as subtractive notation Roman numerals. This is the default Roman numeral experience.
+The constants are created as subtractive notation Roman numerals.
 
 ##### Global Constants Definition Example
 
-This is an example of how the constants are defined:
+This is an example of how the constants are defined. All global constants are lazy by default so this does not effect startup time.
 
 ```swift
 ...
