@@ -38,14 +38,16 @@ import RomanNumeralKit
 
 #### Global Constants
 
-The constants are only provided for *subtractive notation*. This is the default experience that the majority of consumers want.
+Constants have been provided for every Roman numeral from 1 to 3999. They can be referenced directly by using their Roman numeral characters as symbols. There is no namespacing.
+
+The constants are created as subtractive notation Roman numerals. This is the default Roman numeral experience.
 
 ##### Global Constants Definition Example
 
+This is an example of how the constants are defined:
+
 ```swift
 ...
-public let CMXCIII = try! SubtractiveNotationRomanNumeral(intValue:993)
-public let CMXCIV = try! SubtractiveNotationRomanNumeral(intValue:994)
 public let CMXCV = try! SubtractiveNotationRomanNumeral(intValue:995)
 public let CMXCVI = try! SubtractiveNotationRomanNumeral(intValue:996)
 public let CMXCVII = try! SubtractiveNotationRomanNumeral(intValue:997)
@@ -55,13 +57,6 @@ public let M = try! SubtractiveNotationRomanNumeral(intValue:1000)
 public let MI = try! SubtractiveNotationRomanNumeral(intValue:1001)
 public let MII = try! SubtractiveNotationRomanNumeral(intValue:1002)
 public let MIII = try! SubtractiveNotationRomanNumeral(intValue:1003)
-public let MIV = try! SubtractiveNotationRomanNumeral(intValue:1004)
-public let MV = try! SubtractiveNotationRomanNumeral(intValue:1005)
-public let MVI = try! SubtractiveNotationRomanNumeral(intValue:1006)
-public let MVII = try! SubtractiveNotationRomanNumeral(intValue:1007)
-public let MVIII = try! SubtractiveNotationRomanNumeral(intValue:1008)
-public let MIX = try! SubtractiveNotationRomanNumeral(intValue:1009)
-public let MX = try! SubtractiveNotationRomanNumeral(intValue:1010)
 ...
 ```
 
