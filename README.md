@@ -1,8 +1,9 @@
 # RomanNumeralKit
 
-The numeric system of the gods.
-
+[![CocoaPods](https://img.shields.io/cocoapods/v/RomanNumeralKit.svg)]()
 [![Build Status](https://travis-ci.org/kylehughes/RomanNumeralKit.svg?branch=mainline)](https://travis-ci.org/kylehughes/RomanNumeralKit)
+
+The numeric system of the gods.
 
 ## Introduction
 
