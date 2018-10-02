@@ -13,6 +13,8 @@
 		27667FC22084B57A00AB8A66 /* RomanNumeralSymbolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27667FC12084B57A00AB8A66 /* RomanNumeralSymbolTests.swift */; };
 		27667FD02084CDE000AB8A66 /* RomanNumeralError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27667FCF2084CDE000AB8A66 /* RomanNumeralError.swift */; };
 		2767EEFF21632CB4008B6F85 /* RomanNumerals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2767EEFE21632CB4008B6F85 /* RomanNumerals.swift */; };
+		2767EF0121632F99008B6F85 /* DateComponents+RomanNumeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2767EF0021632F99008B6F85 /* DateComponents+RomanNumeral.swift */; };
+		2767EF032163305A008B6F85 /* Calendar+RomanNumeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2767EF022163305A008B6F85 /* Calendar+RomanNumeral.swift */; };
 		2783664B208ADB06001D131B /* BasicNotationRomanNumeralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783664A208ADB06001D131B /* BasicNotationRomanNumeralTests.swift */; };
 		27ED07162161D7CB00D3303A /* RomanNumeralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDBE2161D51D00CC9903 /* RomanNumeralTests.swift */; };
 		27ED071A2161D98800D3303A /* RomanNumeralProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ED07182161D98200D3303A /* RomanNumeralProtocolTests.swift */; };
@@ -53,6 +55,8 @@
 		27667FC12084B57A00AB8A66 /* RomanNumeralSymbolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralSymbolTests.swift; sourceTree = "<group>"; };
 		27667FCF2084CDE000AB8A66 /* RomanNumeralError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralError.swift; sourceTree = "<group>"; };
 		2767EEFE21632CB4008B6F85 /* RomanNumerals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumerals.swift; sourceTree = "<group>"; };
+		2767EF0021632F99008B6F85 /* DateComponents+RomanNumeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateComponents+RomanNumeral.swift"; sourceTree = "<group>"; };
+		2767EF022163305A008B6F85 /* Calendar+RomanNumeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+RomanNumeral.swift"; sourceTree = "<group>"; };
 		2783664A208ADB06001D131B /* BasicNotationRomanNumeralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNotationRomanNumeralTests.swift; sourceTree = "<group>"; };
 		27ED07182161D98200D3303A /* RomanNumeralProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralProtocolTests.swift; sourceTree = "<group>"; };
 		27ED071B2161DA2D00D3303A /* Array+SubtractiveNotationRomanNumeralSymbolsConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SubtractiveNotationRomanNumeralSymbolsConvertible.swift"; sourceTree = "<group>"; };
@@ -114,10 +118,10 @@
 			isa = PBXGroup;
 			children = (
 				27667FA42084B37D00AB8A66 /* Info.plist */,
+				2767EEFE21632CB4008B6F85 /* RomanNumerals.swift */,
 				27667FBA2084B3B300AB8A66 /* Extensions */,
 				27667FD32084D11800AB8A66 /* Headers */,
 				27667FBB2084B3C600AB8A66 /* Numeric System */,
-				2767EEFE21632CB4008B6F85 /* RomanNumerals.swift */,
 			);
 			path = RomanNumeralKit;
 			sourceTree = "<group>";
@@ -213,6 +217,8 @@
 			children = (
 				27F9DDA52161B95A00CC9903 /* Array+BasicNotationRomanNumeralSymbolsConvertible.swift */,
 				27ED071B2161DA2D00D3303A /* Array+SubtractiveNotationRomanNumeralSymbolsConvertible.swift */,
+				2767EF022163305A008B6F85 /* Calendar+RomanNumeral.swift */,
+				2767EF0021632F99008B6F85 /* DateComponents+RomanNumeral.swift */,
 				27F9DDA92161BEFC00CC9903 /* Int+BasicNotationRomanNumeralConvertible.swift */,
 				27ED071D2161DAB600D3303A /* Int+SubtractiveNotationRomanNumeralConvertible.swift */,
 				27F9DDAB2161C0D900CC9903 /* String+BasicNotationRomanNumeralSymbolsConvertible.swift */,
@@ -362,8 +368,10 @@
 				27ED07202161E0A500D3303A /* RomanNumeralSymbolError.swift in Sources */,
 				27F9DDB82161C7A200CC9903 /* RomanNumeral.swift in Sources */,
 				27F9DDB42161C6E200CC9903 /* RomanNumeralSymbolsConvertible.swift in Sources */,
+				2767EF0121632F99008B6F85 /* DateComponents+RomanNumeral.swift in Sources */,
 				27F9DDB62161C71600CC9903 /* String+SubtractiveNotationRomanNumeralSymbolsConvertible.swift in Sources */,
 				2767EEFF21632CB4008B6F85 /* RomanNumerals.swift in Sources */,
+				2767EF032163305A008B6F85 /* Calendar+RomanNumeral.swift in Sources */,
 				27667FD02084CDE000AB8A66 /* RomanNumeralError.swift in Sources */,
 				27F9DDAE2161C23400CC9903 /* RomanNumeralProtocol.swift in Sources */,
 				27F9DDB02161C60A00CC9903 /* BasicNotationRomanNumeralConvertible.swift in Sources */,
