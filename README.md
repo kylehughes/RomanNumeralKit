@@ -56,29 +56,28 @@ This is an example of how the constants are defined:
 
 ```swift
 ...
-public let CMXCV = try! SubtractiveNotationRomanNumeral(intValue:995)
-public let CMXCVI = try! SubtractiveNotationRomanNumeral(intValue:996)
-public let CMXCVII = try! SubtractiveNotationRomanNumeral(intValue:997)
-public let CMXCVIII = try! SubtractiveNotationRomanNumeral(intValue:998)
-public let CMXCIX = try! SubtractiveNotationRomanNumeral(intValue:999)
-public let M = try! SubtractiveNotationRomanNumeral(intValue:1000)
-public let MI = try! SubtractiveNotationRomanNumeral(intValue:1001)
-public let MII = try! SubtractiveNotationRomanNumeral(intValue:1002)
-public let MIII = try! SubtractiveNotationRomanNumeral(intValue:1003)
+public let CDXCVI = try! RomanNumeral(intValue: 496)
+public let CDXCVII = try! RomanNumeral(intValue: 497)
+public let CDXCVIII = try! RomanNumeral(intValue: 498)
+public let CDXCIX = try! RomanNumeral(intValue: 499)
+public let D = try! RomanNumeral(intValue: 500)
+public let DI = try! RomanNumeral(intValue: 501)
+public let DII = try! RomanNumeral(intValue: 502)
+public let DIII = try! RomanNumeral(intValue: 503)
 ...
 ```
 
 #### Manual Initialization
 
-The only practical reason to manually instantiate a `RomanNumeral` is to do conversion from a type (e.g. `String`) (consider using a `*RomanNumeralConvertible` property instead). Otherwise, there are a fixed set of values and they are all provided as constants. Do as you please.
+The only practical reason to manually instantiate a `RomanNumeralProtocol` is to do conversion from a type (e.g. `String`) (consider using a `*RomanNumeralConvertible` property instead). Otherwise, there are a fixed set of values and they are all provided as constants. Do as you please.
 
-There are two primary initializers that must be supplied by all `RomanNumeral`s:
+There are two primary initializers that must be supplied by all `RomanNumeralProtocol`s:
 - `init(intValue: Int)`
 - `init(symbols: [RomanNumeralSymbol])`
 
 A variety of other initializers are provided for convenience.
 
-The protocols `BasicNotationRomanNumeralConvertible` and `SubtractiveNotationRomanNumeralConvertible` are available for types that can transform themselves into `RomanNumeral`s. Extensions for `Foundation` classes (e.g. `Array`, `Int`, `String`) are provided.
+The protocols `RomanNumeralConvertible` and `BasicNotationRomanNumeralConvertible` are available for types that can transform themselves into `RomanNumeralProtocol`s. Extensions for `Foundation` classes (e.g. `Array`, `Int`, `String`) are provided.
 
 ##### Manual Initialization Example
 
