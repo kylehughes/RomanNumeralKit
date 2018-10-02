@@ -3,7 +3,7 @@
 [![CocoaPods](https://img.shields.io/cocoapods/v/RomanNumeralKit.svg)]()
 [![Build Status](https://travis-ci.org/kylehughes/RomanNumeralKit.svg?branch=mainline)](https://travis-ci.org/kylehughes/RomanNumeralKit)
 
-The numeric system of the gods.
+First-class Roman numeral support for Swift.
 
 ## Introduction
 
@@ -38,7 +38,7 @@ import RomanNumeralKit
 
 #### Global Constants
 
-Constants have been provided for every Roman numeral from 1 to 3999. They can be referenced directly by using their Roman numeral characters as symbols. There is no namespacing.
+Constants have been provided for every Roman numeral from 1 to 3999 (i.e. all). They can be referenced directly by using their Roman numeral characters as symbols. There is no namespacing.
 
 The constants are created as subtractive notation Roman numerals. This is the default Roman numeral experience.
 
