@@ -24,6 +24,14 @@ print(CDLIV + MMMCCCIII == 3757)        // Prints "true"
 
 #### Basic Notation Example
 
+## Limitations
+
+### Fixed Numerical Range
+
+Most* programs don't deal with numbers higher than 3999.
+
+### iPhone & macOS Names
+
 ## Installation
 
 ## Usage
@@ -80,14 +88,6 @@ let XIX = SubtractiveNotationRomanNumeral(symbols: [.X, .I, .X])
 let XIX = SubtractiveNotationRomanNumeral(.X, .I, .X)
 let XIX = SubtractiveNotationRomanNumeral(from: "XIX")
 ```
-
-## Limitations
-
-### Fixed Numerical Range
-
-Most* programs don't deal with numbers higher than 3999.
-
-### iPhone & macOS Names
 
 ## License
 
