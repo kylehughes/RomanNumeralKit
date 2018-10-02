@@ -1,10 +1,8 @@
 language: objective-c
+os: osx
 osx_image: xcode10
 
-branches:
-  only:
-    - mainline
-
-xcode_workspace: RomanNumeralKit.xcworkspace
-xcode_scheme: RomanNumeralKit
-xcode_destination: platform=iOS Simulator,OS=12.0,name=iPhone 5s
+script:
+  - |
+    set -o pipefail
+    xcodebuild clean test -workspace RomanNumeralKit.xcworkspace -scheme RomanNumeralKit -destination 'platform=iOS Simulator,name=iPhone 5s,OS=12.0' -enableCodeCoverage YES | xcpretty
