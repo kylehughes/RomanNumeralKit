@@ -13,7 +13,7 @@ public struct BasicNotationRomanNumeral {
     //MARK: Public Static Properties
     
     public static let maximumIntValue = 3999
-    public static let minimumIntValue = 0
+    public static let minimumIntValue = 1
     
     //MARK: Public Properties
     
@@ -53,9 +53,9 @@ public struct BasicNotationRomanNumeral {
     
 }
 
-//MARK: - RomanNumeral Extension
+//MARK: - RomanNumeralProtocol Extension
 
-extension BasicNotationRomanNumeral: RomanNumeral {
+extension BasicNotationRomanNumeral: RomanNumeralProtocol {
     
     //MARK: Public Initialization
 
@@ -103,12 +103,12 @@ extension BasicNotationRomanNumeral: BasicNotationRomanNumeralSymbolsConvertible
     
 }
 
-//MARK: - SubtractiveNotationRomanNumeralConvertible Extension
+//MARK: - RomanNumeralConvertible Extension
 
-extension BasicNotationRomanNumeral: SubtractiveNotationRomanNumeralConvertible {
+extension BasicNotationRomanNumeral: RomanNumeralConvertible {
     
-    public var subtractiveNotationRomanNumeral: SubtractiveNotationRomanNumeral? {
-        return try? SubtractiveNotationRomanNumeral(intValue: intValue)
+    public var romanNumeral: RomanNumeral? {
+        return try? RomanNumeral(intValue: intValue)
     }
     
 }

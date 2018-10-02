@@ -1,5 +1,5 @@
 //
-//  RomanNumeralTests.swift
+//  RomanNumeralProtocolTests.swift
 //  RomanNumeralKit
 //
 //  Created by Kyle Hughes on 9/30/18.
@@ -11,7 +11,7 @@ import XCTest
 
 @testable import RomanNumeralKit
 
-class RomanNumeralTests: XCTestCase {
+class RomanNumeralProtocolTests: XCTestCase {
     
     //MARK: XCTestCase Implementation
     

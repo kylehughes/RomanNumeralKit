@@ -1,5 +1,5 @@
 //
-//  SubtractiveNotationRomanNumeralSymbol.swift
+//  SubtractiveRomanNumeralSymbol.swift
 //  RomanNumeralKit
 //
 //  Created by Kyle Hughes on 9/30/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SubtractiveNotationRomanNumeralSymbol: Int {
+public enum SubtractiveRomanNumeralSymbol: Int {
     
     case I  = 1
     case IV = 4
@@ -26,7 +26,7 @@ enum SubtractiveNotationRomanNumeralSymbol: Int {
     
     //MARK: Public Static Properties
     
-    public static let allSymbols: [SubtractiveNotationRomanNumeralSymbol] = [
+    public static let allSymbols: [SubtractiveRomanNumeralSymbol] = [
         .I,
         .IV,
         .V,
@@ -48,19 +48,19 @@ enum SubtractiveNotationRomanNumeralSymbol: Int {
 
 //MARK: - Comparable Extension
 
-extension SubtractiveNotationRomanNumeralSymbol: Comparable {
+extension SubtractiveRomanNumeralSymbol: Comparable {
     
-    public static func <(lhs: SubtractiveNotationRomanNumeralSymbol, rhs: SubtractiveNotationRomanNumeralSymbol) -> Bool {
+    public static func <(lhs: SubtractiveRomanNumeralSymbol, rhs: SubtractiveRomanNumeralSymbol) -> Bool {
         return lhs.rawValue < rhs.rawValue
     }
     
 }
 
-//MARK: - SubtractiveNotationRomanNumeralSymbolsConvertible Extension {
+//MARK: - RomanNumeralSymbolsConvertible Extension {
 
-extension SubtractiveNotationRomanNumeralSymbol: SubtractiveNotationRomanNumeralSymbolsConvertible {
+extension SubtractiveRomanNumeralSymbol: RomanNumeralSymbolsConvertible {
     
-    var subtractiveNotationRomanNumeralSymbols: [RomanNumeralSymbol] {
+    var romanNumeralSymbols: [RomanNumeralSymbol] {
         switch self {
         case .I:
             return [.I]

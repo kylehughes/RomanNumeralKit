@@ -1,5 +1,5 @@
 //
-//  RomanNumeral.swift
+//  RomanNumeralProtocol.swift
 //  RomanNumeralKit
 //
 //  Created by Kyle Hughes on 9/30/18.
@@ -9,7 +9,7 @@
 import Foundation
 import os
 
-public protocol RomanNumeral:
+public protocol RomanNumeralProtocol:
     Comparable,
     CustomDebugStringConvertible,
     CustomStringConvertible,
@@ -40,7 +40,7 @@ public protocol RomanNumeral:
 
 //MARK: Public Extension
 
-public extension RomanNumeral {
+public extension RomanNumeralProtocol {
     
     //MARK: Public Static Properties
     
@@ -81,7 +81,7 @@ public extension RomanNumeral {
 
 //MARK: - Operators Extension
 
-extension RomanNumeral {
+extension RomanNumeralProtocol {
     
     //TODO: fix the places where I poorly avoid the intValue error by using minimum
     
@@ -103,7 +103,7 @@ extension RomanNumeral {
 
 //MARK: - Numeric Extension
 
-extension RomanNumeral {
+extension RomanNumeralProtocol {
     
     //MARK: Public Properties
     
@@ -154,7 +154,7 @@ extension RomanNumeral {
 
 //MARK: - Comparable Extension
 
-extension RomanNumeral {
+extension RomanNumeralProtocol {
     
     //MARK: Public Static Interface
     
@@ -170,7 +170,7 @@ extension RomanNumeral {
 
 //MARK: - CustomDebugStringConvertible Extension
 
-extension RomanNumeral {
+extension RomanNumeralProtocol {
     
     //MARK: Public Properties
     
@@ -182,7 +182,7 @@ extension RomanNumeral {
 
 //MARK: - CustomStringConvertible Extension
 
-extension RomanNumeral {
+extension RomanNumeralProtocol {
     
     //MARK: Public Properties
     
@@ -194,7 +194,7 @@ extension RomanNumeral {
 
 //MARK: - ExpressibleByStringLiteral Extension
 
-extension RomanNumeral {
+extension RomanNumeralProtocol {
     
     //MARK: Public Initialization
     

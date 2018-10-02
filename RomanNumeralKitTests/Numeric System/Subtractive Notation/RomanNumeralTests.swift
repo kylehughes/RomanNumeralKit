@@ -1,5 +1,5 @@
 //
-//  SubtractiveNotationRomanNumeralTests.swift
+//  RomanNumeralTests.swift
 //  RomanNumeralKit
 //
 //  Created by Kyle Hughes on 9/30/18.
@@ -11,7 +11,7 @@ import XCTest
 
 @testable import RomanNumeralKit
 
-class SubtractiveNotationRomanNumeralTests: XCTestCase {
+class RomanNumeralTests: XCTestCase {
     
     //MARK: XCTestCase Implementation
     
@@ -32,14 +32,14 @@ class SubtractiveNotationRomanNumeralTests: XCTestCase {
         // When...
         
         // Basic addition
-        let XXVI = try! SubtractiveNotationRomanNumeral(intValue: 26)
+        let XXVI = try! RomanNumeral(intValue: 26)
         // Basic addition w/ single OOO symbol
-        let XXIV = try! SubtractiveNotationRomanNumeral(intValue: 24)
+        let XXIV = try! RomanNumeral(intValue: 24)
         
         // Long addition
-        let MMDCXCI = try! SubtractiveNotationRomanNumeral(intValue: 2691)
+        let MMDCXCI = try! RomanNumeral(intValue: 2691)
         // Long addition w/ two OOO symbols
-        let MMCDLXXXIX = try! SubtractiveNotationRomanNumeral(intValue: 2489)
+        let MMCDLXXXIX = try! RomanNumeral(intValue: 2489)
         
         // Then...
         
@@ -57,14 +57,14 @@ class SubtractiveNotationRomanNumeralTests: XCTestCase {
         // When...
         
         // Basic addition
-        let XXVI = try! SubtractiveNotationRomanNumeral(symbols: [.X, .X, .V, .I])
+        let XXVI = try! RomanNumeral(symbols: [.X, .X, .V, .I])
         // Basic addition w/ single OOO symbol
-        let XXIV = try! SubtractiveNotationRomanNumeral(symbols: [.X, .X, .I, .V])
+        let XXIV = try! RomanNumeral(symbols: [.X, .X, .I, .V])
         
         // Long addition
-        let MMDCXCI = try! SubtractiveNotationRomanNumeral(symbols: [.M, .M, .D, .C, .X, .C, .I])
+        let MMDCXCI = try! RomanNumeral(symbols: [.M, .M, .D, .C, .X, .C, .I])
         // Long addition w/ single OOO symbol
-        let MMCDLXXXIX = try! SubtractiveNotationRomanNumeral(symbols: [.M, .M, .C, .D, .L, .X, .X, .X, .I, .X])
+        let MMCDLXXXIX = try! RomanNumeral(symbols: [.M, .M, .C, .D, .L, .X, .X, .X, .I, .X])
         
         // Then...
         
@@ -77,19 +77,19 @@ class SubtractiveNotationRomanNumeralTests: XCTestCase {
     
     //MARK: Performance Tests
     
-    func test_perf_initializaeEntireNumericalSpace_Int() {
+    func test_perf_initializeEntireNumericalSpace_fromInt() {
         measure {
-            for i in SubtractiveNotationRomanNumeral.minimumIntValue...SubtractiveNotationRomanNumeral.maximumIntValue {
-                let _ = try! SubtractiveNotationRomanNumeral(intValue: i)
+            for i in RomanNumeral.minimumIntValue...RomanNumeral.maximumIntValue {
+                let _ = try! RomanNumeral(intValue: i)
             }
         }
     }
     
-    func test_perf_initializaeEntireNumericalSpace_Symbols() {
-        let allSymbolCollections = (SubtractiveNotationRomanNumeral.minimumIntValue...SubtractiveNotationRomanNumeral.maximumIntValue).map { try! SubtractiveNotationRomanNumeral(intValue: $0).symbols }
+    func test_perf_initializeEntireNumericalSpace_fromSymbols() {
+        let allSymbolCollections = (RomanNumeral.minimumIntValue...RomanNumeral.maximumIntValue).map { try! RomanNumeral(intValue: $0).symbols }
         
         measure {
-            allSymbolCollections.forEach { let _ = try! SubtractiveNotationRomanNumeral(symbols: $0) }
+            allSymbolCollections.forEach { let _ = try! RomanNumeral(symbols: $0) }
         }
     }
     

@@ -8,14 +8,14 @@
 
 import Foundation
 
-//MARK: - SubtractiveNotationRomanNumeralConvertible Extension
+//MARK: - RomanNumeralConvertible Extension
 
-extension Int: SubtractiveNotationRomanNumeralConvertible {
+extension Int: RomanNumeralConvertible {
     
     //MARK: Public Properties
     
-    public var subtractiveNotationRomanNumeral: SubtractiveNotationRomanNumeral? {
-        return try? SubtractiveNotationRomanNumeral(intValue: self)
+    public var romanNumeral: RomanNumeral? {
+        return try? RomanNumeral(intValue: self)
     }
     
 }

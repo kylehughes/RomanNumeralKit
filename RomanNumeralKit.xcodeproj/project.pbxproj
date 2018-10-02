@@ -13,24 +13,23 @@
 		27667FC22084B57A00AB8A66 /* RomanNumeralSymbolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27667FC12084B57A00AB8A66 /* RomanNumeralSymbolTests.swift */; };
 		27667FD02084CDE000AB8A66 /* RomanNumeralError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27667FCF2084CDE000AB8A66 /* RomanNumeralError.swift */; };
 		2783664B208ADB06001D131B /* BasicNotationRomanNumeralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783664A208ADB06001D131B /* BasicNotationRomanNumeralTests.swift */; };
-		27ED07162161D7CB00D3303A /* SubtractiveNotationRomanNumeralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDBE2161D51D00CC9903 /* SubtractiveNotationRomanNumeralTests.swift */; };
-		27ED071A2161D98800D3303A /* RomanNumeralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ED07182161D98200D3303A /* RomanNumeralTests.swift */; };
+		27ED07162161D7CB00D3303A /* RomanNumeralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDBE2161D51D00CC9903 /* RomanNumeralTests.swift */; };
+		27ED071A2161D98800D3303A /* RomanNumeralProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ED07182161D98200D3303A /* RomanNumeralProtocolTests.swift */; };
 		27ED071C2161DA2D00D3303A /* Array+SubtractiveNotationRomanNumeralSymbolsConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ED071B2161DA2D00D3303A /* Array+SubtractiveNotationRomanNumeralSymbolsConvertible.swift */; };
 		27ED071E2161DAB600D3303A /* Int+SubtractiveNotationRomanNumeralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ED071D2161DAB600D3303A /* Int+SubtractiveNotationRomanNumeralConvertible.swift */; };
 		27ED07202161E0A500D3303A /* RomanNumeralSymbolError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ED071F2161E0A500D3303A /* RomanNumeralSymbolError.swift */; };
-		27ED07222161E63D00D3303A /* SubtractiveNotationRomanNumeralSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ED07212161E63D00D3303A /* SubtractiveNotationRomanNumeralSymbol.swift */; };
-		27ED07242161F07400D3303A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ED07232161F07400D3303A /* Constants.swift */; };
+		27ED07222161E63D00D3303A /* SubtractiveRomanNumeralSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ED07212161E63D00D3303A /* SubtractiveRomanNumeralSymbol.swift */; };
 		27F9DDA42161B00700CC9903 /* BasicNotationRomanNumeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDA32161B00700CC9903 /* BasicNotationRomanNumeral.swift */; };
 		27F9DDA62161B95A00CC9903 /* Array+BasicNotationRomanNumeralSymbolsConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDA52161B95A00CC9903 /* Array+BasicNotationRomanNumeralSymbolsConvertible.swift */; };
 		27F9DDA82161BEB700CC9903 /* BasicNotationRomanNumeralSymbolsConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDA72161BEB700CC9903 /* BasicNotationRomanNumeralSymbolsConvertible.swift */; };
 		27F9DDAA2161BEFC00CC9903 /* Int+BasicNotationRomanNumeralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDA92161BEFC00CC9903 /* Int+BasicNotationRomanNumeralConvertible.swift */; };
 		27F9DDAC2161C0D900CC9903 /* String+BasicNotationRomanNumeralSymbolsConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDAB2161C0D900CC9903 /* String+BasicNotationRomanNumeralSymbolsConvertible.swift */; };
-		27F9DDAE2161C23400CC9903 /* RomanNumeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDAD2161C23400CC9903 /* RomanNumeral.swift */; };
+		27F9DDAE2161C23400CC9903 /* RomanNumeralProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDAD2161C23400CC9903 /* RomanNumeralProtocol.swift */; };
 		27F9DDB02161C60A00CC9903 /* BasicNotationRomanNumeralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDAF2161C60A00CC9903 /* BasicNotationRomanNumeralConvertible.swift */; };
-		27F9DDB42161C6E200CC9903 /* SubtractiveNotationRomanNumeralSymbolsConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDB32161C6E200CC9903 /* SubtractiveNotationRomanNumeralSymbolsConvertible.swift */; };
+		27F9DDB42161C6E200CC9903 /* RomanNumeralSymbolsConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDB32161C6E200CC9903 /* RomanNumeralSymbolsConvertible.swift */; };
 		27F9DDB62161C71600CC9903 /* String+SubtractiveNotationRomanNumeralSymbolsConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDB52161C71600CC9903 /* String+SubtractiveNotationRomanNumeralSymbolsConvertible.swift */; };
-		27F9DDB82161C7A200CC9903 /* SubtractiveNotationRomanNumeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDB72161C7A200CC9903 /* SubtractiveNotationRomanNumeral.swift */; };
-		27F9DDBB2161D3AE00CC9903 /* SubtractiveNotationRomanNumeralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDBA2161D3AE00CC9903 /* SubtractiveNotationRomanNumeralConvertible.swift */; };
+		27F9DDB82161C7A200CC9903 /* RomanNumeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDB72161C7A200CC9903 /* RomanNumeral.swift */; };
+		27F9DDBB2161D3AE00CC9903 /* RomanNumeralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDBA2161D3AE00CC9903 /* RomanNumeralConvertible.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,24 +52,23 @@
 		27667FC12084B57A00AB8A66 /* RomanNumeralSymbolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralSymbolTests.swift; sourceTree = "<group>"; };
 		27667FCF2084CDE000AB8A66 /* RomanNumeralError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralError.swift; sourceTree = "<group>"; };
 		2783664A208ADB06001D131B /* BasicNotationRomanNumeralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNotationRomanNumeralTests.swift; sourceTree = "<group>"; };
-		27ED07182161D98200D3303A /* RomanNumeralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralTests.swift; sourceTree = "<group>"; };
+		27ED07182161D98200D3303A /* RomanNumeralProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralProtocolTests.swift; sourceTree = "<group>"; };
 		27ED071B2161DA2D00D3303A /* Array+SubtractiveNotationRomanNumeralSymbolsConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SubtractiveNotationRomanNumeralSymbolsConvertible.swift"; sourceTree = "<group>"; };
 		27ED071D2161DAB600D3303A /* Int+SubtractiveNotationRomanNumeralConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+SubtractiveNotationRomanNumeralConvertible.swift"; sourceTree = "<group>"; };
 		27ED071F2161E0A500D3303A /* RomanNumeralSymbolError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralSymbolError.swift; sourceTree = "<group>"; };
-		27ED07212161E63D00D3303A /* SubtractiveNotationRomanNumeralSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractiveNotationRomanNumeralSymbol.swift; sourceTree = "<group>"; };
-		27ED07232161F07400D3303A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		27ED07212161E63D00D3303A /* SubtractiveRomanNumeralSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractiveRomanNumeralSymbol.swift; sourceTree = "<group>"; };
 		27F9DDA32161B00700CC9903 /* BasicNotationRomanNumeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNotationRomanNumeral.swift; sourceTree = "<group>"; };
 		27F9DDA52161B95A00CC9903 /* Array+BasicNotationRomanNumeralSymbolsConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+BasicNotationRomanNumeralSymbolsConvertible.swift"; sourceTree = "<group>"; };
 		27F9DDA72161BEB700CC9903 /* BasicNotationRomanNumeralSymbolsConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNotationRomanNumeralSymbolsConvertible.swift; sourceTree = "<group>"; };
 		27F9DDA92161BEFC00CC9903 /* Int+BasicNotationRomanNumeralConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+BasicNotationRomanNumeralConvertible.swift"; sourceTree = "<group>"; };
 		27F9DDAB2161C0D900CC9903 /* String+BasicNotationRomanNumeralSymbolsConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+BasicNotationRomanNumeralSymbolsConvertible.swift"; sourceTree = "<group>"; };
-		27F9DDAD2161C23400CC9903 /* RomanNumeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeral.swift; sourceTree = "<group>"; };
+		27F9DDAD2161C23400CC9903 /* RomanNumeralProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralProtocol.swift; sourceTree = "<group>"; };
 		27F9DDAF2161C60A00CC9903 /* BasicNotationRomanNumeralConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNotationRomanNumeralConvertible.swift; sourceTree = "<group>"; };
-		27F9DDB32161C6E200CC9903 /* SubtractiveNotationRomanNumeralSymbolsConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractiveNotationRomanNumeralSymbolsConvertible.swift; sourceTree = "<group>"; };
+		27F9DDB32161C6E200CC9903 /* RomanNumeralSymbolsConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralSymbolsConvertible.swift; sourceTree = "<group>"; };
 		27F9DDB52161C71600CC9903 /* String+SubtractiveNotationRomanNumeralSymbolsConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SubtractiveNotationRomanNumeralSymbolsConvertible.swift"; sourceTree = "<group>"; };
-		27F9DDB72161C7A200CC9903 /* SubtractiveNotationRomanNumeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractiveNotationRomanNumeral.swift; sourceTree = "<group>"; };
-		27F9DDBA2161D3AE00CC9903 /* SubtractiveNotationRomanNumeralConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractiveNotationRomanNumeralConvertible.swift; sourceTree = "<group>"; };
-		27F9DDBE2161D51D00CC9903 /* SubtractiveNotationRomanNumeralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractiveNotationRomanNumeralTests.swift; sourceTree = "<group>"; };
+		27F9DDB72161C7A200CC9903 /* RomanNumeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeral.swift; sourceTree = "<group>"; };
+		27F9DDBA2161D3AE00CC9903 /* RomanNumeralConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralConvertible.swift; sourceTree = "<group>"; };
+		27F9DDBE2161D51D00CC9903 /* RomanNumeralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				27667FA42084B37D00AB8A66 /* Info.plist */,
-				27ED07232161F07400D3303A /* Constants.swift */,
 				27667FBA2084B3B300AB8A66 /* Extensions */,
 				27667FD32084D11800AB8A66 /* Headers */,
 				27667FBB2084B3C600AB8A66 /* Numeric System */,
@@ -143,8 +140,8 @@
 		27667FBB2084B3C600AB8A66 /* Numeric System */ = {
 			isa = PBXGroup;
 			children = (
-				27F9DDAD2161C23400CC9903 /* RomanNumeral.swift */,
 				27667FCF2084CDE000AB8A66 /* RomanNumeralError.swift */,
+				27F9DDAD2161C23400CC9903 /* RomanNumeralProtocol.swift */,
 				27667FBC2084B3DE00AB8A66 /* RomanNumeralSymbol.swift */,
 				27ED071F2161E0A500D3303A /* RomanNumeralSymbolError.swift */,
 				27F9DDB12161C66F00CC9903 /* Basic Notation */,
@@ -156,8 +153,8 @@
 		27667FBE2084B54F00AB8A66 /* Numeric System */ = {
 			isa = PBXGroup;
 			children = (
+				27ED07182161D98200D3303A /* RomanNumeralProtocolTests.swift */,
 				27667FC12084B57A00AB8A66 /* RomanNumeralSymbolTests.swift */,
-				27ED07182161D98200D3303A /* RomanNumeralTests.swift */,
 				27F9DDBC2161D4C100CC9903 /* Basic Notation */,
 				27F9DDBD2161D50600CC9903 /* Subtractive Notation */,
 			);
@@ -167,6 +164,7 @@
 		27667FBF2084B55A00AB8A66 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2767EEFD21632B56008B6F85 /* Foundation */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -177,6 +175,13 @@
 				27667FA32084B37D00AB8A66 /* RomanNumeralKit.h */,
 			);
 			path = Headers;
+			sourceTree = "<group>";
+		};
+		2767EEFD21632B56008B6F85 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 		27F9DDB12161C66F00CC9903 /* Basic Notation */ = {
@@ -192,10 +197,10 @@
 		27F9DDB22161C69A00CC9903 /* Subtractive Notation */ = {
 			isa = PBXGroup;
 			children = (
-				27F9DDB72161C7A200CC9903 /* SubtractiveNotationRomanNumeral.swift */,
-				27F9DDBA2161D3AE00CC9903 /* SubtractiveNotationRomanNumeralConvertible.swift */,
-				27F9DDB32161C6E200CC9903 /* SubtractiveNotationRomanNumeralSymbolsConvertible.swift */,
-				27ED07212161E63D00D3303A /* SubtractiveNotationRomanNumeralSymbol.swift */,
+				27F9DDB72161C7A200CC9903 /* RomanNumeral.swift */,
+				27F9DDBA2161D3AE00CC9903 /* RomanNumeralConvertible.swift */,
+				27F9DDB32161C6E200CC9903 /* RomanNumeralSymbolsConvertible.swift */,
+				27ED07212161E63D00D3303A /* SubtractiveRomanNumeralSymbol.swift */,
 			);
 			path = "Subtractive Notation";
 			sourceTree = "<group>";
@@ -224,7 +229,7 @@
 		27F9DDBD2161D50600CC9903 /* Subtractive Notation */ = {
 			isa = PBXGroup;
 			children = (
-				27F9DDBE2161D51D00CC9903 /* SubtractiveNotationRomanNumeralTests.swift */,
+				27F9DDBE2161D51D00CC9903 /* RomanNumeralTests.swift */,
 			);
 			path = "Subtractive Notation";
 			sourceTree = "<group>";
@@ -343,21 +348,20 @@
 			files = (
 				27F9DDA82161BEB700CC9903 /* BasicNotationRomanNumeralSymbolsConvertible.swift in Sources */,
 				27ED071C2161DA2D00D3303A /* Array+SubtractiveNotationRomanNumeralSymbolsConvertible.swift in Sources */,
-				27ED07222161E63D00D3303A /* SubtractiveNotationRomanNumeralSymbol.swift in Sources */,
-				27F9DDBB2161D3AE00CC9903 /* SubtractiveNotationRomanNumeralConvertible.swift in Sources */,
+				27ED07222161E63D00D3303A /* SubtractiveRomanNumeralSymbol.swift in Sources */,
+				27F9DDBB2161D3AE00CC9903 /* RomanNumeralConvertible.swift in Sources */,
 				27F9DDAC2161C0D900CC9903 /* String+BasicNotationRomanNumeralSymbolsConvertible.swift in Sources */,
 				27F9DDAA2161BEFC00CC9903 /* Int+BasicNotationRomanNumeralConvertible.swift in Sources */,
 				27ED071E2161DAB600D3303A /* Int+SubtractiveNotationRomanNumeralConvertible.swift in Sources */,
 				27F9DDA62161B95A00CC9903 /* Array+BasicNotationRomanNumeralSymbolsConvertible.swift in Sources */,
-				27ED07242161F07400D3303A /* Constants.swift in Sources */,
 				27667FBD2084B3DE00AB8A66 /* RomanNumeralSymbol.swift in Sources */,
 				27F9DDA42161B00700CC9903 /* BasicNotationRomanNumeral.swift in Sources */,
 				27ED07202161E0A500D3303A /* RomanNumeralSymbolError.swift in Sources */,
-				27F9DDB82161C7A200CC9903 /* SubtractiveNotationRomanNumeral.swift in Sources */,
-				27F9DDB42161C6E200CC9903 /* SubtractiveNotationRomanNumeralSymbolsConvertible.swift in Sources */,
+				27F9DDB82161C7A200CC9903 /* RomanNumeral.swift in Sources */,
+				27F9DDB42161C6E200CC9903 /* RomanNumeralSymbolsConvertible.swift in Sources */,
 				27F9DDB62161C71600CC9903 /* String+SubtractiveNotationRomanNumeralSymbolsConvertible.swift in Sources */,
 				27667FD02084CDE000AB8A66 /* RomanNumeralError.swift in Sources */,
-				27F9DDAE2161C23400CC9903 /* RomanNumeral.swift in Sources */,
+				27F9DDAE2161C23400CC9903 /* RomanNumeralProtocol.swift in Sources */,
 				27F9DDB02161C60A00CC9903 /* BasicNotationRomanNumeralConvertible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,8 +372,8 @@
 			files = (
 				2783664B208ADB06001D131B /* BasicNotationRomanNumeralTests.swift in Sources */,
 				27667FC22084B57A00AB8A66 /* RomanNumeralSymbolTests.swift in Sources */,
-				27ED071A2161D98800D3303A /* RomanNumeralTests.swift in Sources */,
-				27ED07162161D7CB00D3303A /* SubtractiveNotationRomanNumeralTests.swift in Sources */,
+				27ED071A2161D98800D3303A /* RomanNumeralProtocolTests.swift in Sources */,
+				27ED07162161D7CB00D3303A /* RomanNumeralTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

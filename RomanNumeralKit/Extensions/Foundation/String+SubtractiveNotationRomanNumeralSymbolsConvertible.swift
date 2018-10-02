@@ -1,5 +1,5 @@
 //
-//  String+SubtractiveNotationRomanNumeralSymbolsConvertible.swift
+//  String+RomanNumeralSymbolsConvertible.swift
 //  RomanNumeralKit
 //
 //  Created by Kyle Hughes on 9/30/18.
@@ -8,14 +8,14 @@
 
 import Foundation
 
-//MARK: - SubtractiveNotationRomanNumeralSymbolsConvertible Extension
+//MARK: - RomanNumeralSymbolsConvertible Extension
 
-extension String: SubtractiveNotationRomanNumeralSymbolsConvertible {
+extension String: RomanNumeralSymbolsConvertible {
     
     //MARK: Public Properties
     
-    public var subtractiveNotationRomanNumeralSymbols: [RomanNumeralSymbol] {
-        return (try? SubtractiveNotationRomanNumeral.symbols(fromString: self)) ?? []
+    public var romanNumeralSymbols: [RomanNumeralSymbol] {
+        return (try? RomanNumeral.symbols(fromString: self)) ?? []
     }
     
 }

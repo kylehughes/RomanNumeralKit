@@ -1,5 +1,5 @@
 //
-//  Array+SubtractiveNotationRomanNumeralSymbolsConvertible.swift
+//  Array+RomanNumeralSymbolsConvertible.swift
 //  RomanNumeralKit
 //
 //  Created by Kyle Hughes on 9/30/18.
@@ -9,20 +9,20 @@
 import Foundation
 
 //MARK: -
-//MARK: SubtractiveNotationRomanNumeralSymbolsConvertible Extension
-//MARK: SubtractiveNotationRomanNumeralConvertible Extension
+//MARK: RomanNumeralSymbolsConvertible Extension
+//MARK: RomanNumeralConvertible Extension
 //MARK: where Element == RomanNumeralSymbol
 
 extension Array:
-    SubtractiveNotationRomanNumeralSymbolsConvertible,
-    SubtractiveNotationRomanNumeralConvertible
+    RomanNumeralSymbolsConvertible,
+    RomanNumeralConvertible
     where
     Element == RomanNumeralSymbol
 {
     
     //MARK: Public Properties
     
-    public var subtractiveNotationRomanNumeralSymbols: [RomanNumeralSymbol] {
+    public var romanNumeralSymbols: [RomanNumeralSymbol] {
         return self
     }
     

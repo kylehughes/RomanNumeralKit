@@ -1,5 +1,5 @@
 //
-//  SubtractiveNotationRomanNumeral.swift
+//  RomanNumeral.swift
 //  RomanNumeralKit
 //
 //  Created by Kyle Hughes on 9/30/18.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-public struct SubtractiveNotationRomanNumeral {
+public struct RomanNumeral {
     
     //MARK: Public Static Properties
     
     public static let maximumIntValue = 3999
-    public static let minimumIntValue = 0
+    public static let minimumIntValue = 1
     
     //MARK: Public Properties
     
@@ -22,8 +22,8 @@ public struct SubtractiveNotationRomanNumeral {
     
     public var intValue: Int {
         didSet {
-            symbols = (try? SubtractiveNotationRomanNumeral.symbols(fromIntValue: intValue)) ?? SubtractiveNotationRomanNumeral.minimum.symbols
-            stringValue = SubtractiveNotationRomanNumeral.string(fromSymbols: symbols)
+            symbols = (try? RomanNumeral.symbols(fromIntValue: intValue)) ?? RomanNumeral.minimum.symbols
+            stringValue = RomanNumeral.string(fromSymbols: symbols)
         }
     }
     
@@ -67,9 +67,9 @@ public struct SubtractiveNotationRomanNumeral {
         }
         
         var remainingIntValue = intValue
-        var symbols: [SubtractiveNotationRomanNumeralSymbol] = []
+        var symbols: [SubtractiveRomanNumeralSymbol] = []
         
-        SubtractiveNotationRomanNumeralSymbol.allSymbolsDescending.forEach { symbol in
+        SubtractiveRomanNumeralSymbol.allSymbolsDescending.forEach { symbol in
             let symbolValue = symbol.rawValue
             
             if symbolValue <= remainingIntValue {
@@ -81,16 +81,16 @@ public struct SubtractiveNotationRomanNumeral {
             }
         }
         
-        let normalizedSymbols = symbols.map { $0.subtractiveNotationRomanNumeralSymbols }.flatMap { $0 }
+        let normalizedSymbols = symbols.map { $0.romanNumeralSymbols }.flatMap { $0 }
         
         return normalizedSymbols
     }
     
 }
 
-//MARK: - RomanNumeral Extension
+//MARK: - RomanNumeralProtocol Extension
 
-extension SubtractiveNotationRomanNumeral: RomanNumeral {
+extension RomanNumeral: RomanNumeralProtocol {
 
     //MARK: Public Initialization
     
@@ -105,35 +105,35 @@ extension SubtractiveNotationRomanNumeral: RomanNumeral {
         
         self.intValue = intValue
         
-        symbols = try SubtractiveNotationRomanNumeral.symbols(fromIntValue: intValue)
-        stringValue = SubtractiveNotationRomanNumeral.string(fromSymbols: symbols)
+        symbols = try RomanNumeral.symbols(fromIntValue: intValue)
+        stringValue = RomanNumeral.string(fromSymbols: symbols)
     }
     
     public init(symbols: [RomanNumeralSymbol]) throws {
         self.symbols = symbols
         
-        intValue = SubtractiveNotationRomanNumeral.intValue(fromSymbols: symbols)
-        stringValue = SubtractiveNotationRomanNumeral.string(fromSymbols: symbols)
+        intValue = RomanNumeral.intValue(fromSymbols: symbols)
+        stringValue = RomanNumeral.string(fromSymbols: symbols)
     }
     
 }
 
-//MARK: - SubtractiveNotationRomanNumeralConvertible Extension
+//MARK: - RomanNumeralConvertible Extension
 
-extension SubtractiveNotationRomanNumeral: SubtractiveNotationRomanNumeralConvertible {
+extension RomanNumeral: RomanNumeralConvertible {
     
-    public var subtractiveNotationRomanNumeral: SubtractiveNotationRomanNumeral? {
+    public var romanNumeral: RomanNumeral? {
         return self
     }
     
 }
 
 
-//MARK: - SubtractiveNotationRomanNumeralSymbolsConvertible Extension
+//MARK: - RomanNumeralSymbolsConvertible Extension
 
-extension SubtractiveNotationRomanNumeral: SubtractiveNotationRomanNumeralSymbolsConvertible {
+extension RomanNumeral: RomanNumeralSymbolsConvertible {
     
-    public var subtractiveNotationRomanNumeralSymbols: [RomanNumeralSymbol] {
+    public var romanNumeralSymbols: [RomanNumeralSymbol] {
         return symbols
     }
     
@@ -141,7 +141,7 @@ extension SubtractiveNotationRomanNumeral: SubtractiveNotationRomanNumeralSymbol
 
 //MARK: - BasicNotationRomanNumeralConvertible Extension
 
-extension SubtractiveNotationRomanNumeral: BasicNotationRomanNumeralConvertible {
+extension RomanNumeral: BasicNotationRomanNumeralConvertible {
     
     public var basicNotationRomanNumeral: BasicNotationRomanNumeral? {
         return try? BasicNotationRomanNumeral(intValue: intValue)
