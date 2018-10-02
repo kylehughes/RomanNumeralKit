@@ -16,8 +16,8 @@ Meaningful usage of this framework requires understanding what Roman numerals ar
 ```swift
 print(CDLIV + MMMCCCIII)                // Prints "MMMDCCLVII"
 print(CDLIV + MMMCCCIII == MMMDCCLVII)  // Prints "true"
-print((CDLIV + MMMCCCIII).intValue)     // Prints "3757"
-print(CDLIV + MMMCCCIII == 3757)        // Prints "true"
+print(MMMDCCLVII.intValue)              // Prints "3757"
+print(MMMDCCLVII == 3757)               // Prints "true"
 ```
 
 ### Basic Notation
@@ -72,6 +72,7 @@ public let DIII = try! RomanNumeral(intValue: 503)
 The only practical reason to manually instantiate a `RomanNumeralProtocol` is to do conversion from a type (e.g. `String`) (consider using a `*RomanNumeralConvertible` property instead). Otherwise, there are a fixed set of values and they are all provided as constants. Do as you please.
 
 There are two primary initializers that must be supplied by all `RomanNumeralProtocol`s:
+
 - `init(intValue: Int)`
 - `init(symbols: [RomanNumeralSymbol])`
 
@@ -86,6 +87,24 @@ let XIX = SubtractiveNotationRomanNumeral(intValue: 19)
 let XIX = SubtractiveNotationRomanNumeral(symbols: [.X, .I, .X])
 let XIX = SubtractiveNotationRomanNumeral(.X, .I, .X)
 let XIX = SubtractiveNotationRomanNumeral(from: "XIX")
+```
+
+## Examples
+
+```swift
+/**
+ Calendar Extensions
+ */
+
+if let currentYear = Calendar.current.currentYearAsRomanNumeral {
+    print(currentYear)          // Prints "MMXVIII"
+    print(currentYear.intValue) // Prints "2018"
+}
+
+if let americasBirthYear = Calendar.current.yearAsRomanNumeral(fromDate: americasBirthDate) {
+    print(americasBirthYear)            // Prints "MDCCLXXVI"
+    print(americasBirthYear.intValue)   // Prints "1776"
+}
 ```
 
 ## License
