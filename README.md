@@ -11,7 +11,7 @@ Meaningful usage of this framework requires understanding what Roman numerals ar
 
 ### Subtractive Notation
 
-#### Subtractive Notation Example
+#### Examples
 
 ```swift
 print(CDLIV + MMMCCCIII)                // Prints "MMMDCCLVII"
@@ -50,7 +50,7 @@ Constants have been provided for every Roman numeral from 1 to 3999 (i.e. all). 
 
 The constants are created as subtractive notation Roman numerals.
 
-##### Global Constants Definition Example
+##### Examples
 
 This is an example of how the constants are defined. All global constants are lazy by default so this does not effect startup time.
 
@@ -80,7 +80,7 @@ A variety of other initializers are provided for convenience.
 
 The protocols `RomanNumeralConvertible` and `BasicNotationRomanNumeralConvertible` are available for types that can transform themselves into `RomanNumeralProtocol`s. Extensions for `Foundation` classes (e.g. `Array`, `Int`, `String`) are provided.
 
-##### Manual Initialization Example
+##### Examples
 
 ```swift
 let XIX = SubtractiveNotationRomanNumeral(intValue: 19)
@@ -89,13 +89,15 @@ let XIX = SubtractiveNotationRomanNumeral(.X, .I, .X)
 let XIX = SubtractiveNotationRomanNumeral(from: "XIX")
 ```
 
-## Examples
+### Extensions
+
+#### Foundation Extensions
+
+##### `Calendar` Extensions
+
+###### Examples
 
 ```swift
-/**
- Calendar Extensions
- */
-
 if let currentYear = Calendar.current.currentYearAsRomanNumeral {
     print(currentYear)          // Prints "MMXVIII"
     print(currentYear.intValue) // Prints "2018"
@@ -107,6 +109,18 @@ if let americasBirthYear = Calendar.current.yearAsRomanNumeral(fromDate: america
 }
 ```
 
+### Copyright Text
+
+#### Examples
+
+```swift
+print(MDCCLXXVI.copyrightText)  // Prints "Copyright © MDCCLXXVI"
+
+if let currentYear = Calendar.current.currentYearAsRomanNumeral {
+    print(currentYear.copyrightText)  // Prints "Copyright © MMXVIII"
+}
+```
+
 ## License
 
 `RomanNumeralKit` is available under the MIT License.
@@ -115,7 +129,7 @@ if let americasBirthYear = Calendar.current.yearAsRomanNumeral(fromDate: america
 
 Kyle Hughes
 
-[![my twitter][1.1]][1]
+[![my twitter][social_twitter_image]][social_twitter_url]
 
-[1.1]: https://img.shields.io/badge/Twitter-@KyleHughes-blue.svg?style=flat-square
-[1]: https://www.twitter.com/KyleHughes
+[social_twitter_image]: https://img.shields.io/badge/Twitter-@KyleHughes-blue.svg?style=flat-square
+[social_twitter_url]: https://www.twitter.com/KyleHughes
