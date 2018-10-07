@@ -10,7 +10,7 @@ import Foundation
 
 extension Calendar {
     
-    //MARK: Public Properties
+    //MARK: Public Computed Properties
     
     public var currentYearAsRomanNumeral: RomanNumeral? {
         return yearAsRomanNumeral(fromDate: Date())

@@ -38,7 +38,7 @@ public protocol RomanNumeralProtocol:
     
 }
 
-//MARK: Public Extension
+//MARK: - Public Extension
 
 public extension RomanNumeralProtocol {
     
@@ -50,6 +50,12 @@ public extension RomanNumeralProtocol {
     
     public static var minimum: Self {
         return try! Self(intValue: minimumIntValue)
+    }
+    
+    //MARK: Public Computed Properties
+    
+    public var copyrightText: String {
+        return "Copyright © \(stringValue)"
     }
     
     //MARK: Public Initialization
@@ -85,13 +91,15 @@ extension RomanNumeralProtocol {
     
     //TODO: fix the places where I poorly avoid the intValue error by using minimum
     
-    static public func +(left: Self, right: Self) -> Self {
+    //MARK: Public Static Interface
+    
+    public static func +(left: Self, right: Self) -> Self {
         let intResult = left.intValue + right.intValue
         
         return (try? Self(intValue: intResult)) ?? .minimum
     }
     
-    static public func -(left: Self, right: Self) -> Self {
+    public static func -(left: Self, right: Self) -> Self {
         let greaterSymbol = (left < right) ? right : left
         let lesserSymbol = (left < right) ? left : right
         let intResult = greaterSymbol.intValue - lesserSymbol.intValue
@@ -105,7 +113,7 @@ extension RomanNumeralProtocol {
 
 extension RomanNumeralProtocol {
     
-    //MARK: Public Properties
+    //MARK: Public Computed Properties
     
     public var magnitude: Int {
         return intValue
@@ -172,7 +180,7 @@ extension RomanNumeralProtocol {
 
 extension RomanNumeralProtocol {
     
-    //MARK: Public Properties
+    //MARK: Public Computed Properties
     
     public var debugDescription: String {
         return stringValue
@@ -184,7 +192,7 @@ extension RomanNumeralProtocol {
 
 extension RomanNumeralProtocol {
     
-    //MARK: Public Properties
+    //MARK: Public Computed Properties
     
     public var description: String {
         return stringValue
