@@ -92,6 +92,7 @@ public struct RomanNumeral {
 
 extension RomanNumeral: RomanNumeralProtocol {
 
+
     //MARK: Public Initialization
     
     public init(intValue: Int) throws {
@@ -114,6 +115,14 @@ extension RomanNumeral: RomanNumeralProtocol {
         
         intValue = RomanNumeral.intValue(fromSymbols: symbols)
         stringValue = RomanNumeral.string(fromSymbols: symbols)
+    }
+    
+    //MARK: Public Static Interface
+    
+    public static func reduce(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol] {
+        //TODO: Implement
+        // Use SubtractiveRomanNumeralSymbol, same algo as Basic I guess after that
+        return []
     }
     
 }
@@ -147,4 +156,30 @@ extension RomanNumeral: BasicNotationRomanNumeralConvertible {
         return try? BasicNotationRomanNumeral(intValue: intValue)
     }
 
+}
+
+//MARK: - Operators Extension
+
+extension RomanNumeral {
+    
+    //TODO: fix the places where I poorly avoid the intValue error by using minimum
+    
+    //MARK: Public Static Interface
+    
+    public static func +(left: RomanNumeral, right: RomanNumeral) -> RomanNumeral {
+        //NOTE: Math is a super set of the algorithm for Basic, should find a way to reuse that. Just have to
+        // do subtractive substitutions before and after
+        let intResult = left.intValue + right.intValue
+
+        return (try? RomanNumeral(intValue: intResult)) ?? .minimum
+    }
+
+    public static func -(left: RomanNumeral, right: RomanNumeral) -> RomanNumeral {
+        let greaterSymbol = (left < right) ? right : left
+        let lesserSymbol = (left < right) ? left : right
+        let intResult = greaterSymbol.intValue - lesserSymbol.intValue
+
+        return (try? RomanNumeral(intValue: intResult)) ?? .minimum
+    }
+    
 }

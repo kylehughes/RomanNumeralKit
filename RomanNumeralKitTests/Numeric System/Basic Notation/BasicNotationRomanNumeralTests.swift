@@ -64,6 +64,8 @@ class BasicNotationRomanNumeralTests: XCTestCase {
         XCTAssert(xxvi.intValue == 26)
         XCTAssert(xxiv.intValue == 26)
         
+        XCTAssert(xxiv + xxiv == 52)
+        
         XCTAssert(mmdclxxxxi.intValue == 2691)
         XCTAssert(mmcdlxxxix.intValue == 2691)
     }

@@ -25,6 +25,10 @@ public protocol RomanNumeralProtocol:
     static var maximumIntValue: Int { get }
     static var minimumIntValue: Int { get }
     
+    //MARK: Static Interface
+    
+    static func reduce(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol]
+    
     //MARK: Properties
     
     var intValue: Int { get set }
@@ -93,19 +97,19 @@ extension RomanNumeralProtocol {
     
     //MARK: Public Static Interface
     
-    public static func +(left: Self, right: Self) -> Self {
-        let intResult = left.intValue + right.intValue
-        
-        return (try? Self(intValue: intResult)) ?? .minimum
-    }
-    
-    public static func -(left: Self, right: Self) -> Self {
-        let greaterSymbol = (left < right) ? right : left
-        let lesserSymbol = (left < right) ? left : right
-        let intResult = greaterSymbol.intValue - lesserSymbol.intValue
-        
-        return (try? Self(intValue: intResult)) ?? .minimum
-    }
+//    public static func +(left: Self, right: Self) -> Self {
+//        let intResult = left.intValue + right.intValue
+//
+//        return (try? Self(intValue: intResult)) ?? .minimum
+//    }
+//
+//    public static func -(left: Self, right: Self) -> Self {
+//        let greaterSymbol = (left < right) ? right : left
+//        let lesserSymbol = (left < right) ? left : right
+//        let intResult = greaterSymbol.intValue - lesserSymbol.intValue
+//
+//        return (try? Self(intValue: intResult)) ?? .minimum
+//    }
     
 }
 

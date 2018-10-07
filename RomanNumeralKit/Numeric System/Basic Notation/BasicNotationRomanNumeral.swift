@@ -81,6 +81,35 @@ extension BasicNotationRomanNumeral: RomanNumeralProtocol {
         stringValue = BasicNotationRomanNumeral.string(fromSymbols: symbols)
     }
     
+    //MARK: Public Static Interface
+    
+    public static func reduce(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol] {
+        let allSymbols = RomanNumeralSymbol.allSymbols
+        
+        guard let symbolIndex = allSymbols.firstIndex(of: symbol) else {
+            // The collection must be misconfigured for there to be a symbol miss
+            return []
+        }
+        
+        let nextHighestSymbolIndex = symbolIndex + 1
+        
+        guard nextHighestSymbolIndex < allSymbols.count else {
+            return Array(repeating: symbol, count: count)
+        }
+        
+        //TODO: Somehow avoid referencing intValue?
+        let nextHighestSymbol = allSymbols[nextHighestSymbolIndex]
+        let totalSymbolValue = symbol.rawValue * count
+        let nextHighestSymbolQuantity = totalSymbolValue / nextHighestSymbol.rawValue
+        let totalNextHighestSymbolValue = nextHighestSymbol.rawValue * nextHighestSymbolQuantity
+        let remainingSymbolValue = totalSymbolValue - totalNextHighestSymbolValue
+        let remainingSymbolQuanity = remainingSymbolValue / symbol.rawValue
+        let nextHighestSymbols = Array(repeating: nextHighestSymbol, count: nextHighestSymbolQuantity)
+        let remainingSymbols = Array(repeating: symbol, count: remainingSymbolQuanity)
+        
+        return nextHighestSymbols + remainingSymbols
+    }
+    
 }
 
 //MARK: - BasicNotationRomanNumeralSymbolsConvertible Extension
@@ -109,6 +138,51 @@ extension BasicNotationRomanNumeral: RomanNumeralConvertible {
     
     public var romanNumeral: RomanNumeral? {
         return try? RomanNumeral(intValue: intValue)
+    }
+    
+}
+
+//MARK: - Operators Extension
+
+extension BasicNotationRomanNumeral {
+    
+    //TODO: fix the places where I poorly avoid the intValue error by using minimum
+    
+    //MARK: Public Static Interface
+    
+    public static func +(left: BasicNotationRomanNumeral, right: BasicNotationRomanNumeral) -> BasicNotationRomanNumeral {
+        // Algorithm: http://turner.faculty.swau.edu/mathematics/materialslibrary/roman/
+        
+        let allSymbols = left.symbols + right.symbols
+        let allSymbolsDescending = allSymbols.sorted(by: >)
+        
+        // TODO: Fix this deviation on the algo, should go RTL, no filtering just track range
+        var allReducedSymbols = allSymbolsDescending
+        for symbol in RomanNumeralSymbol.allSymbols {
+            let allOfSymbol = allReducedSymbols.filter { $0 == symbol }
+            let reducedSymbols = BasicNotationRomanNumeral.reduce(symbol: symbol, ofCount: allOfSymbol.count)
+            
+            guard
+                let startIndexOfSymbol = allReducedSymbols.firstIndex(of: symbol),
+                let endIndexOfSymbol = allReducedSymbols.lastIndex(of: symbol) else
+            {
+                continue
+            }
+            
+            allReducedSymbols.replaceSubrange(startIndexOfSymbol...endIndexOfSymbol, with: reducedSymbols)
+        }
+        
+        return (try? BasicNotationRomanNumeral(symbols: allReducedSymbols)) ?? .minimum
+    }
+
+    public static func -(left: BasicNotationRomanNumeral, right: BasicNotationRomanNumeral) -> BasicNotationRomanNumeral {
+        // Algorithm: http://turner.faculty.swau.edu/mathematics/materialslibrary/roman/
+        
+        let greaterSymbol = (left < right) ? right : left
+        let lesserSymbol = (left < right) ? left : right
+        let intResult = greaterSymbol.intValue - lesserSymbol.intValue
+
+        return (try? BasicNotationRomanNumeral(intValue: intResult)) ?? .minimum
     }
     
 }
