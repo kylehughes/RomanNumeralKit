@@ -83,11 +83,36 @@ extension BasicNotationRomanNumeral: RomanNumeralProtocol {
     
     //MARK: Public Static Interface
     
-    public static func reduce(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol] {
+    /**
+     - Precondition: `symbols` must be in descending order.
+     */
+    public static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol] {
+        var condensedSymbols = symbols
+        
+        // TODO: Fix this deviation on the algo, should go RTL, no filtering just track range. This is inefficient.
+        for currentSymbol in RomanNumeralSymbol.allSymbols {
+            guard
+                let startIndexOfSymbol = condensedSymbols.firstIndex(of: currentSymbol),
+                let endIndexOfSymbol = condensedSymbols.lastIndex(of: currentSymbol) else
+            {
+                continue
+            }
+            
+            let currentSymbols = condensedSymbols.filter { $0 == currentSymbol }
+            let currentCondensedSymbols = BasicNotationRomanNumeral.condense(
+                symbol: currentSymbol,
+                ofCount: currentSymbols.count)
+            
+            condensedSymbols.replaceSubrange(startIndexOfSymbol...endIndexOfSymbol, with: currentCondensedSymbols)
+        }
+        
+        return condensedSymbols
+    }
+    
+    public static func condense(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol] {
         let allSymbols = RomanNumeralSymbol.allSymbols
         
         guard let symbolIndex = allSymbols.firstIndex(of: symbol) else {
-            // The collection must be misconfigured for there to be a symbol miss
             return []
         }
         
@@ -97,7 +122,7 @@ extension BasicNotationRomanNumeral: RomanNumeralProtocol {
             return Array(repeating: symbol, count: count)
         }
         
-        //TODO: Somehow avoid referencing intValue?
+        //TODO: Somehow avoid referencing intValue/rawValue?
         let nextHighestSymbol = allSymbols[nextHighestSymbolIndex]
         let totalSymbolValue = symbol.rawValue * count
         let nextHighestSymbolQuantity = totalSymbolValue / nextHighestSymbol.rawValue
@@ -153,26 +178,11 @@ extension BasicNotationRomanNumeral {
     public static func +(left: BasicNotationRomanNumeral, right: BasicNotationRomanNumeral) -> BasicNotationRomanNumeral {
         // Algorithm: http://turner.faculty.swau.edu/mathematics/materialslibrary/roman/
         
-        let allSymbols = left.symbols + right.symbols
-        let allSymbolsDescending = allSymbols.sorted(by: >)
+        let concatenatedSymbols = left.symbols + right.symbols
+        let descendingConcatenatedSymbols = concatenatedSymbols.sorted(by: >)
+        let condensedSymbols = BasicNotationRomanNumeral.condense(symbols: descendingConcatenatedSymbols)
         
-        // TODO: Fix this deviation on the algo, should go RTL, no filtering just track range
-        var allReducedSymbols = allSymbolsDescending
-        for symbol in RomanNumeralSymbol.allSymbols {
-            let allOfSymbol = allReducedSymbols.filter { $0 == symbol }
-            let reducedSymbols = BasicNotationRomanNumeral.reduce(symbol: symbol, ofCount: allOfSymbol.count)
-            
-            guard
-                let startIndexOfSymbol = allReducedSymbols.firstIndex(of: symbol),
-                let endIndexOfSymbol = allReducedSymbols.lastIndex(of: symbol) else
-            {
-                continue
-            }
-            
-            allReducedSymbols.replaceSubrange(startIndexOfSymbol...endIndexOfSymbol, with: reducedSymbols)
-        }
-        
-        return (try? BasicNotationRomanNumeral(symbols: allReducedSymbols)) ?? .minimum
+        return (try? BasicNotationRomanNumeral(symbols: condensedSymbols)) ?? .minimum
     }
 
     public static func -(left: BasicNotationRomanNumeral, right: BasicNotationRomanNumeral) -> BasicNotationRomanNumeral {

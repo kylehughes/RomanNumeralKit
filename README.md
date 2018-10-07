@@ -3,7 +3,7 @@
 [![CocoaPods](https://img.shields.io/cocoapods/v/RomanNumeralKit.svg)]()
 [![Build Status](https://travis-ci.org/kylehughes/RomanNumeralKit.svg?branch=mainline)](https://travis-ci.org/kylehughes/RomanNumeralKit)
 
-First-class Roman numeral support for Swift.
+First-class Roman numeral support for Swift. 
 
 ## Introduction
 

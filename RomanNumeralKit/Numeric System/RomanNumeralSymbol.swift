@@ -25,7 +25,7 @@ public enum RomanNumeralSymbol: Int {
     
     //MARK: Public Properties
     
-    var characterValue: Character {
+    public var characterValue: Character {
         switch self {
         case .I:
             return "I"

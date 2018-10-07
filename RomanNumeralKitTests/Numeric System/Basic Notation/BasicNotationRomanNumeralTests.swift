@@ -14,6 +14,8 @@ import XCTest
 
 @testable import RomanNumeralKit
 
+//MARK: - Initialization Tests
+
 class BasicNotationRomanNumeralTests: XCTestCase {
     
     //MARK: XCTestCase Implementation
@@ -26,7 +28,7 @@ class BasicNotationRomanNumeralTests: XCTestCase {
         super.tearDown()
     }
     
-    //MARK: Initialization Tests
+    //MARK: Tests
     
     func testInit_int() {
         // Given...
@@ -64,13 +66,17 @@ class BasicNotationRomanNumeralTests: XCTestCase {
         XCTAssert(xxvi.intValue == 26)
         XCTAssert(xxiv.intValue == 26)
         
-        XCTAssert(xxiv + xxiv == 52)
-        
         XCTAssert(mmdclxxxxi.intValue == 2691)
         XCTAssert(mmcdlxxxix.intValue == 2691)
     }
     
-    //MARK: Performance Tests
+}
+
+//MARK: - Initialization Performance Tests
+
+extension BasicNotationRomanNumeralTests {
+    
+    //MARK: Tests
     
     func test_perf_initializeEntireNumericalSpace_fromInt() {
         measure {
@@ -86,6 +92,22 @@ class BasicNotationRomanNumeralTests: XCTestCase {
         measure {
             allSymbolCollections.forEach { let _ = try! BasicNotationRomanNumeral(symbols: $0) }
         }
+    }
+    
+}
+
+//MARK: - Operators Tests
+
+extension BasicNotationRomanNumeralTests {
+    
+    //MARK: Tests
+    
+    func test_add() {
+        // Given...
+        
+        // Then...
+        
+        // When...
     }
     
 }

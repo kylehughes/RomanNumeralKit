@@ -58,11 +58,11 @@ public struct RomanNumeral {
     }
     
     private static func symbols(fromIntValue intValue: Int) throws -> [RomanNumeralSymbol] {
-        guard BasicNotationRomanNumeral.minimumIntValue <= intValue else {
+        guard RomanNumeral.minimumIntValue <= intValue else {
             throw RomanNumeralError.valueLessThanMinimum
         }
         
-        guard intValue <= BasicNotationRomanNumeral.maximumIntValue else {
+        guard intValue <= RomanNumeral.maximumIntValue else {
             throw RomanNumeralError.valueGreaterThanMaximum
         }
         
@@ -96,11 +96,11 @@ extension RomanNumeral: RomanNumeralProtocol {
     //MARK: Public Initialization
     
     public init(intValue: Int) throws {
-        guard BasicNotationRomanNumeral.minimumIntValue <= intValue else {
+        guard RomanNumeral.minimumIntValue <= intValue else {
             throw RomanNumeralError.valueLessThanMinimum
         }
         
-        guard intValue <= BasicNotationRomanNumeral.maximumIntValue else {
+        guard intValue <= RomanNumeral.maximumIntValue else {
             throw RomanNumeralError.valueGreaterThanMaximum
         }
         
@@ -119,9 +119,14 @@ extension RomanNumeral: RomanNumeralProtocol {
     
     //MARK: Public Static Interface
     
-    public static func reduce(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol] {
+    public static func condense(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol] {
         //TODO: Implement
         // Use SubtractiveRomanNumeralSymbol, same algo as Basic I guess after that
+        return []
+    }
+    
+    public static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol] {
+        //TODO: Implement
         return []
     }
     

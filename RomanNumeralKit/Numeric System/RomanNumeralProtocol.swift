@@ -27,7 +27,8 @@ public protocol RomanNumeralProtocol:
     
     //MARK: Static Interface
     
-    static func reduce(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol]
+    static func condense(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol]
+    static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol]
     
     //MARK: Properties
     
