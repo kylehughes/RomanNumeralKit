@@ -30,7 +30,7 @@ class BasicNotationRomanNumeralTests: XCTestCase {
     
     //MARK: Tests
     
-    func testInit_int() {
+    func test_init_fromInt() {
         // Given...
         
         let expectationMcmxcixSymbols: [RomanNumeralSymbol] = [.M, .M, .C, .C, .X, .X, .I] // 1999 for subtractive lol
@@ -45,7 +45,7 @@ class BasicNotationRomanNumeralTests: XCTestCase {
         XCTAssert(mcmxcix.symbols == expectationMcmxcixSymbols)
     }
     
-    func testInit_symbols() {
+    func test_init_fromSymbols() {
         // Given...
 
         
@@ -102,12 +102,29 @@ extension BasicNotationRomanNumeralTests {
     
     //MARK: Tests
     
-    func test_add() {
+    func test_add_success() {
         // Given...
+        
+        let ccclxviiii = try! BasicNotationRomanNumeral(symbols: [.C, .C, .C, .L, .X, .V, .I, .I, .I, .I]) // 369
+        let dcccxxxxxv = try! BasicNotationRomanNumeral(symbols: [.D, .C, .C, .C, .X, .X, .X, .X, .V]) // 845
+        let mccxiiii = try! BasicNotationRomanNumeral(symbols: [.M, .C, .C, .X, .I, .I, .I, .I]) // 1214
+        
+        // When...
         
         // Then...
         
+        XCTAssertEqual(ccclxviiii + dcccxxxxxv, mccxiiii) // 369 + 845 = 1214
+    }
+    
+    func test_add_overflow() {
+        // Given...
+        
+        let mmmdcccclxxxxviiii = try! BasicNotationRomanNumeral(symbols: [.M, .M, .M, .D, .C, .C, .C, .C, .L, .X, .X, .X, .X, .V, .I, .I, .I, .I]) // 3999
+        let ii = try! BasicNotationRomanNumeral(symbols: [.I, .I]) // 2
+        
         // When...
+        
+        // Then...
     }
     
 }

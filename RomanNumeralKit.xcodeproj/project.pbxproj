@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2740DF5B216AD64A00F31318 /* RomanNumeralNotationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2740DF5A216AD64A00F31318 /* RomanNumeralNotationProtocol.swift */; };
+		2740DF5D216AD9B700F31318 /* BasicRomanNumeralNotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2740DF5C216AD9B700F31318 /* BasicRomanNumeralNotation.swift */; };
 		27667FAA2084B37D00AB8A66 /* RomanNumeralKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27667FA02084B37D00AB8A66 /* RomanNumeralKit.framework */; };
 		27667FB12084B37D00AB8A66 /* RomanNumeralKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 27667FA32084B37D00AB8A66 /* RomanNumeralKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		27667FBD2084B3DE00AB8A66 /* RomanNumeralSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27667FBC2084B3DE00AB8A66 /* RomanNumeralSymbol.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2740DF5A216AD64A00F31318 /* RomanNumeralNotationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralNotationProtocol.swift; sourceTree = "<group>"; };
+		2740DF5C216AD9B700F31318 /* BasicRomanNumeralNotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRomanNumeralNotation.swift; sourceTree = "<group>"; };
 		27667FA02084B37D00AB8A66 /* RomanNumeralKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RomanNumeralKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27667FA32084B37D00AB8A66 /* RomanNumeralKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RomanNumeralKit.h; sourceTree = "<group>"; };
 		27667FA42084B37D00AB8A66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				27667FCF2084CDE000AB8A66 /* RomanNumeralError.swift */,
+				2740DF5A216AD64A00F31318 /* RomanNumeralNotationProtocol.swift */,
 				27F9DDAD2161C23400CC9903 /* RomanNumeralProtocol.swift */,
 				27667FBC2084B3DE00AB8A66 /* RomanNumeralSymbol.swift */,
 				27ED071F2161E0A500D3303A /* RomanNumeralSymbolError.swift */,
@@ -197,6 +202,7 @@
 				27F9DDA32161B00700CC9903 /* BasicNotationRomanNumeral.swift */,
 				27F9DDAF2161C60A00CC9903 /* BasicNotationRomanNumeralConvertible.swift */,
 				27F9DDA72161BEB700CC9903 /* BasicNotationRomanNumeralSymbolsConvertible.swift */,
+				2740DF5C216AD9B700F31318 /* BasicRomanNumeralNotation.swift */,
 			);
 			path = "Basic Notation";
 			sourceTree = "<group>";
@@ -366,7 +372,9 @@
 				27667FBD2084B3DE00AB8A66 /* RomanNumeralSymbol.swift in Sources */,
 				27F9DDA42161B00700CC9903 /* BasicNotationRomanNumeral.swift in Sources */,
 				27ED07202161E0A500D3303A /* RomanNumeralSymbolError.swift in Sources */,
+				2740DF5D216AD9B700F31318 /* BasicRomanNumeralNotation.swift in Sources */,
 				27F9DDB82161C7A200CC9903 /* RomanNumeral.swift in Sources */,
+				2740DF5B216AD64A00F31318 /* RomanNumeralNotationProtocol.swift in Sources */,
 				27F9DDB42161C6E200CC9903 /* RomanNumeralSymbolsConvertible.swift in Sources */,
 				2767EF0121632F99008B6F85 /* DateComponents+RomanNumeral.swift in Sources */,
 				27F9DDB62161C71600CC9903 /* String+SubtractiveNotationRomanNumeralSymbolsConvertible.swift in Sources */,

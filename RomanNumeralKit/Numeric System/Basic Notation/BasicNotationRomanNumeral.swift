@@ -89,7 +89,7 @@ extension BasicNotationRomanNumeral: RomanNumeralProtocol {
     public static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol] {
         var condensedSymbols = symbols
         
-        // TODO: Fix this deviation on the algo, should go RTL, no filtering just track range. This is inefficient.
+        //TODO: Fix this deviation on the algo, should go RTL, no filtering just track range. This is inefficient.
         for currentSymbol in RomanNumeralSymbol.allSymbols {
             guard
                 let startIndexOfSymbol = condensedSymbols.firstIndex(of: currentSymbol),
