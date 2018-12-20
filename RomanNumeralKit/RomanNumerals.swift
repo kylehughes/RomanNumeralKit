@@ -8,6 +8,8 @@
 
 import Foundation
 
+// swiftlint:disable file_length force_try identifier_name
+
 public let I = try! RomanNumeral(intValue: 1)
 public let II = try! RomanNumeral(intValue: 2)
 public let III = try! RomanNumeral(intValue: 3)

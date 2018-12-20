@@ -35,6 +35,7 @@
 		27F9DDB62161C71600CC9903 /* String+SubtractiveNotationRomanNumeralSymbolsConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDB52161C71600CC9903 /* String+SubtractiveNotationRomanNumeralSymbolsConvertible.swift */; };
 		27F9DDB82161C7A200CC9903 /* RomanNumeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDB72161C7A200CC9903 /* RomanNumeral.swift */; };
 		27F9DDBB2161D3AE00CC9903 /* RomanNumeralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDBA2161D3AE00CC9903 /* RomanNumeralConvertible.swift */; };
+		C68448B803B1C6EDD8411B95 /* libPods-RomanNumeralKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F93B16B47BDCFA59A781B71 /* libPods-RomanNumeralKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,9 @@
 		27F9DDB72161C7A200CC9903 /* RomanNumeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeral.swift; sourceTree = "<group>"; };
 		27F9DDBA2161D3AE00CC9903 /* RomanNumeralConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralConvertible.swift; sourceTree = "<group>"; };
 		27F9DDBE2161D51D00CC9903 /* RomanNumeralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralTests.swift; sourceTree = "<group>"; };
+		3C443681A2BFF2A251A8EC36 /* Pods-RomanNumeralKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RomanNumeralKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RomanNumeralKit/Pods-RomanNumeralKit.debug.xcconfig"; sourceTree = "<group>"; };
+		7F93B16B47BDCFA59A781B71 /* libPods-RomanNumeralKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RomanNumeralKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ADBDD9CB98E7E2A03CE7B30 /* Pods-RomanNumeralKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RomanNumeralKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-RomanNumeralKit/Pods-RomanNumeralKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C68448B803B1C6EDD8411B95 /* libPods-RomanNumeralKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,12 +105,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0909F00CBCC14A2CD50C89D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F93B16B47BDCFA59A781B71 /* libPods-RomanNumeralKit.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		27667F962084B37D00AB8A66 = {
 			isa = PBXGroup;
 			children = (
 				27667FA22084B37D00AB8A66 /* RomanNumeralKit */,
 				27667FAD2084B37D00AB8A66 /* RomanNumeralKitTests */,
 				27667FA12084B37D00AB8A66 /* Products */,
+				4CC190755AF801C5D79BA424 /* Pods */,
+				0909F00CBCC14A2CD50C89D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -233,6 +248,15 @@
 			path = "Subtractive Notation";
 			sourceTree = "<group>";
 		};
+		4CC190755AF801C5D79BA424 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3C443681A2BFF2A251A8EC36 /* Pods-RomanNumeralKit.debug.xcconfig */,
+				8ADBDD9CB98E7E2A03CE7B30 /* Pods-RomanNumeralKit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -251,10 +275,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27667FB42084B37D00AB8A66 /* Build configuration list for PBXNativeTarget "RomanNumeralKit" */;
 			buildPhases = (
+				37485393F98A964EC6A509EF /* [CP] Check Pods Manifest.lock */,
 				27667F9B2084B37D00AB8A66 /* Sources */,
 				27667F9C2084B37D00AB8A66 /* Frameworks */,
 				27667F9D2084B37D00AB8A66 /* Headers */,
 				27667F9E2084B37D00AB8A66 /* Resources */,
+				518972B9B390D01C8FA6C98F /* [CP] Copy Pods Resources */,
+				2716E57421CB1702004626E3 /* Run linter */,
 			);
 			buildRules = (
 			);
@@ -339,6 +366,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2716E57421CB1702004626E3 /* Run linter */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run linter";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		37485393F98A964EC6A509EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RomanNumeralKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		518972B9B390D01C8FA6C98F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RomanNumeralKit/Pods-RomanNumeralKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		27667F9B2084B37D00AB8A66 /* Sources */ = {
@@ -517,6 +598,7 @@
 		};
 		27667FB52084B37D00AB8A66 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C443681A2BFF2A251A8EC36 /* Pods-RomanNumeralKit.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -541,6 +623,7 @@
 		};
 		27667FB62084B37D00AB8A66 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8ADBDD9CB98E7E2A03CE7B30 /* Pods-RomanNumeralKit.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";

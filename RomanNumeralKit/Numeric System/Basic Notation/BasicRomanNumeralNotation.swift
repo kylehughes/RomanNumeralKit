@@ -8,6 +8,8 @@
 
 import Foundation
 
+// swiftlint:disable force_try identifier_name
+
 struct BasicRomanNumeralNotation {
     
     //MARK: Initialization

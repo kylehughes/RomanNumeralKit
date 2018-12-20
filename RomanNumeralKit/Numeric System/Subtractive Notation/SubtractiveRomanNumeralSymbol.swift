@@ -8,6 +8,8 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
+
 public enum SubtractiveRomanNumeralSymbol: Int {
     
     case I  = 1

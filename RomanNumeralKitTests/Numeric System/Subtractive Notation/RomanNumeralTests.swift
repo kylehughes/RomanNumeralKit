@@ -11,6 +11,8 @@ import XCTest
 
 @testable import RomanNumeralKit
 
+// swiftlint:disable force_try identifier_name
+
 class RomanNumeralTests: XCTestCase {
     
     //MARK: XCTestCase Implementation

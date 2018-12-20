@@ -8,6 +8,8 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
+
 /**
  Roman numeral symbols are a collection of letters from the Latin alphabet that are used to represent numbers in the
  numeric system of ancient Rome. Roman numerals employ seven symbols, each with a fixed integer value.

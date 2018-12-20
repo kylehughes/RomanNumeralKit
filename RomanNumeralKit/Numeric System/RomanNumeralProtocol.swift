@@ -9,6 +9,8 @@
 import Foundation
 import os
 
+// swiftlint:disable force_try identifier_name
+
 public protocol RomanNumeralProtocol:
     Comparable,
     CustomDebugStringConvertible,
