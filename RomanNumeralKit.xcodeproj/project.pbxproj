@@ -281,7 +281,7 @@
 				27667F9D2084B37D00AB8A66 /* Headers */,
 				27667F9E2084B37D00AB8A66 /* Resources */,
 				518972B9B390D01C8FA6C98F /* [CP] Copy Pods Resources */,
-				2716E57421CB1702004626E3 /* Run linter */,
+				2716E57421CB1702004626E3 /* Run Linter */,
 			);
 			buildRules = (
 			);
@@ -368,7 +368,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2716E57421CB1702004626E3 /* Run linter */ = {
+		2716E57421CB1702004626E3 /* Run Linter */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -377,14 +377,14 @@
 			);
 			inputPaths = (
 			);
-			name = "Run linter";
+			name = "Run Linter";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect --format\n";
 		};
 		37485393F98A964EC6A509EF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
