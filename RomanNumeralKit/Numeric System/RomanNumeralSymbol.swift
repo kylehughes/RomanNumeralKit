@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ Roman numeral symbols are a collection of letters from the Latin alphabet that are used to represent numbers in the
+ numeric system of ancient Rome. Roman numerals employ seven symbols, each with a fixed integer value.
+ */
 public enum RomanNumeralSymbol: Int {
     
     case I = 1
@@ -20,11 +24,21 @@ public enum RomanNumeralSymbol: Int {
     
     //MARK: Public Static Properties
     
-    public static let allSymbols: [RomanNumeralSymbol] = [.I, .V, .X, .L, .C, .D, .M]
-    public static let allSymbolsDescending: [RomanNumeralSymbol] = allSymbols.reversed()
+    /**
+     All of the Roman numeral symbols, represented in ascending order by integer value.
+     */
+    public static let allSymbolsAscending: [RomanNumeralSymbol] = [.I, .V, .X, .L, .C, .D, .M]
+    
+    /**
+     All of the Roman numeral symbols, represented in descending order by integer value.
+     */
+    public static let allSymbolsDescending: [RomanNumeralSymbol] = allSymbolsAscending.reversed()
     
     //MARK: Public Properties
     
+    /**
+     The `Character` representation of the the Latin letter representing the symbol.
+     */
     public var characterValue: Character {
         switch self {
         case .I:
@@ -47,7 +61,7 @@ public enum RomanNumeralSymbol: Int {
     //MARK: Initialization
     
     public init(from characterValue: Character) throws {
-        let potentialSymbol = RomanNumeralSymbol.allSymbols.filter { $0.characterValue == characterValue }.first
+        let potentialSymbol = RomanNumeralSymbol.allSymbolsAscending.filter { $0.characterValue == characterValue }.first
         guard let symbol = potentialSymbol else {
             throw RomanNumeralSymbolError.unrecognizedCharacter(character: characterValue)
         }

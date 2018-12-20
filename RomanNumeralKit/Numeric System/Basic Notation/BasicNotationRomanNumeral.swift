@@ -78,6 +78,15 @@ extension BasicNotationRomanNumeral: RomanNumeralProtocol {
         self.symbols = symbols
         
         intValue = BasicNotationRomanNumeral.intValue(fromSymbols: symbols)
+        
+        guard BasicNotationRomanNumeral.minimumIntValue <= intValue else {
+            throw RomanNumeralError.valueLessThanMinimum
+        }
+        
+        guard intValue <= BasicNotationRomanNumeral.maximumIntValue else {
+            throw RomanNumeralError.valueGreaterThanMaximum
+        }
+        
         stringValue = BasicNotationRomanNumeral.string(fromSymbols: symbols)
     }
     
@@ -90,7 +99,7 @@ extension BasicNotationRomanNumeral: RomanNumeralProtocol {
         var condensedSymbols = symbols
         
         //TODO: Fix this deviation on the algo, should go RTL, no filtering just track range. This is inefficient.
-        for currentSymbol in RomanNumeralSymbol.allSymbols {
+        for currentSymbol in RomanNumeralSymbol.allSymbolsAscending {
             guard
                 let startIndexOfSymbol = condensedSymbols.firstIndex(of: currentSymbol),
                 let endIndexOfSymbol = condensedSymbols.lastIndex(of: currentSymbol) else
@@ -110,7 +119,7 @@ extension BasicNotationRomanNumeral: RomanNumeralProtocol {
     }
     
     public static func condense(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol] {
-        let allSymbols = RomanNumeralSymbol.allSymbols
+        let allSymbols = RomanNumeralSymbol.allSymbolsAscending
         
         guard let symbolIndex = allSymbols.firstIndex(of: symbol) else {
             return []

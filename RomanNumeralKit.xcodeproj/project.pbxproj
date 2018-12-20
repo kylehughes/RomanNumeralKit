@@ -134,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				27667FB02084B37D00AB8A66 /* Info.plist */,
-				27667FBF2084B55A00AB8A66 /* Extensions */,
 				27667FBE2084B54F00AB8A66 /* Numeric System */,
 			);
 			path = RomanNumeralKitTests;
@@ -173,27 +172,12 @@
 			path = "Numeric System";
 			sourceTree = "<group>";
 		};
-		27667FBF2084B55A00AB8A66 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				2767EEFD21632B56008B6F85 /* Foundation */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		27667FD32084D11800AB8A66 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
 				27667FA32084B37D00AB8A66 /* RomanNumeralKit.h */,
 			);
 			path = Headers;
-			sourceTree = "<group>";
-		};
-		2767EEFD21632B56008B6F85 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Foundation;
 			sourceTree = "<group>";
 		};
 		27F9DDB12161C66F00CC9903 /* Basic Notation */ = {
@@ -546,7 +530,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = es.kylehugh.ios.RomanNumeralKit;
+				PRODUCT_BUNDLE_IDENTIFIER = es.kylehugh.RomanNumeralKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -570,7 +554,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = es.kylehugh.ios.RomanNumeralKit;
+				PRODUCT_BUNDLE_IDENTIFIER = es.kylehugh.RomanNumeralKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 4.2;

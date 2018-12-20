@@ -125,6 +125,68 @@ extension BasicNotationRomanNumeralTests {
         // When...
         
         // Then...
+        
+//        XCTAssertThrowsError(mmmdcccclxxxxviiii + ii) // 3999 + 2 = 4001 (invalid)
+    }
+    
+    func test_add_perf_100Iterations() {
+        // Given...
+        
+        let mmmdcccclxxxxviiii = try! BasicNotationRomanNumeral(symbols: [.M, .M, .M, .D, .C, .C, .C, .C, .L, .X, .X, .X, .X, .V, .I, .I, .I, .I]) // 3999
+        
+        // When...
+        
+        // Then...
+        
+        measure {
+            for _ in 1...100 {
+                _ = mmmdcccclxxxxviiii + mmmdcccclxxxxviiii
+            }
+        }
+    }
+    
+    func test_add_perf_100Iterations_intComparison() {
+        // Given...
+        
+        // When...
+        
+        // Then...
+        
+        measure {
+            for _ in 1...100 {
+                _ = 3999 + 3999
+            }
+        }
+    }
+    
+    func test_add_perf_10000Iterations() {
+        // Given...
+        
+        let mmmdcccclxxxxviiii = try! BasicNotationRomanNumeral(symbols: [.M, .M, .M, .D, .C, .C, .C, .C, .L, .X, .X, .X, .X, .V, .I, .I, .I, .I]) // 3999
+        
+        // When...
+        
+        // Then...
+        
+        measure {
+            for _ in 1...10000 {
+                _ = mmmdcccclxxxxviiii + mmmdcccclxxxxviiii
+            }
+        }
+    }
+    
+    func test_add_perf_10000Iterations_intComparison() {
+        // Given...
+        
+        // When...
+        
+        // Then...
+        
+        measure {
+            for _ in 1...10000 {
+                _ = 3999 + 3999
+            }
+        }
     }
     
 }

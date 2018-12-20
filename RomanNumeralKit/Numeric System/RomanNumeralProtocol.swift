@@ -15,7 +15,7 @@ public protocol RomanNumeralProtocol:
     CustomStringConvertible,
     ExpressibleByStringLiteral,
     Numeric
-    where
+where
     Self.IntegerLiteralType == Int,
     Self.Magnitude == Int
 {
