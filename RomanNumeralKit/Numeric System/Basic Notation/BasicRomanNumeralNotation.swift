@@ -36,32 +36,6 @@ extension BasicRomanNumeralNotation: RomanNumeralNotationProtocol {
 
     // MARK: Public Static Interface
 
-    public static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol] {
-        let orderedSymbols: [RomanNumeralSymbol] = symbols
-            .sorted()
-            .reversed()
-
-        // TODO: Fix this deviation on the algo, should go RTL, no filtering just track range. This is inefficient.
-        var condensedSymbols = orderedSymbols
-        for currentSymbol in RomanNumeralSymbol.allSymbolsAscending {
-            guard
-                let startIndexOfSymbol = condensedSymbols.firstIndex(of: currentSymbol),
-                let endIndexOfSymbol = condensedSymbols.lastIndex(of: currentSymbol)
-                else {
-                    continue
-            }
-
-            let currentSymbols = condensedSymbols.filter { $0 == currentSymbol }
-            let currentCondensedSymbols = BasicRomanNumeralNotation.condense(
-                symbol: currentSymbol,
-                ofCount: currentSymbols.count)
-
-            condensedSymbols.replaceSubrange(startIndexOfSymbol...endIndexOfSymbol, with: currentCondensedSymbols)
-        }
-
-        return condensedSymbols
-    }
-
     public static func condense(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol] {
         let allSymbols = RomanNumeralSymbol.allSymbolsAscending
 
@@ -86,6 +60,32 @@ extension BasicRomanNumeralNotation: RomanNumeralNotationProtocol {
         let remainingSymbols = Array(repeating: symbol, count: remainingSymbolQuanity)
 
         return nextHighestSymbols + remainingSymbols
+    }
+
+    public static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol] {
+        let orderedSymbols: [RomanNumeralSymbol] = symbols
+            .sorted()
+            .reversed()
+
+        // TODO: Fix this deviation on the algo, should go RTL, no filtering just track range. This is inefficient.
+        var condensedSymbols = orderedSymbols
+        for currentSymbol in RomanNumeralSymbol.allSymbolsAscending {
+            guard
+                let startIndexOfSymbol = condensedSymbols.firstIndex(of: currentSymbol),
+                let endIndexOfSymbol = condensedSymbols.lastIndex(of: currentSymbol)
+                else {
+                    continue
+            }
+
+            let currentSymbols = condensedSymbols.filter { $0 == currentSymbol }
+            let currentCondensedSymbols = BasicRomanNumeralNotation.condense(
+                symbol: currentSymbol,
+                ofCount: currentSymbols.count)
+
+            condensedSymbols.replaceSubrange(startIndexOfSymbol...endIndexOfSymbol, with: currentCondensedSymbols)
+        }
+
+        return condensedSymbols
     }
 
 }
