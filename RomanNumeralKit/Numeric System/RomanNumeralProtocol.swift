@@ -80,7 +80,6 @@ public extension RomanNumeralProtocol {
     public static func symbols(fromString string: String) throws -> [RomanNumeralSymbol] {
         return try string.map { try RomanNumeralSymbol(from: $0) }
     }
-
 }
 
 // MARK: - Operators Extension

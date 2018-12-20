@@ -60,6 +60,25 @@ public enum RomanNumeralSymbol: Int {
         }
     }
 
+    public var expanded: [RomanNumeralSymbol] {
+        switch self {
+        case .I:
+            return [.I]
+        case .V:
+            return [.I, .I, .I, .I, .I]
+        case .X:
+            return [.V, .V]
+        case .L:
+            return [.X, .X, .X, .X, .X]
+        case .C:
+            return [.L, .L]
+        case .D:
+            return [.C, .C, .C, .C, .C]
+        case .M:
+            return [.D, .D]
+        }
+    }
+
     // MARK: Initialization
 
     public init(from characterValue: Character) throws {

@@ -49,17 +49,18 @@ extension BasicRomanNumeralNotation: RomanNumeralNotationProtocol {
             return Array(repeating: symbol, count: count)
         }
 
-        //TODO: Somehow avoid referencing intValue/rawValue?
         let nextHighestSymbol = allSymbols[nextHighestSymbolIndex]
-        let totalSymbolValue = symbol.rawValue * count
-        let nextHighestSymbolQuantity = totalSymbolValue / nextHighestSymbol.rawValue
-        let totalNextHighestSymbolValue = nextHighestSymbol.rawValue * nextHighestSymbolQuantity
-        let remainingSymbolValue = totalSymbolValue - totalNextHighestSymbolValue
-        let remainingSymbolQuanity = remainingSymbolValue / symbol.rawValue
+        let nextHighestSymbolAsCurrentSymbols = nextHighestSymbol.expanded
+        let nextHighestSymbolQuantity = count / nextHighestSymbolAsCurrentSymbols.count
         let nextHighestSymbols = Array(repeating: nextHighestSymbol, count: nextHighestSymbolQuantity)
+        let condensedNextHighestSymbols = BasicRomanNumeralNotation.condense(
+            symbol: nextHighestSymbol,
+            ofCount: nextHighestSymbols.count)
+
+        let remainingSymbolQuanity = count % nextHighestSymbolAsCurrentSymbols.count
         let remainingSymbols = Array(repeating: symbol, count: remainingSymbolQuanity)
 
-        return nextHighestSymbols + remainingSymbols
+        return condensedNextHighestSymbols + remainingSymbols
     }
 
     public static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol] {

@@ -19,7 +19,7 @@ public enum RomanNumeralError: Error {
 
 extension RomanNumeralError: CustomStringConvertible {
 
-    //MARK: Public Properties
+    // MARK: Public Properties
 
     public var description: String {
         switch self {
@@ -36,7 +36,7 @@ extension RomanNumeralError: CustomStringConvertible {
 
 extension RomanNumeralError: LocalizedError {
 
-    //MARK: Public Properties
+    // MARK: Public Properties
 
     public var errorDescription: String? {
         return description
