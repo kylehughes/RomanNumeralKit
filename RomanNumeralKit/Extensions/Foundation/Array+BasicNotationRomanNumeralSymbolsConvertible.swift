@@ -14,8 +14,7 @@ import Foundation
 
 extension Array: BasicNotationRomanNumeralSymbolsConvertible,
     BasicNotationRomanNumeralConvertible
-    where
-Element == RomanNumeralSymbol {
+where Element == RomanNumeralSymbol {
 
     // MARK: Public Properties
 

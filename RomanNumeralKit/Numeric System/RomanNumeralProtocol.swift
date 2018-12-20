@@ -23,11 +23,6 @@ where Self.IntegerLiteralType == Int, Self.Magnitude == Int {
     static var maximumIntValue: Int { get }
     static var minimumIntValue: Int { get }
 
-    // MARK: Static Interface
-
-    static func condense(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol]
-    static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol]
-
     // MARK: Properties
 
     var intValue: Int { get set }

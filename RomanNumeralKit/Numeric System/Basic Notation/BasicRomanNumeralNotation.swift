@@ -37,9 +37,12 @@ extension BasicRomanNumeralNotation: RomanNumeralNotationProtocol {
     // MARK: Public Static Interface
 
     public static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol] {
-        var condensedSymbols = symbols
+        let orderedSymbols: [RomanNumeralSymbol] = symbols
+            .sorted()
+            .reversed()
 
         // TODO: Fix this deviation on the algo, should go RTL, no filtering just track range. This is inefficient.
+        var condensedSymbols = orderedSymbols
         for currentSymbol in RomanNumeralSymbol.allSymbolsAscending {
             guard
                 let startIndexOfSymbol = condensedSymbols.firstIndex(of: currentSymbol),
@@ -49,7 +52,7 @@ extension BasicRomanNumeralNotation: RomanNumeralNotationProtocol {
             }
 
             let currentSymbols = condensedSymbols.filter { $0 == currentSymbol }
-            let currentCondensedSymbols = BasicNotationRomanNumeral.condense(
+            let currentCondensedSymbols = BasicRomanNumeralNotation.condense(
                 symbol: currentSymbol,
                 ofCount: currentSymbols.count)
 
@@ -59,9 +62,7 @@ extension BasicRomanNumeralNotation: RomanNumeralNotationProtocol {
         return condensedSymbols
     }
 
-    // MARK: Private Static Interface
-
-    private static func condense(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol] {
+    public static func condense(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol] {
         let allSymbols = RomanNumeralSymbol.allSymbolsAscending
 
         guard let symbolIndex = allSymbols.firstIndex(of: symbol) else {

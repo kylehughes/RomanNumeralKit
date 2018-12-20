@@ -75,7 +75,15 @@ extension BasicNotationRomanNumeral: RomanNumeralProtocol {
     }
 
     public init(symbols: [RomanNumeralSymbol]) throws {
-        self.symbols = symbols
+        let sanitizedSymbols = BasicRomanNumeralNotation.condense(symbols: symbols)
+
+        try self.init(unsafeSymbols: sanitizedSymbols)
+    }
+
+    // MARK: Module Initialization
+
+    init(unsafeSymbols: [RomanNumeralSymbol]) throws {
+        symbols = unsafeSymbols
 
         intValue = BasicNotationRomanNumeral.intValue(fromSymbols: symbols)
 
@@ -88,60 +96,6 @@ extension BasicNotationRomanNumeral: RomanNumeralProtocol {
         }
 
         stringValue = BasicNotationRomanNumeral.string(fromSymbols: symbols)
-    }
-
-    // MARK: Public Static Interface
-
-    /**
-     - Precondition: `symbols` must be in descending order.
-     */
-    public static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol] {
-        var condensedSymbols = symbols
-
-        //TODO: Fix this deviation on the algo, should go RTL, no filtering just track range. This is inefficient.
-        for currentSymbol in RomanNumeralSymbol.allSymbolsAscending {
-            guard
-                let startIndexOfSymbol = condensedSymbols.firstIndex(of: currentSymbol),
-                let endIndexOfSymbol = condensedSymbols.lastIndex(of: currentSymbol) else
-            {
-                continue
-            }
-
-            let currentSymbols = condensedSymbols.filter { $0 == currentSymbol }
-            let currentCondensedSymbols = BasicNotationRomanNumeral.condense(
-                symbol: currentSymbol,
-                ofCount: currentSymbols.count)
-
-            condensedSymbols.replaceSubrange(startIndexOfSymbol...endIndexOfSymbol, with: currentCondensedSymbols)
-        }
-
-        return condensedSymbols
-    }
-
-    public static func condense(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol] {
-        let allSymbols = RomanNumeralSymbol.allSymbolsAscending
-
-        guard let symbolIndex = allSymbols.firstIndex(of: symbol) else {
-            return []
-        }
-
-        let nextHighestSymbolIndex = symbolIndex + 1
-
-        guard nextHighestSymbolIndex < allSymbols.count else {
-            return Array(repeating: symbol, count: count)
-        }
-
-        //TODO: Somehow avoid referencing intValue/rawValue?
-        let nextHighestSymbol = allSymbols[nextHighestSymbolIndex]
-        let totalSymbolValue = symbol.rawValue * count
-        let nextHighestSymbolQuantity = totalSymbolValue / nextHighestSymbol.rawValue
-        let totalNextHighestSymbolValue = nextHighestSymbol.rawValue * nextHighestSymbolQuantity
-        let remainingSymbolValue = totalSymbolValue - totalNextHighestSymbolValue
-        let remainingSymbolQuanity = remainingSymbolValue / symbol.rawValue
-        let nextHighestSymbols = Array(repeating: nextHighestSymbol, count: nextHighestSymbolQuantity)
-        let remainingSymbols = Array(repeating: symbol, count: remainingSymbolQuanity)
-
-        return nextHighestSymbols + remainingSymbols
     }
 
 }
@@ -171,7 +125,7 @@ extension BasicNotationRomanNumeral: BasicNotationRomanNumeralSymbolsConvertible
 extension BasicNotationRomanNumeral: RomanNumeralConvertible {
 
     public var romanNumeral: RomanNumeral? {
-        return try? RomanNumeral(intValue: intValue)
+        return try? RomanNumeral(symbols: symbols)
     }
 
 }
@@ -186,19 +140,35 @@ extension BasicNotationRomanNumeral {
 
     public static func + (
         left: BasicNotationRomanNumeral,
-        right: BasicNotationRomanNumeral) -> BasicNotationRomanNumeral {
+        right: BasicNotationRomanNumeral
+        ) -> BasicNotationRomanNumeral {
         // Algorithm: http://turner.faculty.swau.edu/mathematics/materialslibrary/roman/
 
         let concatenatedSymbols = left.symbols + right.symbols
         let descendingConcatenatedSymbols = concatenatedSymbols.sorted(by: >)
-        let condensedSymbols = BasicNotationRomanNumeral.condense(symbols: descendingConcatenatedSymbols)
+        let condensedSymbols = BasicRomanNumeralNotation.condense(symbols: descendingConcatenatedSymbols)
 
-        return (try? BasicNotationRomanNumeral(symbols: condensedSymbols)) ?? .minimum
+        let romanNumeral: BasicNotationRomanNumeral
+        do {
+            romanNumeral = try BasicNotationRomanNumeral(symbols: condensedSymbols)
+        } catch {
+            switch error {
+            case RomanNumeralError.valueLessThanMinimum:
+                romanNumeral = .minimum
+            case RomanNumeralError.valueGreaterThanMaximum:
+                romanNumeral = .maximum
+            default:
+                romanNumeral = .minimum
+            }
+        }
+
+        return romanNumeral
     }
 
     public static func - (
         left: BasicNotationRomanNumeral,
-        right: BasicNotationRomanNumeral) -> BasicNotationRomanNumeral {
+        right: BasicNotationRomanNumeral
+        ) -> BasicNotationRomanNumeral {
         // Algorithm: http://turner.faculty.swau.edu/mathematics/materialslibrary/roman/
 
         let greaterSymbol = (left < right) ? right : left
