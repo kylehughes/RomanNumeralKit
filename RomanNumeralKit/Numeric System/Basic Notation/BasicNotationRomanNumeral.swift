@@ -134,8 +134,6 @@ extension BasicNotationRomanNumeral: RomanNumeralConvertible {
 
 extension BasicNotationRomanNumeral {
 
-    //TODO: fix the places where I poorly avoid the intValue error by using minimum
-
     // MARK: Public Static Interface
 
     public static func + (
@@ -175,7 +173,21 @@ extension BasicNotationRomanNumeral {
         let lesserSymbol = (left < right) ? left : right
         let intResult = greaterSymbol.intValue - lesserSymbol.intValue
 
-        return (try? BasicNotationRomanNumeral(intValue: intResult)) ?? .minimum
+        let romanNumeral: BasicNotationRomanNumeral
+        do {
+            romanNumeral = try BasicNotationRomanNumeral(intValue: intResult)
+        } catch {
+            switch error {
+            case RomanNumeralError.valueLessThanMinimum:
+                romanNumeral = .minimum
+            case RomanNumeralError.valueGreaterThanMaximum:
+                romanNumeral = .maximum
+            default:
+                romanNumeral = .minimum
+            }
+        }
+
+        return romanNumeral
     }
 
 }
