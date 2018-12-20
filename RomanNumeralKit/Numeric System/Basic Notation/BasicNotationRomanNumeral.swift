@@ -27,6 +27,24 @@ public struct BasicNotationRomanNumeral {
         }
     }
 
+    // MARK: Module Initialization
+
+    init(unsafeSymbols: [RomanNumeralSymbol]) throws {
+        symbols = unsafeSymbols
+
+        intValue = BasicNotationRomanNumeral.intValue(fromSymbols: symbols)
+
+        guard BasicNotationRomanNumeral.minimumIntValue <= intValue else {
+            throw RomanNumeralError.valueLessThanMinimum
+        }
+
+        guard intValue <= BasicNotationRomanNumeral.maximumIntValue else {
+            throw RomanNumeralError.valueGreaterThanMaximum
+        }
+
+        stringValue = BasicNotationRomanNumeral.string(fromSymbols: symbols)
+    }
+
     // MARK: Private Static Interface
 
     private static func intValue(fromSymbols symbols: [RomanNumeralSymbol]) -> Int {
@@ -78,24 +96,6 @@ extension BasicNotationRomanNumeral: RomanNumeralProtocol {
         let sanitizedSymbols = BasicRomanNumeralNotation.condense(symbols: symbols)
 
         try self.init(unsafeSymbols: sanitizedSymbols)
-    }
-
-    // MARK: Module Initialization
-
-    init(unsafeSymbols: [RomanNumeralSymbol]) throws {
-        symbols = unsafeSymbols
-
-        intValue = BasicNotationRomanNumeral.intValue(fromSymbols: symbols)
-
-        guard BasicNotationRomanNumeral.minimumIntValue <= intValue else {
-            throw RomanNumeralError.valueLessThanMinimum
-        }
-
-        guard intValue <= BasicNotationRomanNumeral.maximumIntValue else {
-            throw RomanNumeralError.valueGreaterThanMaximum
-        }
-
-        stringValue = BasicNotationRomanNumeral.string(fromSymbols: symbols)
     }
 
 }
