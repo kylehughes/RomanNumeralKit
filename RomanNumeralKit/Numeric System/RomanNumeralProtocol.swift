@@ -9,133 +9,129 @@
 import Foundation
 import os
 
-// swiftlint:disable force_try identifier_name
+// swiftlint:disable force_try
 
-public protocol RomanNumeralProtocol:
-    Comparable,
+public protocol RomanNumeralProtocol: Comparable,
     CustomDebugStringConvertible,
     CustomStringConvertible,
     ExpressibleByStringLiteral,
     Numeric
-where
-    Self.IntegerLiteralType == Int,
-    Self.Magnitude == Int
-{
-    
-    //MARK: Static Properties
-    
+where Self.IntegerLiteralType == Int, Self.Magnitude == Int {
+
+    // MARK: Static Properties
+
     static var maximumIntValue: Int { get }
     static var minimumIntValue: Int { get }
-    
-    //MARK: Static Interface
-    
+
+    // MARK: Static Interface
+
     static func condense(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol]
     static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol]
-    
-    //MARK: Properties
-    
+
+    // MARK: Properties
+
     var intValue: Int { get set }
     var stringValue: String { get }
     var symbols: [RomanNumeralSymbol] { get }
-    
-    //MARK: Initialization
-    
+
+    // MARK: Initialization
+
     init(intValue: Int) throws
     init(symbols: [RomanNumeralSymbol]) throws
-    
+
 }
 
-//MARK: - Public Extension
+// MARK: - Public Extension
 
 public extension RomanNumeralProtocol {
-    
-    //MARK: Public Static Properties
-    
+
+    // MARK: Public Static Properties
+
     public static var maximum: Self {
         return try! Self(intValue: maximumIntValue)
     }
-    
+
     public static var minimum: Self {
         return try! Self(intValue: minimumIntValue)
     }
-    
-    //MARK: Public Computed Properties
-    
+
+    // MARK: Public Computed Properties
+
     public var copyrightText: String {
         return "Copyright © \(stringValue)"
     }
-    
-    //MARK: Public Initialization
-    
+
+    // MARK: Public Initialization
+
     public init(symbol: RomanNumeralSymbol) throws {
         try self.init(symbols: [symbol])
     }
-    
+
     public init(from string: String) throws {
         let symbols = try Self.symbols(fromString: string)
         try self.init(symbols: symbols)
     }
-    
+
     public init(_ symbols: RomanNumeralSymbol...) throws {
         try self.init(symbols: symbols)
     }
-    
-    //MARK: Public Static Interface
-    
+
+    // MARK: Public Static Interface
+
     public static func string(fromSymbols symbols: [RomanNumeralSymbol]) -> String {
         return symbols.reduce("") { $0.appending(String($1.characterValue)) }
     }
-    
+
     public static func symbols(fromString string: String) throws -> [RomanNumeralSymbol] {
         return try string.map { try RomanNumeralSymbol(from: $0) }
     }
-    
+
 }
 
-//MARK: - Operators Extension
+// MARK: - Operators Extension
 
 extension RomanNumeralProtocol {
-    
+
     //TODO: fix the places where I poorly avoid the intValue error by using minimum
-    
-    //MARK: Public Static Interface
-    
-//    public static func +(left: Self, right: Self) -> Self {
-//        let intResult = left.intValue + right.intValue
-//
-//        return (try? Self(intValue: intResult)) ?? .minimum
-//    }
-//
-//    public static func -(left: Self, right: Self) -> Self {
-//        let greaterSymbol = (left < right) ? right : left
-//        let lesserSymbol = (left < right) ? left : right
-//        let intResult = greaterSymbol.intValue - lesserSymbol.intValue
-//
-//        return (try? Self(intValue: intResult)) ?? .minimum
-//    }
-    
+
+    // MARK: Public Static Interface
+
+    //    public static func +(left: Self, right: Self) -> Self {
+    //        let intResult = left.intValue + right.intValue
+    //
+    //        return (try? Self(intValue: intResult)) ?? .minimum
+    //    }
+    //
+    //    public static func -(left: Self, right: Self) -> Self {
+    //        let greaterSymbol = (left < right) ? right : left
+    //        let lesserSymbol = (left < right) ? left : right
+    //        let intResult = greaterSymbol.intValue - lesserSymbol.intValue
+    //
+    //        return (try? Self(intValue: intResult)) ?? .minimum
+    //    }
+
 }
 
-//MARK: - Numeric Extension
+// MARK: - Numeric Extension
 
 extension RomanNumeralProtocol {
-    
-    //MARK: Public Computed Properties
-    
+
+    // MARK: Public Computed Properties
+
     public var magnitude: Int {
         return intValue
     }
-    
-    //MARK: Public Intiatialization
-    
-    public init?<T>(exactly source: T) where T : BinaryInteger {
+
+    // MARK: Public Intiatialization
+
+    public init?<T>(exactly source: T) where T: BinaryInteger {
         guard let intValue = Int(exactly: source) else {
             return nil
         }
-        
+
         try? self.init(intValue: intValue)
     }
-    
+
     public init(integerLiteral value: Int) {
         do {
             try self.init(intValue: value)
@@ -143,76 +139,76 @@ extension RomanNumeralProtocol {
             self = .minimum
         }
     }
-    
-    //MARK: Public Static Interface
-    
-    public static func -=(lhs: inout Self, rhs: Self) {
+
+    // MARK: Public Static Interface
+
+    public static func -= (lhs: inout Self, rhs: Self) {
         lhs.intValue -= rhs.intValue
     }
-    
-    public static func +=(lhs: inout Self, rhs: Self) {
+
+    public static func += (lhs: inout Self, rhs: Self) {
         lhs.intValue += rhs.intValue
     }
-    
-    public static func *(lhs: Self, rhs: Self) -> Self {
+
+    public static func * (lhs: Self, rhs: Self) -> Self {
         let resultIntValue = lhs.intValue * rhs.intValue
         let resultRomanNumeral = (try? Self(intValue: resultIntValue)) ?? .minimum
-        
+
         return resultRomanNumeral
     }
-    
-    public static func *=(lhs: inout Self, rhs: Self) {
+
+    public static func *= (lhs: inout Self, rhs: Self) {
         lhs.intValue *= rhs.intValue
     }
-    
+
 }
 
-//MARK: - Comparable Extension
+// MARK: - Comparable Extension
 
 extension RomanNumeralProtocol {
-    
-    //MARK: Public Static Interface
-    
-    public static func <(lhs: Self, rhs: Self) -> Bool {
+
+    // MARK: Public Static Interface
+
+    public static func < (lhs: Self, rhs: Self) -> Bool {
         return lhs.intValue < rhs.intValue
     }
-    
-    public static func ==(lhs: Self, rhs: Self) -> Bool {
+
+    public static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.intValue == rhs.intValue
     }
-    
+
 }
 
-//MARK: - CustomDebugStringConvertible Extension
+// MARK: - CustomDebugStringConvertible Extension
 
 extension RomanNumeralProtocol {
-    
-    //MARK: Public Computed Properties
-    
+
+    // MARK: Public Computed Properties
+
     public var debugDescription: String {
         return stringValue
     }
-    
+
 }
 
-//MARK: - CustomStringConvertible Extension
+// MARK: - CustomStringConvertible Extension
 
 extension RomanNumeralProtocol {
-    
-    //MARK: Public Computed Properties
-    
+
+    // MARK: Public Computed Properties
+
     public var description: String {
         return stringValue
     }
-    
+
 }
 
-//MARK: - ExpressibleByStringLiteral Extension
+// MARK: - ExpressibleByStringLiteral Extension
 
 extension RomanNumeralProtocol {
-    
-    //MARK: Public Initialization
-    
+
+    // MARK: Public Initialization
+
     public init(stringLiteral value: String) {
         do {
             try self.init(from: value)
@@ -221,9 +217,9 @@ extension RomanNumeralProtocol {
                    log: .default,
                    type: .error,
                    [value, error.localizedDescription])
-            
+
             self = .minimum
         }
     }
-    
+
 }

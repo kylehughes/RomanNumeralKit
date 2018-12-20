@@ -13,17 +13,15 @@ import Foundation
 // MARK: RomanNumeralConvertible Extension
 // MARK: where Element == RomanNumeralSymbol
 
-extension Array:
-    RomanNumeralSymbolsConvertible,
+extension Array: RomanNumeralSymbolsConvertible,
     RomanNumeralConvertible
     where
-    Element == RomanNumeralSymbol
-{
-    
-    //MARK: Public Properties
-    
+Element == RomanNumeralSymbol {
+
+    // MARK: Public Properties
+
     public var romanNumeralSymbols: [RomanNumeralSymbol] {
         return self
     }
-    
+
 }

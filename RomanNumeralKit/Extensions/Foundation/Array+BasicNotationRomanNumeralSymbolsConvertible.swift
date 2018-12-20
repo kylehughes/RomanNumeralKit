@@ -8,21 +8,19 @@
 
 import Foundation
 
-//MARK: -
-//MARK: BasicNotationRomanNumeralSymbolsConvertible Extension
-//MARK: BasicNotationRomanNumeralConvertible Extension
+// MARK: -
+// MARK: BasicNotationRomanNumeralSymbolsConvertible Extension
+// MARK: BasicNotationRomanNumeralConvertible Extension
 
-extension Array:
-    BasicNotationRomanNumeralSymbolsConvertible,
+extension Array: BasicNotationRomanNumeralSymbolsConvertible,
     BasicNotationRomanNumeralConvertible
     where
-    Element == RomanNumeralSymbol
-{
-    
-    //MARK: Public Properties
-    
+Element == RomanNumeralSymbol {
+
+    // MARK: Public Properties
+
     public var basicNotationRomanNumeralSymbols: [RomanNumeralSymbol] {
         return self
     }
-    
+
 }

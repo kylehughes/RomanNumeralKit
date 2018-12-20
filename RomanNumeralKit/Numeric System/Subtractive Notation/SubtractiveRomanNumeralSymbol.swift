@@ -11,7 +11,7 @@ import Foundation
 // swiftlint:disable identifier_name
 
 public enum SubtractiveRomanNumeralSymbol: Int {
-    
+
     case I  = 1
     case IV = 4
     case V  = 5
@@ -25,9 +25,9 @@ public enum SubtractiveRomanNumeralSymbol: Int {
     case D  = 500
     case CM = 900
     case M  = 1000
-    
-    //MARK: Public Static Properties
-    
+
+    // MARK: Public Static Properties
+
     public static let allSymbols: [SubtractiveRomanNumeralSymbol] = [
         .I,
         .IV,
@@ -43,25 +43,25 @@ public enum SubtractiveRomanNumeralSymbol: Int {
         .CM,
         .M
     ]
-    
+
     public static let allSymbolsDescending = allSymbols.reversed()
-    
+
 }
 
-//MARK: - Comparable Extension
+// MARK: - Comparable Extension
 
 extension SubtractiveRomanNumeralSymbol: Comparable {
-    
-    public static func <(lhs: SubtractiveRomanNumeralSymbol, rhs: SubtractiveRomanNumeralSymbol) -> Bool {
+
+    public static func < (lhs: SubtractiveRomanNumeralSymbol, rhs: SubtractiveRomanNumeralSymbol) -> Bool {
         return lhs.rawValue < rhs.rawValue
     }
-    
+
 }
 
-//MARK: - RomanNumeralSymbolsConvertible Extension {
+// MARK: - RomanNumeralSymbolsConvertible Extension {
 
 extension SubtractiveRomanNumeralSymbol: RomanNumeralSymbolsConvertible {
-    
+
     var romanNumeralSymbols: [RomanNumeralSymbol] {
         switch self {
         case .I:
@@ -92,5 +92,5 @@ extension SubtractiveRomanNumeralSymbol: RomanNumeralSymbolsConvertible {
             return [.M]
         }
     }
-    
+
 }

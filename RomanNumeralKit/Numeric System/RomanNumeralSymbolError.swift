@@ -9,7 +9,7 @@
 import Foundation
 
 public enum RomanNumeralSymbolError: Error {
-    
+
     case unrecognizedCharacter(character: Character)
-    
+
 }

@@ -13,23 +13,23 @@ import Foundation
  numeric system of ancient Rome.
  */
 public protocol RomanNumeralNotationProtocol {
-    
+
     associatedtype RomanNumeralType: RomanNumeralProtocol
-    
-    //MARK: Static Properties
-    
+
+    // MARK: Static Properties
+
     /**
      The maximum value that can be expressed with this notation.
      */
     static var maximum: RomanNumeralType { get }
-    
+
     /**
      The minimum value that can be expressed with this notation.
      */
     static var minimum: RomanNumeralType { get }
-    
-    //MARK: Static Interface
+
+    // MARK: Static Interface
 
     static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol]
-    
+
 }

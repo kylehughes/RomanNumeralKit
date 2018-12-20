@@ -12,31 +12,31 @@ import XCTest
 @testable import RomanNumeralKit
 
 class RomanNumeralProtocolTests: XCTestCase {
-    
-    //MARK: XCTestCase Implementation
-    
+
+    // MARK: XCTestCase Implementation
+
     override func setUp() {
         super.setUp()
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
-    
-    //MARK: Initialization Tests
-    
+
+    // MARK: Initialization Tests
+
     func testInit_string_errorInvalidCharacters() {
         // Given...
-        
+
         // When...
-        
+
         do {
-            let _ = try BasicNotationRomanNumeral(from: "MMCDLXXRIX")
+            _ = try BasicNotationRomanNumeral(from: "MMCDLXXRIX")
         } catch {
             //Then ...
-            
+
             XCTAssert(true)
         }
     }
-    
+
 }

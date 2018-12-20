@@ -9,8 +9,8 @@
 import Foundation
 
 public enum RomanNumeralError: Error {
-    
+
     case valueGreaterThanMaximum
     case valueLessThanMinimum
-    
+
 }
