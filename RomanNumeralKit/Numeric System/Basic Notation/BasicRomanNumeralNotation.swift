@@ -65,8 +65,7 @@ extension BasicRomanNumeralNotation: RomanNumeralNotationProtocol {
 
     public static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol] {
         let orderedSymbols: [RomanNumeralSymbol] = symbols
-            .sorted()
-            .reversed()
+            .sorted(by: >)
 
         // TODO: Fix this deviation on the algo, should go RTL, no filtering just track range. This is inefficient.
         var condensedSymbols = orderedSymbols

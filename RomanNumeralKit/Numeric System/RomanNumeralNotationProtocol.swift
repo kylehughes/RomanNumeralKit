@@ -34,3 +34,23 @@ public protocol RomanNumeralNotationProtocol {
     static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol]
 
 }
+
+// MARK: - Public Extension
+
+extension RomanNumeralNotationProtocol {
+
+    public static func clamp(value: RomanNumeralType) -> RomanNumeralType {
+        let clampedValue: RomanNumeralType
+
+        if value < minimum {
+            clampedValue = minimum
+        } else if maximum < value {
+            clampedValue = maximum
+        } else {
+            clampedValue = value
+        }
+
+        return clampedValue
+    }
+
+}

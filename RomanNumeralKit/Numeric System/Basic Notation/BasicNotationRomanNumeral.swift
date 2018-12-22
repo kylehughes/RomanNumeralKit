@@ -143,8 +143,7 @@ extension BasicNotationRomanNumeral {
         // Algorithm: http://turner.faculty.swau.edu/mathematics/materialslibrary/roman/
 
         let concatenatedSymbols = left.symbols + right.symbols
-        let descendingConcatenatedSymbols = concatenatedSymbols.sorted(by: >)
-        let condensedSymbols = BasicRomanNumeralNotation.condense(symbols: descendingConcatenatedSymbols)
+        let condensedSymbols = BasicRomanNumeralNotation.condense(symbols: concatenatedSymbols)
 
         let romanNumeral: BasicNotationRomanNumeral
         do {
