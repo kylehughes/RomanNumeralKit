@@ -75,23 +75,4 @@ class RomanNumeralTests: XCTestCase {
         XCTAssert(MMCDLXXXIX.intValue == 2489)
     }
 
-    // MARK: Performance Tests
-
-    func test_perf_initializeEntireNumericalSpace_fromInt() {
-        measure {
-            for i in RomanNumeral.minimumIntValue...RomanNumeral.maximumIntValue {
-                _ = try! RomanNumeral(intValue: i)
-            }
-        }
-    }
-
-    func test_perf_initializeEntireNumericalSpace_fromSymbols() {
-        let allSymbolCollections = (RomanNumeral.minimumIntValue...RomanNumeral.maximumIntValue)
-            .map { try! RomanNumeral(intValue: $0).symbols }
-
-        measure {
-            allSymbolCollections.forEach { _ = try! RomanNumeral(symbols: $0) }
-        }
-    }
-
 }

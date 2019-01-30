@@ -14,9 +14,7 @@ import os
 public protocol RomanNumeralProtocol: Comparable,
     CustomDebugStringConvertible,
     CustomStringConvertible,
-    ExpressibleByStringLiteral,
-    Numeric
-where Self.IntegerLiteralType == Int, Self.Magnitude == Int {
+ExpressibleByStringLiteral {
 
     // MARK: Static Properties
 
@@ -25,7 +23,7 @@ where Self.IntegerLiteralType == Int, Self.Magnitude == Int {
 
     // MARK: Properties
 
-    var intValue: Int { get set }
+    var intValue: Int { get }
     var stringValue: String { get }
     var symbols: [RomanNumeralSymbol] { get }
 
@@ -132,27 +130,6 @@ extension RomanNumeralProtocol {
         } catch {
             self = .minimum
         }
-    }
-
-    // MARK: Public Static Interface
-
-    public static func -= (lhs: inout Self, rhs: Self) {
-        lhs.intValue -= rhs.intValue
-    }
-
-    public static func += (lhs: inout Self, rhs: Self) {
-        lhs.intValue += rhs.intValue
-    }
-
-    public static func * (lhs: Self, rhs: Self) -> Self {
-        let resultIntValue = lhs.intValue * rhs.intValue
-        let resultRomanNumeral = (try? Self(intValue: resultIntValue)) ?? .minimum
-
-        return resultRomanNumeral
-    }
-
-    public static func *= (lhs: inout Self, rhs: Self) {
-        lhs.intValue *= rhs.intValue
     }
 
 }

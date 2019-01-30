@@ -104,3 +104,23 @@ extension RomanNumeralSymbol: Comparable {
     }
 
 }
+
+// MARK: - CustomStringConvertible Extension
+
+extension RomanNumeralSymbol: CustomStringConvertible {
+
+    public var description: String {
+        return String(characterValue)
+    }
+
+}
+
+// MARK: - CustomDebugStringConvertible Extension
+
+extension RomanNumeralSymbol: CustomDebugStringConvertible {
+
+    public var debugDescription: String {
+        return description
+    }
+
+}

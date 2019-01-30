@@ -17,20 +17,14 @@ public struct BasicNotationRomanNumeral {
 
     // MARK: Public Properties
 
+    public private(set) var intValue: Int
     public private(set) var stringValue: String
     public private(set) var symbols: [RomanNumeralSymbol]
 
-    public var intValue: Int {
-        didSet {
-            symbols = BasicNotationRomanNumeral.symbols(fromIntValue: intValue)
-            stringValue = BasicNotationRomanNumeral.string(fromSymbols: symbols)
-        }
-    }
-
     // MARK: Module Initialization
 
-    init(unsafeSymbols: [RomanNumeralSymbol]) throws {
-        symbols = unsafeSymbols
+    init(sortedSymbols: [RomanNumeralSymbol]) throws {
+        symbols = sortedSymbols
 
         intValue = BasicNotationRomanNumeral.intValue(fromSymbols: symbols)
 
@@ -95,7 +89,7 @@ extension BasicNotationRomanNumeral: RomanNumeralProtocol {
     public init(symbols: [RomanNumeralSymbol]) throws {
         let sanitizedSymbols = BasicRomanNumeralNotation.condense(symbols: symbols)
 
-        try self.init(unsafeSymbols: sanitizedSymbols)
+        try self.init(sortedSymbols: sanitizedSymbols)
     }
 
 }

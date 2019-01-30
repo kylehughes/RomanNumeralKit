@@ -30,6 +30,8 @@ public protocol RomanNumeralNotationProtocol {
 
     // MARK: Static Interface
 
+    // TODO: Throw errors from these functions
+
     static func condense(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol]
     static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol]
 

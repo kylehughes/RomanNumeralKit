@@ -27,11 +27,11 @@ extension BasicRomanNumeralNotation: RomanNumeralNotationProtocol {
     // MARK: Public Static Properties
 
     public static var maximum: BasicNotationRomanNumeral {
-        return try! BasicNotationRomanNumeral(unsafeSymbols: [.M, .M, .M, .C, .M, .X, .C, .I, .X])
+        return try! BasicNotationRomanNumeral(sortedSymbols: [.M, .M, .M, .C, .M, .X, .C, .I, .X])
     }
 
     public static var minimum: BasicNotationRomanNumeral {
-        return try! BasicNotationRomanNumeral(unsafeSymbols: [.I])
+        return try! BasicNotationRomanNumeral(sortedSymbols: [.I])
     }
 
     // MARK: Public Static Interface

@@ -17,6 +17,7 @@
 		2767EEFF21632CB4008B6F85 /* RomanNumerals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2767EEFE21632CB4008B6F85 /* RomanNumerals.swift */; };
 		2767EF0121632F99008B6F85 /* DateComponents+RomanNumeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2767EF0021632F99008B6F85 /* DateComponents+RomanNumeral.swift */; };
 		2767EF032163305A008B6F85 /* Calendar+RomanNumeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2767EF022163305A008B6F85 /* Calendar+RomanNumeral.swift */; };
+		2774ACF322018C2E00084A1B /* BasicRomanNumeralNotationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2774ACF222018C2E00084A1B /* BasicRomanNumeralNotationTests.swift */; };
 		2783664B208ADB06001D131B /* BasicNotationRomanNumeralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783664A208ADB06001D131B /* BasicNotationRomanNumeralTests.swift */; };
 		27ED07162161D7CB00D3303A /* RomanNumeralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDBE2161D51D00CC9903 /* RomanNumeralTests.swift */; };
 		27ED071A2161D98800D3303A /* RomanNumeralProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ED07182161D98200D3303A /* RomanNumeralProtocolTests.swift */; };
@@ -62,6 +63,7 @@
 		2767EEFE21632CB4008B6F85 /* RomanNumerals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumerals.swift; sourceTree = "<group>"; };
 		2767EF0021632F99008B6F85 /* DateComponents+RomanNumeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateComponents+RomanNumeral.swift"; sourceTree = "<group>"; };
 		2767EF022163305A008B6F85 /* Calendar+RomanNumeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+RomanNumeral.swift"; sourceTree = "<group>"; };
+		2774ACF222018C2E00084A1B /* BasicRomanNumeralNotationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRomanNumeralNotationTests.swift; sourceTree = "<group>"; };
 		2783664A208ADB06001D131B /* BasicNotationRomanNumeralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNotationRomanNumeralTests.swift; sourceTree = "<group>"; };
 		27ED07182161D98200D3303A /* RomanNumeralProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralProtocolTests.swift; sourceTree = "<group>"; };
 		27ED071B2161DA2D00D3303A /* Array+SubtractiveNotationRomanNumeralSymbolsConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SubtractiveNotationRomanNumeralSymbolsConvertible.swift"; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				2783664A208ADB06001D131B /* BasicNotationRomanNumeralTests.swift */,
+				2774ACF222018C2E00084A1B /* BasicRomanNumeralNotationTests.swift */,
 			);
 			path = "Basic Notation";
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				27667FC22084B57A00AB8A66 /* RomanNumeralSymbolTests.swift in Sources */,
 				27ED071A2161D98800D3303A /* RomanNumeralProtocolTests.swift in Sources */,
 				27ED07162161D7CB00D3303A /* RomanNumeralTests.swift in Sources */,
+				2774ACF322018C2E00084A1B /* BasicRomanNumeralNotationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
