@@ -9,19 +9,19 @@
 import Foundation
 
 protocol RomanNumeralSymbolsConvertible: RomanNumeralConvertible {
-    
-    //MARK: Properties
-    
+
+    // MARK: Properties
+
     var romanNumeralSymbols: [RomanNumeralSymbol] { get }
-    
+
 }
 
-//MARK: - RomanNumeralConvertible Extension
+// MARK: - RomanNumeralConvertible Extension
 
 extension RomanNumeralSymbolsConvertible {
-    
+
     var romanNumeral: RomanNumeral? {
         return try? RomanNumeral(symbols: romanNumeralSymbols)
     }
-    
+
 }

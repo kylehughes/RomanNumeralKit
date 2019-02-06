@@ -9,21 +9,21 @@
 import Foundation
 
 public protocol BasicNotationRomanNumeralSymbolsConvertible: BasicNotationRomanNumeralConvertible {
-    
-    //MARK: Properties
-    
+
+    // MARK: Properties
+
     var basicNotationRomanNumeralSymbols: [RomanNumeralSymbol] { get }
-    
+
 }
 
-//MARK: - BasicNotationConvertible Extension
+// MARK: - BasicNotationConvertible Extension
 
 extension BasicNotationRomanNumeralSymbolsConvertible {
-    
-    //MARK: Public Properties
-    
+
+    // MARK: Public Properties
+
     public var basicNotationRomanNumeral: BasicNotationRomanNumeral? {
         return try? BasicNotationRomanNumeral(symbols: basicNotationRomanNumeralSymbols)
     }
-    
+
 }

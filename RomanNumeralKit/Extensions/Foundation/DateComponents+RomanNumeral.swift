@@ -9,15 +9,15 @@
 import Foundation
 
 extension DateComponents {
-    
-    //MARK: Public Properties
-    
+
+    // MARK: Public Properties
+
     public var yearAsRomanNumeral: RomanNumeral? {
         guard let year = year else {
             return nil
         }
-        
+
         return try? RomanNumeral(intValue: year)
     }
-    
+
 }

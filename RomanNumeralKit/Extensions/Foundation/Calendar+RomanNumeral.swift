@@ -9,19 +9,19 @@
 import Foundation
 
 extension Calendar {
-    
-    //MARK: Public Computed Properties
-    
+
+    // MARK: Public Computed Properties
+
     public var currentYearAsRomanNumeral: RomanNumeral? {
         return yearAsRomanNumeral(fromDate: Date())
     }
-    
-    //MARK: Public Interface
-    
+
+    // MARK: Public Interface
+
     public func yearAsRomanNumeral(fromDate date: Date) -> RomanNumeral? {
         let dateComponents = self.dateComponents([.year], from: date)
-        
+
         return dateComponents.yearAsRomanNumeral
     }
-    
+
 }

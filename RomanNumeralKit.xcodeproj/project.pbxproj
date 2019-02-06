@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2740DF5B216AD64A00F31318 /* RomanNumeralNotationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2740DF5A216AD64A00F31318 /* RomanNumeralNotationProtocol.swift */; };
+		2740DF5D216AD9B700F31318 /* BasicRomanNumeralNotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2740DF5C216AD9B700F31318 /* BasicRomanNumeralNotation.swift */; };
 		27667FAA2084B37D00AB8A66 /* RomanNumeralKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27667FA02084B37D00AB8A66 /* RomanNumeralKit.framework */; };
 		27667FB12084B37D00AB8A66 /* RomanNumeralKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 27667FA32084B37D00AB8A66 /* RomanNumeralKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		27667FBD2084B3DE00AB8A66 /* RomanNumeralSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27667FBC2084B3DE00AB8A66 /* RomanNumeralSymbol.swift */; };
@@ -15,6 +17,7 @@
 		2767EEFF21632CB4008B6F85 /* RomanNumerals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2767EEFE21632CB4008B6F85 /* RomanNumerals.swift */; };
 		2767EF0121632F99008B6F85 /* DateComponents+RomanNumeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2767EF0021632F99008B6F85 /* DateComponents+RomanNumeral.swift */; };
 		2767EF032163305A008B6F85 /* Calendar+RomanNumeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2767EF022163305A008B6F85 /* Calendar+RomanNumeral.swift */; };
+		2774ACF322018C2E00084A1B /* BasicRomanNumeralNotationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2774ACF222018C2E00084A1B /* BasicRomanNumeralNotationTests.swift */; };
 		2783664B208ADB06001D131B /* BasicNotationRomanNumeralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783664A208ADB06001D131B /* BasicNotationRomanNumeralTests.swift */; };
 		27ED07162161D7CB00D3303A /* RomanNumeralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDBE2161D51D00CC9903 /* RomanNumeralTests.swift */; };
 		27ED071A2161D98800D3303A /* RomanNumeralProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ED07182161D98200D3303A /* RomanNumeralProtocolTests.swift */; };
@@ -33,6 +36,7 @@
 		27F9DDB62161C71600CC9903 /* String+SubtractiveNotationRomanNumeralSymbolsConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDB52161C71600CC9903 /* String+SubtractiveNotationRomanNumeralSymbolsConvertible.swift */; };
 		27F9DDB82161C7A200CC9903 /* RomanNumeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDB72161C7A200CC9903 /* RomanNumeral.swift */; };
 		27F9DDBB2161D3AE00CC9903 /* RomanNumeralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDBA2161D3AE00CC9903 /* RomanNumeralConvertible.swift */; };
+		C68448B803B1C6EDD8411B95 /* libPods-RomanNumeralKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F93B16B47BDCFA59A781B71 /* libPods-RomanNumeralKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2740DF5A216AD64A00F31318 /* RomanNumeralNotationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralNotationProtocol.swift; sourceTree = "<group>"; };
+		2740DF5C216AD9B700F31318 /* BasicRomanNumeralNotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRomanNumeralNotation.swift; sourceTree = "<group>"; };
 		27667FA02084B37D00AB8A66 /* RomanNumeralKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RomanNumeralKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27667FA32084B37D00AB8A66 /* RomanNumeralKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RomanNumeralKit.h; sourceTree = "<group>"; };
 		27667FA42084B37D00AB8A66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +63,7 @@
 		2767EEFE21632CB4008B6F85 /* RomanNumerals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumerals.swift; sourceTree = "<group>"; };
 		2767EF0021632F99008B6F85 /* DateComponents+RomanNumeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateComponents+RomanNumeral.swift"; sourceTree = "<group>"; };
 		2767EF022163305A008B6F85 /* Calendar+RomanNumeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+RomanNumeral.swift"; sourceTree = "<group>"; };
+		2774ACF222018C2E00084A1B /* BasicRomanNumeralNotationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRomanNumeralNotationTests.swift; sourceTree = "<group>"; };
 		2783664A208ADB06001D131B /* BasicNotationRomanNumeralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNotationRomanNumeralTests.swift; sourceTree = "<group>"; };
 		27ED07182161D98200D3303A /* RomanNumeralProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralProtocolTests.swift; sourceTree = "<group>"; };
 		27ED071B2161DA2D00D3303A /* Array+SubtractiveNotationRomanNumeralSymbolsConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SubtractiveNotationRomanNumeralSymbolsConvertible.swift"; sourceTree = "<group>"; };
@@ -75,6 +82,9 @@
 		27F9DDB72161C7A200CC9903 /* RomanNumeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeral.swift; sourceTree = "<group>"; };
 		27F9DDBA2161D3AE00CC9903 /* RomanNumeralConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralConvertible.swift; sourceTree = "<group>"; };
 		27F9DDBE2161D51D00CC9903 /* RomanNumeralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralTests.swift; sourceTree = "<group>"; };
+		3C443681A2BFF2A251A8EC36 /* Pods-RomanNumeralKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RomanNumeralKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RomanNumeralKit/Pods-RomanNumeralKit.debug.xcconfig"; sourceTree = "<group>"; };
+		7F93B16B47BDCFA59A781B71 /* libPods-RomanNumeralKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RomanNumeralKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ADBDD9CB98E7E2A03CE7B30 /* Pods-RomanNumeralKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RomanNumeralKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-RomanNumeralKit/Pods-RomanNumeralKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C68448B803B1C6EDD8411B95 /* libPods-RomanNumeralKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,12 +107,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0909F00CBCC14A2CD50C89D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F93B16B47BDCFA59A781B71 /* libPods-RomanNumeralKit.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		27667F962084B37D00AB8A66 = {
 			isa = PBXGroup;
 			children = (
 				27667FA22084B37D00AB8A66 /* RomanNumeralKit */,
 				27667FAD2084B37D00AB8A66 /* RomanNumeralKitTests */,
 				27667FA12084B37D00AB8A66 /* Products */,
+				4CC190755AF801C5D79BA424 /* Pods */,
+				0909F00CBCC14A2CD50C89D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				27667FB02084B37D00AB8A66 /* Info.plist */,
-				27667FBF2084B55A00AB8A66 /* Extensions */,
 				27667FBE2084B54F00AB8A66 /* Numeric System */,
 			);
 			path = RomanNumeralKitTests;
@@ -148,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				27667FCF2084CDE000AB8A66 /* RomanNumeralError.swift */,
+				2740DF5A216AD64A00F31318 /* RomanNumeralNotationProtocol.swift */,
 				27F9DDAD2161C23400CC9903 /* RomanNumeralProtocol.swift */,
 				27667FBC2084B3DE00AB8A66 /* RomanNumeralSymbol.swift */,
 				27ED071F2161E0A500D3303A /* RomanNumeralSymbolError.swift */,
@@ -168,14 +189,6 @@
 			path = "Numeric System";
 			sourceTree = "<group>";
 		};
-		27667FBF2084B55A00AB8A66 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				2767EEFD21632B56008B6F85 /* Foundation */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		27667FD32084D11800AB8A66 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,19 +197,13 @@
 			path = Headers;
 			sourceTree = "<group>";
 		};
-		2767EEFD21632B56008B6F85 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
 		27F9DDB12161C66F00CC9903 /* Basic Notation */ = {
 			isa = PBXGroup;
 			children = (
 				27F9DDA32161B00700CC9903 /* BasicNotationRomanNumeral.swift */,
 				27F9DDAF2161C60A00CC9903 /* BasicNotationRomanNumeralConvertible.swift */,
 				27F9DDA72161BEB700CC9903 /* BasicNotationRomanNumeralSymbolsConvertible.swift */,
+				2740DF5C216AD9B700F31318 /* BasicRomanNumeralNotation.swift */,
 			);
 			path = "Basic Notation";
 			sourceTree = "<group>";
@@ -231,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				2783664A208ADB06001D131B /* BasicNotationRomanNumeralTests.swift */,
+				2774ACF222018C2E00084A1B /* BasicRomanNumeralNotationTests.swift */,
 			);
 			path = "Basic Notation";
 			sourceTree = "<group>";
@@ -241,6 +249,15 @@
 				27F9DDBE2161D51D00CC9903 /* RomanNumeralTests.swift */,
 			);
 			path = "Subtractive Notation";
+			sourceTree = "<group>";
+		};
+		4CC190755AF801C5D79BA424 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3C443681A2BFF2A251A8EC36 /* Pods-RomanNumeralKit.debug.xcconfig */,
+				8ADBDD9CB98E7E2A03CE7B30 /* Pods-RomanNumeralKit.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,10 +278,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27667FB42084B37D00AB8A66 /* Build configuration list for PBXNativeTarget "RomanNumeralKit" */;
 			buildPhases = (
+				37485393F98A964EC6A509EF /* [CP] Check Pods Manifest.lock */,
 				27667F9B2084B37D00AB8A66 /* Sources */,
 				27667F9C2084B37D00AB8A66 /* Frameworks */,
 				27667F9D2084B37D00AB8A66 /* Headers */,
 				27667F9E2084B37D00AB8A66 /* Resources */,
+				518972B9B390D01C8FA6C98F /* [CP] Copy Pods Resources */,
+				2716E57421CB1702004626E3 /* Run Linter */,
 			);
 			buildRules = (
 			);
@@ -350,6 +370,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2716E57421CB1702004626E3 /* Run Linter */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Linter";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect --format\n";
+		};
+		37485393F98A964EC6A509EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RomanNumeralKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		518972B9B390D01C8FA6C98F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RomanNumeralKit/Pods-RomanNumeralKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		27667F9B2084B37D00AB8A66 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -366,7 +440,9 @@
 				27667FBD2084B3DE00AB8A66 /* RomanNumeralSymbol.swift in Sources */,
 				27F9DDA42161B00700CC9903 /* BasicNotationRomanNumeral.swift in Sources */,
 				27ED07202161E0A500D3303A /* RomanNumeralSymbolError.swift in Sources */,
+				2740DF5D216AD9B700F31318 /* BasicRomanNumeralNotation.swift in Sources */,
 				27F9DDB82161C7A200CC9903 /* RomanNumeral.swift in Sources */,
+				2740DF5B216AD64A00F31318 /* RomanNumeralNotationProtocol.swift in Sources */,
 				27F9DDB42161C6E200CC9903 /* RomanNumeralSymbolsConvertible.swift in Sources */,
 				2767EF0121632F99008B6F85 /* DateComponents+RomanNumeral.swift in Sources */,
 				27F9DDB62161C71600CC9903 /* String+SubtractiveNotationRomanNumeralSymbolsConvertible.swift in Sources */,
@@ -386,6 +462,7 @@
 				27667FC22084B57A00AB8A66 /* RomanNumeralSymbolTests.swift in Sources */,
 				27ED071A2161D98800D3303A /* RomanNumeralProtocolTests.swift in Sources */,
 				27ED07162161D7CB00D3303A /* RomanNumeralTests.swift in Sources */,
+				2774ACF322018C2E00084A1B /* BasicRomanNumeralNotationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +602,7 @@
 		};
 		27667FB52084B37D00AB8A66 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C443681A2BFF2A251A8EC36 /* Pods-RomanNumeralKit.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -538,7 +616,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = es.kylehugh.ios.RomanNumeralKit;
+				PRODUCT_BUNDLE_IDENTIFIER = es.kylehugh.RomanNumeralKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -549,6 +627,7 @@
 		};
 		27667FB62084B37D00AB8A66 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8ADBDD9CB98E7E2A03CE7B30 /* Pods-RomanNumeralKit.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -562,7 +641,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = es.kylehugh.ios.RomanNumeralKit;
+				PRODUCT_BUNDLE_IDENTIFIER = es.kylehugh.RomanNumeralKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 4.2;

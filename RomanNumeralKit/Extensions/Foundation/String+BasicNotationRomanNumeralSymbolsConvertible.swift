@@ -8,14 +8,14 @@
 
 import Foundation
 
-//MARK: - BasicNotationRomanNumeralSymbolsConvertible Extension
+// MARK: - BasicNotationRomanNumeralSymbolsConvertible Extension
 
 extension String: BasicNotationRomanNumeralSymbolsConvertible {
-    
-    //MARK: Public Properties
-    
+
+    // MARK: Public Properties
+
     public var basicNotationRomanNumeralSymbols: [RomanNumeralSymbol] {
         return (try? BasicNotationRomanNumeral.symbols(fromString: self)) ?? []
     }
-    
+
 }

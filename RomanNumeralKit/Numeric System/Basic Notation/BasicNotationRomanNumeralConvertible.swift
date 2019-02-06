@@ -9,9 +9,9 @@
 import Foundation
 
 public protocol BasicNotationRomanNumeralConvertible {
-    
-    //MARK: Properties
-    
+
+    // MARK: Properties
+
     var basicNotationRomanNumeral: BasicNotationRomanNumeral? { get }
-    
+
 }

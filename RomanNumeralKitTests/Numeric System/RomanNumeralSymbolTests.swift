@@ -12,23 +12,23 @@ import XCTest
 @testable import RomanNumeralKit
 
 class RomanNumeralSymbolTests: XCTestCase {
-    
-    //MARK: XCTestCase Implementation
-    
+
+    // MARK: XCTestCase Implementation
+
     override func setUp() {
         super.setUp()
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
-    
+
 }
 
-//MARK: - Comparable Extension Tests
+// MARK: - Comparable Extension Tests
 
 extension RomanNumeralSymbolTests {
-    
+
     func testLessThan() {
         XCTAssert(RomanNumeralSymbol.I < RomanNumeralSymbol.V)
         XCTAssert(RomanNumeralSymbol.V < RomanNumeralSymbol.X)
@@ -36,14 +36,14 @@ extension RomanNumeralSymbolTests {
         XCTAssert(RomanNumeralSymbol.L < RomanNumeralSymbol.C)
         XCTAssert(RomanNumeralSymbol.C < RomanNumeralSymbol.D)
         XCTAssert(RomanNumeralSymbol.D < RomanNumeralSymbol.M)
-        
+
         XCTAssertFalse(RomanNumeralSymbol.V < RomanNumeralSymbol.I)
         XCTAssertFalse(RomanNumeralSymbol.X < RomanNumeralSymbol.V)
         XCTAssertFalse(RomanNumeralSymbol.L < RomanNumeralSymbol.X)
         XCTAssertFalse(RomanNumeralSymbol.C < RomanNumeralSymbol.L)
         XCTAssertFalse(RomanNumeralSymbol.D < RomanNumeralSymbol.C)
         XCTAssertFalse(RomanNumeralSymbol.M < RomanNumeralSymbol.D)
-        
+
         XCTAssertFalse(RomanNumeralSymbol.I < RomanNumeralSymbol.I)
         XCTAssertFalse(RomanNumeralSymbol.V < RomanNumeralSymbol.V)
         XCTAssertFalse(RomanNumeralSymbol.X < RomanNumeralSymbol.X)
@@ -52,5 +52,5 @@ extension RomanNumeralSymbolTests {
         XCTAssertFalse(RomanNumeralSymbol.D < RomanNumeralSymbol.D)
         XCTAssertFalse(RomanNumeralSymbol.M < RomanNumeralSymbol.M)
     }
-    
+
 }
