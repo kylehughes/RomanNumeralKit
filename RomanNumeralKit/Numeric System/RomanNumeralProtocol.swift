@@ -14,6 +14,7 @@ import os
 public protocol RomanNumeralProtocol: Comparable,
     CustomDebugStringConvertible,
     CustomStringConvertible,
+    ExpressibleByIntegerLiteral,
 ExpressibleByStringLiteral {
 
     // MARK: Static Properties
@@ -124,14 +125,6 @@ extension RomanNumeralProtocol {
         try? self.init(intValue: intValue)
     }
 
-    public init(integerLiteral value: Int) {
-        do {
-            try self.init(intValue: value)
-        } catch {
-            self = .minimum
-        }
-    }
-
 }
 
 // MARK: - Comparable Extension
@@ -170,6 +163,25 @@ extension RomanNumeralProtocol {
 
     public var description: String {
         return stringValue
+    }
+
+}
+
+// MARK: - ExpressibleByIntegerLiteral Extension
+
+extension RomanNumeralProtocol {
+
+    public init(integerLiteral: Int) {
+        let safeIntValue: Int
+        if integerLiteral < Self.minimumIntValue {
+            safeIntValue = Self.minimumIntValue
+        } else if Self.maximumIntValue < integerLiteral {
+            safeIntValue = Self.maximumIntValue
+        } else {
+            safeIntValue = integerLiteral
+        }
+
+        try! self.init(intValue: safeIntValue)
     }
 
 }
