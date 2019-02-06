@@ -45,29 +45,6 @@ import RomanNumeralKit
 
 ### Initialization
 
-#### Global Constants
-
-Constants have been provided for every Roman numeral from 1 to 3999 (i.e. all). They can be referenced directly by using their Roman numeral characters as symbols. There is no namespacing.
-
-The constants are created as subtractive notation Roman numerals.
-
-##### Examples
-
-This is an example of how the constants are defined. All global constants are lazy by default so this does not effect startup time.
-
-```swift
-...
-public let CDXCVI = try! RomanNumeral(intValue: 496)
-public let CDXCVII = try! RomanNumeral(intValue: 497)
-public let CDXCVIII = try! RomanNumeral(intValue: 498)
-public let CDXCIX = try! RomanNumeral(intValue: 499)
-public let D = try! RomanNumeral(intValue: 500)
-public let DI = try! RomanNumeral(intValue: 501)
-public let DII = try! RomanNumeral(intValue: 502)
-public let DIII = try! RomanNumeral(intValue: 503)
-...
-```
-
 #### Manual Initialization
 
 The only practical reason to manually instantiate a `RomanNumeralProtocol` is to do conversion from a type (e.g. `String`) (consider using a `*RomanNumeralConvertible` property instead). Otherwise, there are a fixed set of values and they are all provided as constants. Do as you please.

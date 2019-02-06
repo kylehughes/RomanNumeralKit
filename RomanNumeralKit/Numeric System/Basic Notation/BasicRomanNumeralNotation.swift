@@ -8,8 +8,6 @@
 
 import Foundation
 
-// swiftlint:disable force_try
-
 struct BasicRomanNumeralNotation {
 
     // MARK: Initialization
@@ -27,11 +25,14 @@ extension BasicRomanNumeralNotation: RomanNumeralNotationProtocol {
     // MARK: Public Static Properties
 
     public static var maximum: BasicNotationRomanNumeral {
-        return try! BasicNotationRomanNumeral(sortedSymbols: [.M, .M, .M, .C, .M, .X, .C, .I, .X])
+        return BasicNotationRomanNumeral(
+            unsafeSymbols: [.M, .M, .M, .C, .M, .X, .C, .I, .X],
+            unsafeIntValue: 3999,
+            unsafeStringValue: "MMMCMXCIX")
     }
 
     public static var minimum: BasicNotationRomanNumeral {
-        return try! BasicNotationRomanNumeral(sortedSymbols: [.I])
+        return BasicNotationRomanNumeral(unsafeSymbols: [.I], unsafeIntValue: 1, unsafeStringValue: "I")
     }
 
     // MARK: Public Static Interface

@@ -12,8 +12,8 @@ public struct BasicNotationRomanNumeral {
 
     // MARK: Public Static Properties
 
-    public static let maximumIntValue = 3999
-    public static let minimumIntValue = 1
+    public static let maximumIntValue = BasicRomanNumeralNotation.maximum.intValue
+    public static let minimumIntValue = BasicRomanNumeralNotation.minimum.intValue
 
     // MARK: Public Properties
 
@@ -21,22 +21,31 @@ public struct BasicNotationRomanNumeral {
     public private(set) var stringValue: String
     public private(set) var symbols: [RomanNumeralSymbol]
 
-    // MARK: Module Initialization
+    // MARK: Internal Initialization
 
-    init(sortedSymbols: [RomanNumeralSymbol]) throws {
-        symbols = sortedSymbols
+    internal init(sortedCondensedSymbols: [RomanNumeralSymbol]) throws {
+        let intValue = BasicNotationRomanNumeral.intValue(fromSymbols: sortedCondensedSymbols)
 
-        intValue = BasicNotationRomanNumeral.intValue(fromSymbols: symbols)
-
-        guard BasicNotationRomanNumeral.minimumIntValue <= intValue else {
+        guard BasicRomanNumeralNotation.minimum.intValue <= intValue else {
             throw RomanNumeralError.valueLessThanMinimum
         }
 
-        guard intValue <= BasicNotationRomanNumeral.maximumIntValue else {
+        guard intValue <= BasicRomanNumeralNotation.maximum.intValue else {
             throw RomanNumeralError.valueGreaterThanMaximum
         }
 
-        stringValue = BasicNotationRomanNumeral.string(fromSymbols: symbols)
+        let stringValue = BasicNotationRomanNumeral.string(fromSymbols: sortedCondensedSymbols)
+
+        self.init(unsafeSymbols: sortedCondensedSymbols, unsafeIntValue: intValue, unsafeStringValue: stringValue)
+    }
+
+    internal init(
+        unsafeSymbols: [RomanNumeralSymbol],
+        unsafeIntValue: Int,
+        unsafeStringValue: String) {
+        symbols = unsafeSymbols
+        intValue = unsafeIntValue
+        stringValue = unsafeStringValue
     }
 
     // MARK: Private Static Interface
@@ -72,11 +81,11 @@ extension BasicNotationRomanNumeral: RomanNumeralProtocol {
     // MARK: Public Initialization
 
     public init(intValue: Int) throws {
-        guard BasicNotationRomanNumeral.minimumIntValue <= intValue else {
+        guard BasicRomanNumeralNotation.minimum.intValue <= intValue else {
             throw RomanNumeralError.valueLessThanMinimum
         }
 
-        guard intValue <= BasicNotationRomanNumeral.maximumIntValue else {
+        guard intValue <= BasicRomanNumeralNotation.maximum.intValue else {
             throw RomanNumeralError.valueGreaterThanMaximum
         }
 
@@ -87,9 +96,9 @@ extension BasicNotationRomanNumeral: RomanNumeralProtocol {
     }
 
     public init(symbols: [RomanNumeralSymbol]) throws {
-        let sanitizedSymbols = BasicRomanNumeralNotation.condense(symbols: symbols)
+        let sortedCondensedSymbols = BasicRomanNumeralNotation.condense(symbols: symbols)
 
-        try self.init(sortedSymbols: sanitizedSymbols)
+        try self.init(sortedCondensedSymbols: sortedCondensedSymbols)
     }
 
 }

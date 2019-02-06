@@ -74,10 +74,10 @@ class BasicRomanNumeralNotationTests: XCTestCase {
         // M (A)
         XCTAssertEqual(BasicRomanNumeralNotation.condense(symbol: .M, ofCount: 1), [.M])
         // M (B)
-//        XCTAssertThrowsError(BasicRomanNumeralNotation.condense(symbol: .M, ofCount: 5))
-//        // M (C)
-//        XCTAssertThrowsError(BasicRomanNumeralNotation.condense(symbol: .M, ofCount: 4))
-//        XCTAssertThrowsError(BasicRomanNumeralNotation.condense(symbol: .M, ofCount: 9))
+        //        XCTAssertThrowsError(BasicRomanNumeralNotation.condense(symbol: .M, ofCount: 5))
+        //        // M (C)
+        //        XCTAssertThrowsError(BasicRomanNumeralNotation.condense(symbol: .M, ofCount: 4))
+        //        XCTAssertThrowsError(BasicRomanNumeralNotation.condense(symbol: .M, ofCount: 9))
     }
 
 }
