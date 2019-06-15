@@ -10,6 +10,7 @@ import Foundation
 
 public enum RomanNumeralError: Error {
 
+    case symbolsOutOfOrder
     case valueGreaterThanMaximum
     case valueLessThanMinimum
 
@@ -23,6 +24,8 @@ extension RomanNumeralError: CustomStringConvertible {
 
     public var description: String {
         switch self {
+        case .symbolsOutOfOrder:
+            return "The given symbols for the Roman numeral are out-of-order for the notation."
         case .valueGreaterThanMaximum:
             return "A Roman numeral's value cannot be greater than its notation's maximum value."
         case .valueLessThanMinimum:

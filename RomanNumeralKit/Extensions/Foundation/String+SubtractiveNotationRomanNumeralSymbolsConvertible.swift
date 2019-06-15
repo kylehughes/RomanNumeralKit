@@ -1,21 +1,21 @@
+////
+////  String+RomanNumeralSymbolsConvertible.swift
+////  RomanNumeralKit
+////
+////  Created by Kyle Hughes on 9/30/18.
+////  Copyright © 2018 Kyle Hughes. All rights reserved.
+////
 //
-//  String+RomanNumeralSymbolsConvertible.swift
-//  RomanNumeralKit
+//import Foundation
 //
-//  Created by Kyle Hughes on 9/30/18.
-//  Copyright © 2018 Kyle Hughes. All rights reserved.
+//// MARK: - RomanNumeralSymbolsConvertible Extension
 //
-
-import Foundation
-
-// MARK: - RomanNumeralSymbolsConvertible Extension
-
-extension String: RomanNumeralSymbolsConvertible {
-
-    // MARK: Public Properties
-
-    public var romanNumeralSymbols: [RomanNumeralSymbol] {
-        return (try? RomanNumeral.symbols(fromString: self)) ?? []
-    }
-
-}
+//extension String: RomanNumeralSymbolsConvertible {
+//
+//    // MARK: Public Properties
+//
+//    public var romanNumeralSymbols: [RomanNumeralSymbol] {
+//        return (try? RomanNumeral.symbols(fromString: self)) ?? []
+//    }
+//
+//}

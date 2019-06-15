@@ -25,14 +25,11 @@ extension BasicRomanNumeralNotation: RomanNumeralNotationProtocol {
     // MARK: Public Static Properties
 
     public static var maximum: BasicNotationRomanNumeral {
-        return BasicNotationRomanNumeral(
-            unsafeSymbols: [.M, .M, .M, .C, .M, .X, .C, .I, .X],
-            unsafeIntValue: 3999,
-            unsafeStringValue: "MMMCMXCIX")
+        return BasicNotationRomanNumeral(unsafeSymbols: [.M, .M, .M, .D, .C, .C, .C, .C, .L, .X, .X, .X, .X, .V, .I, .I, .I, .I])
     }
 
     public static var minimum: BasicNotationRomanNumeral {
-        return BasicNotationRomanNumeral(unsafeSymbols: [.I], unsafeIntValue: 1, unsafeStringValue: "I")
+        return BasicNotationRomanNumeral(unsafeSymbols: [.I])
     }
 
     // MARK: Public Static Interface
@@ -51,7 +48,10 @@ extension BasicRomanNumeralNotation: RomanNumeralNotationProtocol {
         }
 
         let nextHighestSymbol = allSymbols[nextHighestSymbolIndex]
-        let nextHighestSymbolAsCurrentSymbols = nextHighestSymbol.expanded
+        let nextHighestSymbolAsCurrentSymbols = nextHighestSymbol.expandedIntoLesserSymbol
+        guard !nextHighestSymbolAsCurrentSymbols.isEmpty else {
+            return []
+        }
         let nextHighestSymbolQuantity = count / nextHighestSymbolAsCurrentSymbols.count
         let nextHighestSymbols = Array(repeating: nextHighestSymbol, count: nextHighestSymbolQuantity)
         let condensedNextHighestSymbols = BasicRomanNumeralNotation.condense(

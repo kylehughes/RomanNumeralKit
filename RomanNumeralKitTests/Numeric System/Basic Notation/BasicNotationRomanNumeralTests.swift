@@ -32,70 +32,30 @@ class BasicNotationRomanNumeralTests: XCTestCase {
 
     // MARK: Tests
 
-    func test_init_fromInt() {
+    func test_init_symbols_success() {
         // Given...
 
-        let expectationMcmxcixSymbols: [RomanNumeralSymbol] = [.M, .M, .C, .C, .X, .X, .I] // 1999 for subtractive lol
-
         // When...
-
-        // Long addition w/ few OOO symbols
-        let mcmxcix = try! BasicNotationRomanNumeral(intValue: 2221)
 
         // Then...
-
-        XCTAssert(mcmxcix.symbols == expectationMcmxcixSymbols)
-    }
-
-    func test_init_fromSymbols() {
-        // Given...
-
-        // When...
-
-        // Basic addition
-        let xxvi = try! BasicNotationRomanNumeral(symbols: [.X, .X, .V, .I])
-        // Basic addition w/ single OOO symbol
-        let xxiv = try! BasicNotationRomanNumeral(symbols: [.X, .X, .I, .V])
 
         // Long addition
-        let mmdclxxxxi = try! BasicNotationRomanNumeral(symbols: [.M, .M, .D, .C, .L, .X, .X, .X, .X, .I])
-        // Long addition w/ single OOO symbol
-        let mmcdlxxxix = try! BasicNotationRomanNumeral(symbols: [.M, .M, .D, .C, .L, .X, .X, .X, .I, .X])
+        XCTAssertNoThrow(try BasicNotationRomanNumeral(symbols: [.X, .X, .V, .I]))
+        // Long addition
+        XCTAssertNoThrow(try BasicNotationRomanNumeral(symbols: [.M, .M, .D, .C, .L, .X, .X, .X, .X, .I]))
+    }
+
+    func test_init_symbols_outOfOrder() {
+        // Given...
+
+        // When...
 
         // Then...
 
-        XCTAssert(xxvi.intValue == 26)
-        XCTAssert(xxiv.intValue == 26)
-
-        XCTAssert(mmdclxxxxi.intValue == 2691)
-        XCTAssert(mmcdlxxxix.intValue == 2691)
-    }
-
-}
-
-// MARK: - Initialization Performance Tests
-
-extension BasicNotationRomanNumeralTests {
-
-    // MARK: Tests
-
-    func test_perf_initializeEntireNumericalSpace_fromInt() {
-        measure {
-            for i in BasicNotationRomanNumeral.minimumIntValue...BasicNotationRomanNumeral.maximumIntValue {
-                _ = try! BasicNotationRomanNumeral(intValue: i)
-            }
-        }
-    }
-
-    func test_perf_initializeEntireNumericalSpace_fromSymbols() {
-        let minimumValue = BasicNotationRomanNumeral.minimumIntValue
-        let maximumValue = BasicNotationRomanNumeral.maximumIntValue
-        let allSymbolCollections = (minimumValue...maximumValue)
-            .map { try! BasicNotationRomanNumeral(intValue: $0).symbols }
-
-        measure {
-            allSymbolCollections.forEach { _ = try! BasicNotationRomanNumeral(symbols: $0) }
-        }
+        // Long addition w/ single OOO symbol
+        XCTAssertThrowsError(try BasicNotationRomanNumeral(symbols: [.X, .X, .I, .V]))
+        // Long addition w/ single OOO symbol
+        XCTAssertThrowsError(try BasicNotationRomanNumeral(symbols: [.M, .M, .D, .C, .L, .X, .X, .X, .I, .X]))
     }
 
 }
@@ -109,29 +69,88 @@ extension BasicNotationRomanNumeralTests {
     func test_add_success() {
         // Given...
 
-        let ccclxviiii = try! BasicNotationRomanNumeral(symbols: [.C, .C, .C, .L, .X, .V, .I, .I, .I, .I]) // 369
-        let dcccxxxxxv = try! BasicNotationRomanNumeral(symbols: [.D, .C, .C, .C, .X, .X, .X, .X, .V]) // 845
-        let mccxiiii = try! BasicNotationRomanNumeral(symbols: [.M, .C, .C, .X, .I, .I, .I, .I]) // 1214
+        let ccclxviiii: BasicNotationRomanNumeral = "CCCLXVIIII" // 369
+        let dcccxxxxv: BasicNotationRomanNumeral = "DCCCXXXXV" // 845
+        let mccxiiii: BasicNotationRomanNumeral = "MCCXIIII" // 1214
 
         // When...
 
         // Then...
 
-        XCTAssertEqual(ccclxviiii + dcccxxxxxv, mccxiiii) // 369 + 845 = 1214
+        XCTAssertEqual(ccclxviiii + dcccxxxxv, mccxiiii) // 369 + 845 = 1214
     }
 
-    func test_add_overflow() {
+    func test_add_overflowClamp() {
         // Given...
 
-        let mmmdcccclxxxxviiii = try! BasicNotationRomanNumeral(
-            symbols: [.M, .M, .M, .D, .C, .C, .C, .C, .L, .X, .X, .X, .X, .V, .I, .I, .I, .I]) // 3999
-        let ii = try! BasicNotationRomanNumeral(symbols: [.I, .I]) // 2
+        let maximum = BasicRomanNumeralNotation.maximum // 3999
+        let i: BasicNotationRomanNumeral = "I" // 1
 
         // When...
 
         // Then...
 
-        //        XCTAssertThrowsError(mmmdcccclxxxxviiii + ii) // 3999 + 2 = 4001 (invalid)
+        XCTAssertEqual(maximum + i, maximum) // 3999 + 1 = 4000 (invalid)
+    }
+
+    func test_add_perf_100Items() {
+        // Given...
+
+        let maximum = BasicRomanNumeralNotation.maximum
+
+        // When...
+
+        // Then...
+
+        measure {
+            for _ in 1...100 {
+                _ = maximum + maximum
+            }
+        }
+    }
+
+    func test_subtraction_success() {
+        // Given...
+
+        let mmmdcccxxxxxv: BasicNotationRomanNumeral = "MMMDCCCXXXXV" // 3,845
+        let mccclxviiii: BasicNotationRomanNumeral = "MCCCLXVIIII" // 1,369
+        let mmcccclxxvi: BasicNotationRomanNumeral = "MMCCCCLXXVI" // 2,476
+
+        // When...
+
+        // Then...
+
+        XCTAssertEqual(mmmdcccxxxxxv - mccclxviiii, mmcccclxxvi) // 3,845 - 1,369 = 2,476
+    }
+
+    func test_subtraction_underflowClamp() {
+        // Given...
+
+        let minimum = BasicRomanNumeralNotation.minimum // 1
+        let i: BasicNotationRomanNumeral = "I" // 1
+
+        // When...
+
+        // Then...
+
+        XCTAssertEqual(minimum - i, minimum) // 1 - 1 = 0 (invalid)
+    }
+
+    func test_subtraction_perf_100Items() {
+        // Given...
+
+        let maximum = BasicRomanNumeralNotation.maximum
+        let mmmdcccxxxxxv: BasicNotationRomanNumeral = "MMMDCCCXXXXV" // 3,845
+
+        // When...
+
+        // Then...
+
+        measure {
+            for _ in 1...100 {
+                _ = maximum - mmmdcccxxxxxv
+            }
+        }
     }
 
 }

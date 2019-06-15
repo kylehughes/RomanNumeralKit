@@ -1,17 +1,17 @@
+////
+////  RomanNumeralConvertible.swift
+////  RomanNumeralKit
+////
+////  Created by Kyle Hughes on 9/30/18.
+////  Copyright © 2018 Kyle Hughes. All rights reserved.
+////
 //
-//  RomanNumeralConvertible.swift
-//  RomanNumeralKit
+//import Foundation
 //
-//  Created by Kyle Hughes on 9/30/18.
-//  Copyright © 2018 Kyle Hughes. All rights reserved.
+//protocol RomanNumeralConvertible {
 //
-
-import Foundation
-
-protocol RomanNumeralConvertible {
-
-    // MARK: Properties
-
-    var romanNumeral: RomanNumeral? { get }
-
-}
+//    // MARK: Properties
+//
+//    var romanNumeral: RomanNumeral? { get }
+//
+//}

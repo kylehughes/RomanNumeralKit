@@ -10,48 +10,20 @@ import Foundation
 
 public struct BasicNotationRomanNumeral {
 
-    // MARK: Public Static Properties
+    // MARK: Public Instance Properties
 
-    public static let maximumIntValue = BasicRomanNumeralNotation.maximum.intValue
-    public static let minimumIntValue = BasicRomanNumeralNotation.minimum.intValue
-
-    // MARK: Public Properties
-
-    public private(set) var intValue: Int
-    public private(set) var stringValue: String
     public private(set) var symbols: [RomanNumeralSymbol]
 
     // MARK: Internal Initialization
 
-    internal init(sortedCondensedSymbols: [RomanNumeralSymbol]) throws {
-        let intValue = BasicNotationRomanNumeral.intValue(fromSymbols: sortedCondensedSymbols)
-
-        guard BasicRomanNumeralNotation.minimum.intValue <= intValue else {
-            throw RomanNumeralError.valueLessThanMinimum
-        }
-
-        guard intValue <= BasicRomanNumeralNotation.maximum.intValue else {
-            throw RomanNumeralError.valueGreaterThanMaximum
-        }
-
-        let stringValue = BasicNotationRomanNumeral.string(fromSymbols: sortedCondensedSymbols)
-
-        self.init(unsafeSymbols: sortedCondensedSymbols, unsafeIntValue: intValue, unsafeStringValue: stringValue)
-    }
-
-    internal init(
-        unsafeSymbols: [RomanNumeralSymbol],
-        unsafeIntValue: Int,
-        unsafeStringValue: String) {
+    internal init(unsafeSymbols: [RomanNumeralSymbol]) {
         symbols = unsafeSymbols
-        intValue = unsafeIntValue
-        stringValue = unsafeStringValue
     }
 
     // MARK: Private Static Interface
 
     private static func intValue(fromSymbols symbols: [RomanNumeralSymbol]) -> Int {
-        return symbols.reduce(0) { $0 + $1.rawValue }
+        return symbols.reduce(0) { $0 + $1.rawValue.tallyMarks.count }
     }
 
     private static func symbols(fromIntValue intValue: Int) -> [RomanNumeralSymbol] {
@@ -59,14 +31,14 @@ public struct BasicNotationRomanNumeral {
         var convertedSymbols: [RomanNumeralSymbol] = []
 
         RomanNumeralSymbol.allSymbolsDescending.forEach { symbol in
-            let symbolCount: Int = remainingIntValue / symbol.rawValue
+            let symbolCount: Int = remainingIntValue / symbol.rawValue.tallyMarks.count
             guard 0 < symbolCount else {
                 return
             }
 
             let consecutiveSymbols = Array(repeating: symbol, count: symbolCount)
             convertedSymbols.append(contentsOf: consecutiveSymbols)
-            remainingIntValue -= symbolCount * symbol.rawValue
+            remainingIntValue -= symbolCount * symbol.rawValue.tallyMarks.count
         }
 
         return convertedSymbols
@@ -74,38 +46,163 @@ public struct BasicNotationRomanNumeral {
 
 }
 
-// MARK: - RomanNumeralProtocol Extension
+// MARK: - Operators Extension
 
-extension BasicNotationRomanNumeral: RomanNumeralProtocol {
+extension BasicNotationRomanNumeral {
 
-    // MARK: Public Initialization
+    // MARK: Public Static Interface
 
-    public init(intValue: Int) throws {
-        guard BasicRomanNumeralNotation.minimum.intValue <= intValue else {
-            throw RomanNumeralError.valueLessThanMinimum
+    /**
+     - SeeAlso: http://turner.faculty.swau.edu/mathematics/materialslibrary/roman/
+     */
+    public static func + (
+        left: BasicNotationRomanNumeral,
+        right: BasicNotationRomanNumeral
+        ) -> BasicNotationRomanNumeral {
+
+        let result: BasicNotationRomanNumeral
+        do {
+            result = try add(left: left, right: right)
+        } catch {
+            switch error {
+            case RomanNumeralError.valueLessThanMinimum:
+                result = BasicRomanNumeralNotation.minimum
+            case RomanNumeralError.valueGreaterThanMaximum:
+                result = BasicRomanNumeralNotation.maximum
+            default:
+                result = BasicRomanNumeralNotation.minimum
+            }
         }
 
-        guard intValue <= BasicRomanNumeralNotation.maximum.intValue else {
-            throw RomanNumeralError.valueGreaterThanMaximum
-        }
-
-        self.intValue = intValue
-
-        symbols = BasicNotationRomanNumeral.symbols(fromIntValue: intValue)
-        stringValue = BasicNotationRomanNumeral.string(fromSymbols: symbols)
+        return result
     }
 
-    public init(symbols: [RomanNumeralSymbol]) throws {
-        let sortedCondensedSymbols = BasicRomanNumeralNotation.condense(symbols: symbols)
+    /**
+     - SeeAlso: http://turner.faculty.swau.edu/mathematics/materialslibrary/roman/
+     */
+    public static func - (
+        left: BasicNotationRomanNumeral,
+        right: BasicNotationRomanNumeral
+        ) -> BasicNotationRomanNumeral {
 
-        try self.init(sortedCondensedSymbols: sortedCondensedSymbols)
+        let result: BasicNotationRomanNumeral
+        do {
+            result = try subtract(left: left, right: right)
+        } catch {
+            switch error {
+            case RomanNumeralError.valueLessThanMinimum:
+                result = BasicRomanNumeralNotation.minimum
+            case RomanNumeralError.valueGreaterThanMaximum:
+                result = BasicRomanNumeralNotation.maximum
+            default:
+                result = BasicRomanNumeralNotation.minimum
+            }
+        }
+
+        return result
+    }
+
+    // MARK: Internal Static Interface
+
+    internal static func add(
+        left: BasicNotationRomanNumeral,
+        right: BasicNotationRomanNumeral
+        ) throws -> BasicNotationRomanNumeral {
+
+        let concatenatedSymbols = left.symbols + right.symbols
+        let condensedSymbols = BasicRomanNumeralNotation.condense(symbols: concatenatedSymbols)
+
+        return try BasicNotationRomanNumeral(symbols: condensedSymbols)
+    }
+
+    internal static func subtract(
+        left: BasicNotationRomanNumeral,
+        right: BasicNotationRomanNumeral
+        ) throws -> BasicNotationRomanNumeral {
+
+        var eliminationResult = eliminateCommonSymbols(betweenLeft: left.symbols, andRight: right.symbols)
+
+        while !eliminationResult.right.isEmpty {
+            let expandedRemainingLeftSymbols = try expandLargestSymbol(
+                fromRight: eliminationResult.right,
+                inLeft: eliminationResult.left)
+            eliminationResult = eliminateCommonSymbols(
+                betweenLeft: expandedRemainingLeftSymbols,
+                andRight: eliminationResult.right)
+        }
+
+        return try BasicNotationRomanNumeral(symbols: eliminationResult.left)
+    }
+
+    // MARK: Private Static Interface
+
+    private static func eliminateCommonSymbols(
+        betweenLeft left: [RomanNumeralSymbol],
+        andRight right: [RomanNumeralSymbol]
+        ) -> (left: [RomanNumeralSymbol], right: [RomanNumeralSymbol]) {
+
+        var remainingLeftSymbols = left
+        var remainingRightSymbols = right
+
+        for rightSymbol in remainingRightSymbols.reversed() {
+            guard
+                let lastSymbolIndexInLeft = remainingLeftSymbols.lastIndex(of: rightSymbol),
+                let rightSymbolIndex = remainingRightSymbols.lastIndex(of: rightSymbol)
+                else {
+                    continue
+            }
+
+            remainingLeftSymbols.remove(at: lastSymbolIndexInLeft)
+            remainingRightSymbols.remove(at: rightSymbolIndex)
+        }
+
+        return (left: remainingLeftSymbols, right: remainingRightSymbols)
+    }
+
+    private static func expandLargestSymbol(
+        fromRight right: [RomanNumeralSymbol],
+        inLeft left: [RomanNumeralSymbol]
+        ) throws -> [RomanNumeralSymbol] {
+
+        guard let greatestRightSymbol = right.max() else {
+            throw RomanNumeralArithmeticError.ambiguousSubtractionError
+        }
+
+        let leftEnumeration = Array(left.enumerated())
+
+        guard let greaterLeftSymbolEnumeration = leftEnumeration.last(where: { greatestRightSymbol < $1 }) else {
+            throw RomanNumeralArithmeticError.ambiguousSubtractionError
+        }
+
+        var expandedGreaterLeftSymbols: [RomanNumeralSymbol] = greaterLeftSymbolEnumeration
+            .element
+            .expandedIntoLesserSymbol
+
+        while
+            let expandedGreaterLeftSymbol = expandedGreaterLeftSymbols.first,
+            expandedGreaterLeftSymbol != greatestRightSymbol {
+                expandedGreaterLeftSymbols = expandedGreaterLeftSymbols.flatMap { $0.expandedIntoLesserSymbol }
+        }
+
+        guard !expandedGreaterLeftSymbols.isEmpty else {
+            throw RomanNumeralArithmeticError.subtractionWhereRightValueIsGreaterThanLeftValue
+        }
+
+        let greaterLeftSymbolRange = greaterLeftSymbolEnumeration.offset...greaterLeftSymbolEnumeration.offset
+
+        var newLeftSymbols = left
+        newLeftSymbols.replaceSubrange(greaterLeftSymbolRange, with: expandedGreaterLeftSymbols)
+
+        return newLeftSymbols
     }
 
 }
 
-// MARK: - BasicNotationRomanNumeralSymbolsConvertible Extension
+// MARK: - BasicNotationRomanNumeralConvertible Extension
 
 extension BasicNotationRomanNumeral: BasicNotationRomanNumeralConvertible {
+
+    // MARK: Public Instance Interface
 
     public var basicNotationRomanNumeral: BasicNotationRomanNumeral? {
         return self
@@ -117,79 +214,66 @@ extension BasicNotationRomanNumeral: BasicNotationRomanNumeralConvertible {
 
 extension BasicNotationRomanNumeral: BasicNotationRomanNumeralSymbolsConvertible {
 
+    // MARK: Public Instance Interface
+
     public var basicNotationRomanNumeralSymbols: [RomanNumeralSymbol] {
         return symbols
     }
 
 }
 
-// MARK: - RomanNumeralConvertible Extension
+// MARK: - Comparable Extension
 
-extension BasicNotationRomanNumeral: RomanNumeralConvertible {
+extension BasicNotationRomanNumeral: Comparable {
 
-    public var romanNumeral: RomanNumeral? {
-        return try? RomanNumeral(symbols: symbols)
+    // MARK: Public Static Interface
+
+    public static func < (lhs: BasicNotationRomanNumeral, rhs: BasicNotationRomanNumeral) -> Bool {
+        guard lhs != rhs else {
+            return false
+        }
+
+        //TODO: Figure out how to use subtraction for this comparison (causes stack overflow currently)
+        return
+            lhs.symbols.flatMap { $0.rawValue.tallyMarks }.count <
+                rhs.symbols.flatMap { $0.rawValue.tallyMarks }.count
     }
 
 }
 
-// MARK: - Operators Extension
+// MARK: - ExpressibleByStringLiteral Extension
 
-extension BasicNotationRomanNumeral {
+extension BasicNotationRomanNumeral: ExpressibleByStringLiteral {
 
-    // MARK: Public Static Interface
-
-    public static func + (
-        left: BasicNotationRomanNumeral,
-        right: BasicNotationRomanNumeral
-        ) -> BasicNotationRomanNumeral {
-        // Algorithm: http://turner.faculty.swau.edu/mathematics/materialslibrary/roman/
-
-        let concatenatedSymbols = left.symbols + right.symbols
-        let condensedSymbols = BasicRomanNumeralNotation.condense(symbols: concatenatedSymbols)
-
-        let romanNumeral: BasicNotationRomanNumeral
-        do {
-            romanNumeral = try BasicNotationRomanNumeral(symbols: condensedSymbols)
-        } catch {
-            switch error {
-            case RomanNumeralError.valueLessThanMinimum:
-                romanNumeral = .minimum
-            case RomanNumeralError.valueGreaterThanMaximum:
-                romanNumeral = .maximum
-            default:
-                romanNumeral = .minimum
-            }
-        }
-
-        return romanNumeral
+    public init(stringLiteral: String) {
+        try! self.init(from: stringLiteral)
     }
 
-    public static func - (
-        left: BasicNotationRomanNumeral,
-        right: BasicNotationRomanNumeral
-        ) -> BasicNotationRomanNumeral {
-        // Algorithm: http://turner.faculty.swau.edu/mathematics/materialslibrary/roman/
+}
 
-        let greaterSymbol = (left < right) ? right : left
-        let lesserSymbol = (left < right) ? left : right
-        let intResult = greaterSymbol.intValue - lesserSymbol.intValue
+// MARK: - RomanNumeralProtocol Extension
 
-        let romanNumeral: BasicNotationRomanNumeral
-        do {
-            romanNumeral = try BasicNotationRomanNumeral(intValue: intResult)
-        } catch {
-            switch error {
-            case RomanNumeralError.valueLessThanMinimum:
-                romanNumeral = .minimum
-            case RomanNumeralError.valueGreaterThanMaximum:
-                romanNumeral = .maximum
-            default:
-                romanNumeral = .minimum
-            }
+extension BasicNotationRomanNumeral: RomanNumeralProtocol {
+
+    // MARK: Public Initialization
+
+    public init(symbols: [RomanNumeralSymbol]) throws {
+        guard symbols.isSorted(by: >=) else {
+            throw RomanNumeralError.symbolsOutOfOrder
         }
 
-        return romanNumeral
+        let condensedSymbols = BasicRomanNumeralNotation.condense(symbols: symbols)
+        let potentialRomanNumeral = BasicNotationRomanNumeral(unsafeSymbols: condensedSymbols)
+
+        guard BasicRomanNumeralNotation.minimum <= potentialRomanNumeral else {
+            throw RomanNumeralError.valueLessThanMinimum
+        }
+
+        guard potentialRomanNumeral <= BasicRomanNumeralNotation.maximum else {
+            throw RomanNumeralError.valueGreaterThanMaximum
+        }
+
+        self = potentialRomanNumeral
     }
 
 }

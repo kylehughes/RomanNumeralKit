@@ -1,21 +1,21 @@
+////
+////  Int+SubtractiveNotationRomanNumeralConvertible.swift
+////  RomanNumeralKit
+////
+////  Created by Kyle Hughes on 9/30/18.
+////  Copyright © 2018 Kyle Hughes. All rights reserved.
+////
 //
-//  Int+SubtractiveNotationRomanNumeralConvertible.swift
-//  RomanNumeralKit
+//import Foundation
 //
-//  Created by Kyle Hughes on 9/30/18.
-//  Copyright © 2018 Kyle Hughes. All rights reserved.
+//// MARK: - RomanNumeralConvertible Extension
 //
-
-import Foundation
-
-// MARK: - RomanNumeralConvertible Extension
-
-extension Int: RomanNumeralConvertible {
-
-    // MARK: Public Properties
-
-    public var romanNumeral: RomanNumeral? {
-        return try? RomanNumeral(intValue: self)
-    }
-
-}
+//extension Int: RomanNumeralConvertible {
+//
+//    // MARK: Public Properties
+//
+//    public var romanNumeral: RomanNumeral? {
+//        return try? RomanNumeral(intValue: self)
+//    }
+//
+//}

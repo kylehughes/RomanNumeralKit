@@ -12,37 +12,55 @@ import Foundation
 
 /**
  Roman numeral symbols are a collection of letters from the Latin alphabet that are used to represent numbers in the
- numeric system of ancient Rome. Roman numerals employ seven symbols, each with a fixed integer value.
+ numeric system of ancient Rome. Roman numerals employ seven symbols, each with a fixed integer value. The number 0
+ does not have its own Roman numeral symbol, but the word "nulla" (the Latin word meaning "none") is used in lieu of 0.
  */
-public enum RomanNumeralSymbol: Int {
+public enum RomanNumeralSymbol: CaseIterable {
 
-    case I = 1
-    case V = 5
-    case X = 10
-    case L = 50
-    case C = 100
-    case D = 500
-    case M = 1000
+    case nulla
+    case I
+    case V
+    case X
+    case L
+    case C
+    case D
+    case M
 
     // MARK: Public Static Properties
 
     /**
-     All of the Roman numeral symbols, represented in ascending order by integer value.
+     All of the Roman numeral symbols, represented in ascending order by value.
      */
     public static let allSymbolsAscending: [RomanNumeralSymbol] = [.I, .V, .X, .L, .C, .D, .M]
 
     /**
-     All of the Roman numeral symbols, represented in descending order by integer value.
+     All of the Roman numeral symbols, represented in descending order by value.
      */
     public static let allSymbolsDescending: [RomanNumeralSymbol] = allSymbolsAscending.reversed()
 
-    // MARK: Public Properties
+    // MARK: Initialization
+
+    public init(from characterValue: Character) throws {
+        let potentialSymbol = RomanNumeralSymbol.allCases
+            .filter { $0.characterValue == characterValue }
+            .first
+
+        guard let symbol = potentialSymbol else {
+            throw RomanNumeralSymbolError.unrecognizedCharacter(character: characterValue)
+        }
+
+        self = symbol
+    }
+
+    // MARK: Public Instance Interface
 
     /**
      The `Character` representation of the the Latin letter representing the symbol.
      */
     public var characterValue: Character {
         switch self {
+        case .nulla:
+            return "N"
         case .I:
             return "I"
         case .V:
@@ -60,8 +78,10 @@ public enum RomanNumeralSymbol: Int {
         }
     }
 
-    public var expanded: [RomanNumeralSymbol] {
+    public var expandedIntoLesserSymbol: [RomanNumeralSymbol] {
         switch self {
+        case .nulla:
+            return []
         case .I:
             return [.I]
         case .V:
@@ -79,18 +99,83 @@ public enum RomanNumeralSymbol: Int {
         }
     }
 
-    // MARK: Initialization
-
-    public init(from characterValue: Character) throws {
-        let potentialSymbol = RomanNumeralSymbol.allSymbolsAscending
-            .filter { $0.characterValue == characterValue }
-            .first
-
-        guard let symbol = potentialSymbol else {
-            throw RomanNumeralSymbolError.unrecognizedCharacter(character: characterValue)
+    public var lesserSymbol: RomanNumeralSymbol? {
+        switch self {
+        case .nulla:
+            return nil
+        case .I:
+            return nil
+        case .V:
+            return .I
+        case .X:
+            return .V
+        case .L:
+            return .X
+        case .C:
+            return .L
+        case .D:
+            return .C
+        case .M:
+            return .D
         }
+    }
 
-        self = symbol
+}
+
+// MARK: - RawRepresentable Extension
+
+extension RomanNumeralSymbol: RawRepresentable {
+
+    // MARK: Public Typealiases
+
+    public typealias RawValue = RomanNumeralTallyMarkGroup
+
+    // MARK: Public Initialization
+
+    public init?(rawValue: RomanNumeralTallyMarkGroup) {
+        switch rawValue.tallyMarks.count {
+        case 0:
+            self = .nulla
+        case 1:
+            self = .I
+        case 5:
+            self = .V
+        case 10:
+            self = .X
+        case 50:
+            self = .L
+        case 100:
+            self = .C
+        case 500:
+            self = .D
+        case 1000:
+            self = .M
+        default:
+            return nil
+        }
+    }
+
+    // MARK: Public Interface
+
+    public var rawValue: RomanNumeralTallyMarkGroup {
+        switch self {
+        case .nulla:
+            return .nulla
+        case .I:
+            return RomanNumeralTallyMarkGroup(numberOfTallyMarks: 1)
+        case .V:
+            return RomanNumeralTallyMarkGroup(numberOfTallyMarks: 5)
+        case .X:
+            return RomanNumeralTallyMarkGroup(numberOfTallyMarks: 10)
+        case .L:
+            return RomanNumeralTallyMarkGroup(numberOfTallyMarks: 50)
+        case .C:
+            return RomanNumeralTallyMarkGroup(numberOfTallyMarks: 100)
+        case .D:
+            return RomanNumeralTallyMarkGroup(numberOfTallyMarks: 500)
+        case .M:
+            return RomanNumeralTallyMarkGroup(numberOfTallyMarks: 1000)
+        }
     }
 
 }
@@ -100,7 +185,7 @@ public enum RomanNumeralSymbol: Int {
 extension RomanNumeralSymbol: Comparable {
 
     public static func < (lhs: RomanNumeralSymbol, rhs: RomanNumeralSymbol) -> Bool {
-        return lhs.rawValue < rhs.rawValue
+        return lhs.rawValue.tallyMarks.count < rhs.rawValue.tallyMarks.count
     }
 
 }

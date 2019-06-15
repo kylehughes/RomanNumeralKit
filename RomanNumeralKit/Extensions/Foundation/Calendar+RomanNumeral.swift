@@ -1,27 +1,27 @@
+////
+////  Calendar+RomanNumeral.swift
+////  RomanNumeralKit
+////
+////  Created by Kyle Hughes on 10/1/18.
+////  Copyright © 2018 Kyle Hughes. All rights reserved.
+////
 //
-//  Calendar+RomanNumeral.swift
-//  RomanNumeralKit
+//import Foundation
 //
-//  Created by Kyle Hughes on 10/1/18.
-//  Copyright © 2018 Kyle Hughes. All rights reserved.
+//extension Calendar {
 //
-
-import Foundation
-
-extension Calendar {
-
-    // MARK: Public Computed Properties
-
-    public var currentYearAsRomanNumeral: RomanNumeral? {
-        return yearAsRomanNumeral(fromDate: Date())
-    }
-
-    // MARK: Public Interface
-
-    public func yearAsRomanNumeral(fromDate date: Date) -> RomanNumeral? {
-        let dateComponents = self.dateComponents([.year], from: date)
-
-        return dateComponents.yearAsRomanNumeral
-    }
-
-}
+//    // MARK: Public Computed Properties
+//
+//    public var currentYearAsRomanNumeral: RomanNumeral? {
+//        return yearAsRomanNumeral(fromDate: Date())
+//    }
+//
+//    // MARK: Public Interface
+//
+//    public func yearAsRomanNumeral(fromDate date: Date) -> RomanNumeral? {
+//        let dateComponents = self.dateComponents([.year], from: date)
+//
+//        return dateComponents.yearAsRomanNumeral
+//    }
+//
+//}

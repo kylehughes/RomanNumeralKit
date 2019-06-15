@@ -1,21 +1,21 @@
+////
+////  Int+BasicNotationRomanNumeralConvertible.swift
+////  RomanNumeralKit
+////
+////  Created by Kyle Hughes on 9/30/18.
+////  Copyright © 2018 Kyle Hughes. All rights reserved.
+////
 //
-//  Int+BasicNotationRomanNumeralConvertible.swift
-//  RomanNumeralKit
+//import Foundation
 //
-//  Created by Kyle Hughes on 9/30/18.
-//  Copyright © 2018 Kyle Hughes. All rights reserved.
+//// MARK: - BasicNotationRomanNumeralConvertible Extension
 //
-
-import Foundation
-
-// MARK: - BasicNotationRomanNumeralConvertible Extension
-
-extension Int: BasicNotationRomanNumeralConvertible {
-
-    // MARK: Public Properties
-
-    public var basicNotationRomanNumeral: BasicNotationRomanNumeral? {
-        return try? BasicNotationRomanNumeral(intValue: self)
-    }
-
-}
+//extension Int: BasicNotationRomanNumeralConvertible {
+//
+//    // MARK: Public Properties
+//
+//    public var basicNotationRomanNumeral: BasicNotationRomanNumeral? {
+//        return try? BasicNotationRomanNumeral(intValue: self)
+//    }
+//
+//}
