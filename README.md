@@ -1,8 +1,8 @@
 # RomanNumeralKit
 
-[![CocoaPods Version](https://img.shields.io/cocoapods/v/RomanNumeralKit.svg?label=version)]()
+[![CocoaPods Version](https://img.shields.io/cocoapods/v/RomanNumeralKit.svg)]()
 [![Languages](https://img.shields.io/badge/languages-Swift-orange.svg)]()
-[![CocoaPods Platforms](https://img.shields.io/cocoapods/v/RomanNumeralKit.svg)]()
+[![Platform](https://img.shields.io/cocoapods/p/RomanNumeralKit.svg)]()
 
 [![Build Status](https://travis-ci.org/kylehughes/RomanNumeralKit.svg?branch=mainline)](https://travis-ci.org/kylehughes/RomanNumeralKit)
 [![codecov](https://codecov.io/gh/kylehughes/RomanNumeralKit/branch/mainline/graph/badge.svg)](https://codecov.io/gh/kylehughes/RomanNumeralKit)
