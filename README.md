@@ -132,6 +132,12 @@ Addition, subtraction, and multiplication operations are supported (and required
 `Numeric` protocol. We use algorithms that allow us to directly manipulate the Roman numeral symbols as opposed to
 doing conversions to-and-from `Int`s.
 
+```swift
+XCTAssertEqual(MD + CMIX, MMCDIX)
+XCTAssertEqual(MMM - DXCI, MMCDIX)
+XCTAssertEqual(XI * CCXIX, MMCDIX)
+```
+
 #### Performance
 
 Our committment to authenticity does have implications.
