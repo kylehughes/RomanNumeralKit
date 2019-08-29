@@ -51,7 +51,7 @@ RomanNumeralKit does not support conversions to-and-from recent iPhone model nam
 Add RomanNumeralKit to your `Podfile`:
 
 ```ruby
-pod 'RomanNumeralKit', '~> 1.0`
+pod 'RomanNumeralKit', '~> 1.0.0`
 ```
 
 Please visit the [CocoaPods website](https://cocoapods.org/) for general CocoaPods usage and installation instructions.
@@ -62,7 +62,7 @@ Add RomanNumeralKit to the `dependencies` value of your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/kylehughes/RomanNumeralKit.git", from: "1.0")
+    .package(url: "https://github.com/kylehughes/RomanNumeralKit.git", from: "1.0.0")
 ]
 ```
 
