@@ -1,0 +1,3 @@
+ignore:
+  - "Tests/**/*"
+  - "Sources/RomanNumeralKit/Numeric System/RomanNumerals.swift"

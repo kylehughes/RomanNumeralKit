@@ -1,0 +1,45 @@
+language: swift
+os: osx
+osx_image: xcode10.3
+branches:
+  only:
+    - mainline
+
+cache:
+  directories:
+    # SwiftPM
+    - .build
+
+env:
+  global:
+    - LC_CTYPE=en_US.UTF-8
+    - LANG=en_US.UTF-8
+    - FRAMEWORK_SCHEME=RomanNumeralKit
+  matrix:
+    - DESTINATION="OS=5.2,name=Apple Watch Series 4 - 44mm" SCHEME="$FRAMEWORK_SCHEME"  RUN_TESTS="NO"
+    - DESTINATION="OS=4.2,name=Apple Watch Series 3 - 42mm" SCHEME="$FRAMEWORK_SCHEME"  RUN_TESTS="NO"
+    - DESTINATION="OS=3.2,name=Apple Watch - 38mm"          SCHEME="$FRAMEWORK_SCHEME"  RUN_TESTS="NO"
+
+    - DESTINATION="OS=12.4,name=iPhone XS"  SCHEME="$FRAMEWORK_SCHEME"  RUN_TESTS="YES"
+    - DESTINATION="OS=11.4,name=iPhone X"   SCHEME="$FRAMEWORK_SCHEME"  RUN_TESTS="YES"
+    - DESTINATION="OS=10.3.1,name=iPhone 7" SCHEME="$FRAMEWORK_SCHEME"  RUN_TESTS="YES"
+
+    - DESTINATION="OS=12.4,name=Apple TV 4K"      SCHEME="$FRAMEWORK_SCHEME"  RUN_TESTS="YES"
+    - DESTINATION="OS=11.4,name=Apple TV 4K"      SCHEME="$FRAMEWORK_SCHEME"  RUN_TESTS="YES"
+    - DESTINATION="OS=10.2,name=Apple TV 1080p"   SCHEME="$FRAMEWORK_SCHEME"  RUN_TESTS="YES"
+
+    - DESTINATION="arch=x86_64" SCHEME="$FRAMEWORK_SCHEME"  RUN_TESTS="YES"
+script:
+  - set -o pipefail
+  - xcodebuild -version
+  - xcodebuild -showsdks
+
+  # Build framework in Debug and run tests if specified
+  - if [ $RUN_TESTS == "YES" ]; then
+      xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -c;
+    else
+      xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty -c;
+    fi
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -J 'RomanNumeralKit'
