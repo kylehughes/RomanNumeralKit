@@ -19,7 +19,7 @@ Meaningful usage of this framework requires understanding what Roman numerals ar
 
 ### Features
 
-- [x] Constants provided for all 3999 standard Roman numerals.
+- [x] Constants provided for all 3,999 standard Roman numerals.
 - [x] Support for subtractive and additive notations.
 - [x] Arithmetic using Roman-numeral-oriented algorithms - no integer calculations!
 - [x] Conversions to-and-from popular types (e.g. `String`, `Int`).
@@ -30,9 +30,9 @@ Meaningful usage of this framework requires understanding what Roman numerals ar
 
 #### Fixed Numerical Range
 
-Standard Roman numerals as we understand them were limited to values from 1 to 3999. There is no concept of 0. Modern scholars have proposed extensions of the numeric system to support values greater than 3999 but we do not recognize any of these extensions and decry the proposers to be heretics.
+Standard Roman numerals as we understand them were limited to values from 1 to 3,999. There is no concept of 0. Modern scholars have proposed extensions of the numeric system to support values greater than 3,999 but we do not recognize any of these extensions and decry the proposers to be heretics.
 
-Most programs do not deal with numbers higher than 3999, and the world won't exist past the year 3999 in the Gregorian calendar, so there is no need to worry.
+Most programs do not deal with numbers higher than 3,999, and the world won't exist past the year 3,999 in the Gregorian calendar, so there is no need to worry.
 
 #### iPhone Model Names
 
