@@ -1,0 +1,27 @@
+name: Test on all platforms
+
+on:
+  push:
+    branches:    
+      - mainline
+
+jobs:
+  test-on-macOS:
+    name: Test on macOS
+    runs-on: macOS-latest
+    strategy:
+        matrix:
+          destination: ['arch=x86_64']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Build & test w/ Debug configuration
+        run: |
+          set -o pipefail
+          xcodebuild -version
+          xcodebuild -showsdks
+          xcodebuild -scheme "${scheme}" -destination "${destination}" -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -c
+          bash <(curl -s https://codecov.io/bash) -J 'RomanNumeralKit'
+        env:
+          destination: ${{ matrix.destination }}
+          scheme: RomanNumeralKit

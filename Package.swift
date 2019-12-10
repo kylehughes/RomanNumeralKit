@@ -1,4 +1,4 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.1
 
 import PackageDescription
 
@@ -14,9 +14,9 @@ let package = Package(
         .library(name: "RomanNumeralKit", type: .dynamic, targets: ["RomanNumeralKit"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/nicklockwood/SwiftFormat", from: "0.40.11"),
-        .package(url: "https://github.com/Realm/SwiftLint", from: "0.34.0"),
-        .package(url: "https://github.com/orta/Komondor", from: "1.0.4"),
+        .package(url: "https://github.com/nicklockwood/SwiftFormat", from: "0.42.0"),
+        .package(url: "https://github.com/Realm/SwiftLint", from: "0.38.0"),
+        .package(url: "https://github.com/shibapm/Komondor", from: "1.0.4"),
     ],
     targets: [
         .target(name: "RomanNumeralKit", dependencies: []),
