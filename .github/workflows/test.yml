@@ -6,6 +6,29 @@ on:
       - mainline
 
 jobs:
+  test-on-iOS:
+      name: Test on iOS
+      runs-on: macOS-latest
+      strategy:
+          matrix:
+            destination: ['OS=13.1,name=iPhone 11 Pro', 'OS=12.4,name=iPhone XS', 'OS=11.4,name=iPhone X', 'OS=10.3.1,name=iPhone 7']
+      steps:
+        - name: Checkout
+          uses: actions/checkout@master
+        - name: Build & test w/ Debug configuration
+          run: |
+            set -o pipefail
+            xcodebuild -version
+            xcodebuild -showsdks
+            xcodebuild -scheme "${scheme}" -destination "${destination}" -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -c
+          env:
+            destination: ${{ matrix.destination }}
+            scheme: RomanNumeralKit
+        - name: Send code coverage report to codecov.io
+          uses: codecov/codecov-action@v1
+          with:
+            token: ${{ secrets.CODECOV_TOKEN }}
+            yml: ./codecov.yml
   test-on-macOS:
     name: Test on macOS
     runs-on: macOS-latest
@@ -21,7 +44,11 @@ jobs:
           xcodebuild -version
           xcodebuild -showsdks
           xcodebuild -scheme "${scheme}" -destination "${destination}" -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -c
-          bash <(curl -s https://codecov.io/bash) -J 'RomanNumeralKit'
         env:
           destination: ${{ matrix.destination }}
           scheme: RomanNumeralKit
+      - name: Send code coverage report to codecov.io
+          uses: codecov/codecov-action@v1
+          with:
+            token: ${{ secrets.CODECOV_TOKEN }}
+            yml: ./codecov.yml
