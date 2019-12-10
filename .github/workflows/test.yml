@@ -22,7 +22,7 @@ jobs:
             xcodebuild -showsdks
             xcodebuild -scheme "${scheme}" -destination "${destination}" -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -c
           env:
-            DEVELOPER_DIR: '/Applications/Xcode_11.1.app/Contents/Developer'
+            DEVELOPER_DIR: /Applications/Xcode_11.1.app/Contents/Developer
             destination: ${{ matrix.destination }}
             scheme: RomanNumeralKit
         - name: Send code coverage report to codecov.io
@@ -46,7 +46,7 @@ jobs:
             xcodebuild -showsdks
             xcodebuild -scheme "${scheme}" -destination "${destination}" -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -c
           env:
-            DEVELOPER_DIR: '/Applications/Xcode_10.3.app/Contents/Developer'
+            DEVELOPER_DIR: /Applications/Xcode_10.3.app/Contents/Developer
             destination: ${{ matrix.destination }}
             scheme: RomanNumeralKit
   test-on-iOS-11:
@@ -65,7 +65,7 @@ jobs:
             xcodebuild -showsdks
             xcodebuild -scheme "${scheme}" -destination "${destination}" -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -c
           env:
-            DEVELOPER_DIR: '/Applications/Xcode_9.4.1.app/Contents/Developer'
+            DEVELOPER_DIR: /Applications/Xcode_9.4.1.app/Contents/Developer
             destination: ${{ matrix.destination }}
             scheme: RomanNumeralKit
   test-on-iOS-10:
@@ -84,7 +84,7 @@ jobs:
             xcodebuild -showsdks
             xcodebuild -scheme "${scheme}" -destination "${destination}" -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -c
           env:
-            DEVELOPER_DIR: '/Applications/Xcode_9.4.1.app/Contents/Developer'
+            DEVELOPER_DIR: /Applications/Xcode_9.4.1.app/Contents/Developer
             destination: ${{ matrix.destination }}
             scheme: RomanNumeralKit
   test-on-macOS:
