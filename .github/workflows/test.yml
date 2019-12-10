@@ -6,12 +6,12 @@ on:
       - mainline
 
 jobs:
-  test-on-iOS:
-      name: Test on iOS
+  test-on-iOS-13:
+      name: Test on iOS 13
       runs-on: macOS-latest
       strategy:
           matrix:
-            destination: ['OS=13.1,name=iPhone 11 Pro', 'OS=12.4,name=iPhone XS', 'OS=11.4,name=iPhone X', 'OS=10.3.1,name=iPhone 7']
+            destination: ['OS=13.1,name=iPhone 11 Pro']
       steps:
         - name: Checkout
           uses: actions/checkout@master
@@ -22,6 +22,7 @@ jobs:
             xcodebuild -showsdks
             xcodebuild -scheme "${scheme}" -destination "${destination}" -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -c
           env:
+            DEVELOPER_DIR: '/Applications/Xcode_11.1.app/Contents/Developer'
             destination: ${{ matrix.destination }}
             scheme: RomanNumeralKit
         - name: Send code coverage report to codecov.io
@@ -29,6 +30,63 @@ jobs:
           with:
             token: ${{ secrets.CODECOV_TOKEN }}
             yml: ./codecov.yml
+  test-on-iOS-12:
+      name: Test on iOS 12
+      runs-on: macOS-latest
+      strategy:
+          matrix:
+            destination: ['OS=12.4,name=iPhone XS']
+      steps:
+        - name: Checkout
+          uses: actions/checkout@master
+        - name: Build & test w/ Debug configuration
+          run: |
+            set -o pipefail
+            xcodebuild -version
+            xcodebuild -showsdks
+            xcodebuild -scheme "${scheme}" -destination "${destination}" -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -c
+          env:
+            DEVELOPER_DIR: '/Applications/Xcode_10.3.app/Contents/Developer'
+            destination: ${{ matrix.destination }}
+            scheme: RomanNumeralKit
+  test-on-iOS-11:
+      name: Test on iOS 11
+      runs-on: macOS-latest
+      strategy:
+          matrix:
+            destination: ['OS=11.4,name=iPhone X']
+      steps:
+        - name: Checkout
+          uses: actions/checkout@master
+        - name: Build & test w/ Debug configuration
+          run: |
+            set -o pipefail
+            xcodebuild -version
+            xcodebuild -showsdks
+            xcodebuild -scheme "${scheme}" -destination "${destination}" -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -c
+          env:
+            DEVELOPER_DIR: '/Applications/Xcode_9.4.1.app/Contents/Developer'
+            destination: ${{ matrix.destination }}
+            scheme: RomanNumeralKit
+  test-on-iOS-10:
+      name: Test on iOS 10
+      runs-on: macOS-latest
+      strategy:
+          matrix:
+            destination: ['OS=10.3.1,name=iPhone 7']
+      steps:
+        - name: Checkout
+          uses: actions/checkout@master
+        - name: Build & test w/ Debug configuration
+          run: |
+            set -o pipefail
+            xcodebuild -version
+            xcodebuild -showsdks
+            xcodebuild -scheme "${scheme}" -destination "${destination}" -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -c
+          env:
+            DEVELOPER_DIR: '/Applications/Xcode_9.4.1.app/Contents/Developer'
+            destination: ${{ matrix.destination }}
+            scheme: RomanNumeralKit
   test-on-macOS:
     name: Test on macOS
     runs-on: macOS-latest
