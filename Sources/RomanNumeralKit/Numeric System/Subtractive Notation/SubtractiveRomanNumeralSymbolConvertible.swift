@@ -42,6 +42,6 @@ extension SubtractiveRomanNumeralSymbolConvertible {
     // MARK: Public Instance Interface
 
     public var subtractiveRomanNumeralSymbols: [SubtractiveRomanNumeralSymbol] {
-        return [subtractiveRomanNumeralSymbol]
+        [subtractiveRomanNumeralSymbol]
     }
 }

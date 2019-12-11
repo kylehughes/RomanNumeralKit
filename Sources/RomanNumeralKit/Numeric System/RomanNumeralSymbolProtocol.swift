@@ -75,7 +75,7 @@ extension RomanNumeralSymbolProtocol {
     // MARK: Public Static Interface
 
     public static func < (lhs: Self, rhs: Self) -> Bool {
-        return lhs.rawValue.tallyMarks.count < rhs.rawValue.tallyMarks.count
+        lhs.rawValue.tallyMarks.count < rhs.rawValue.tallyMarks.count
     }
 }
 
@@ -85,7 +85,7 @@ extension RomanNumeralSymbolProtocol {
     // MARK: Public Instance Interface
 
     public var debugDescription: String {
-        return String(stringValue)
+        String(stringValue)
     }
 }
 
@@ -95,6 +95,6 @@ extension RomanNumeralSymbolProtocol {
     // MARK: Public Instance Interface
 
     public var description: String {
-        return String(stringValue)
+        String(stringValue)
     }
 }

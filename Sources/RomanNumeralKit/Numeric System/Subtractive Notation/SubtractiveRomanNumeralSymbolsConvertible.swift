@@ -43,6 +43,6 @@ extension SubtractiveRomanNumeralSymbolsConvertible {
     // MARK: Public Instance Interface
 
     public var romanNumeral: RomanNumeral? {
-        return try? RomanNumeral(subtractiveSymbols: subtractiveRomanNumeralSymbols)
+        try? RomanNumeral(subtractiveSymbols: subtractiveRomanNumeralSymbols)
     }
 }

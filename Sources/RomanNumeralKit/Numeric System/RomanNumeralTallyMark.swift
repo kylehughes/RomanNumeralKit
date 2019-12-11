@@ -49,7 +49,7 @@ extension RomanNumeralTallyMark: CustomStringConvertible {
     // MARK: Public Instance Interface
 
     public var description: String {
-        return "|"
+        "|"
     }
 }
 
@@ -59,6 +59,6 @@ extension RomanNumeralTallyMark: CustomDebugStringConvertible {
     // MARK: Public Instance Interface
 
     public var debugDescription: String {
-        return description
+        description
     }
 }

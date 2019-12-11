@@ -39,6 +39,6 @@ extension AdditiveRomanNumeralSymbolConvertible {
     // MARK: Public Instance Interface
 
     public var additiveRomanNumeralSymbols: [RomanNumeralSymbol] {
-        return [additiveRomanNumeralSymbol]
+        [additiveRomanNumeralSymbol]
     }
 }

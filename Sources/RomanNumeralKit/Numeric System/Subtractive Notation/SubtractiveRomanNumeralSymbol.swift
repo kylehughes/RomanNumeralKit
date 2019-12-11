@@ -336,6 +336,6 @@ extension SubtractiveRomanNumeralSymbol: SubtractiveRomanNumeralSymbolConvertibl
     // MARK: Public Instance Interface
 
     public var subtractiveRomanNumeralSymbol: SubtractiveRomanNumeralSymbol {
-        return self
+        self
     }
 }

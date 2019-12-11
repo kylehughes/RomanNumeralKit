@@ -230,7 +230,7 @@ extension RomanNumeralSymbol: AdditiveRomanNumeralSymbolConvertible {
     // MARK: Public Instance Interface
 
     public var additiveRomanNumeralSymbol: RomanNumeralSymbol {
-        return self
+        self
     }
 }
 
@@ -296,7 +296,7 @@ extension RomanNumeralSymbol: RomanNumeralSymbolConvertible {
     // MARK: Public Instance Interface
 
     public var romanNumeralSymbol: RomanNumeralSymbol {
-        return self
+        self
     }
 }
 
@@ -401,6 +401,6 @@ extension RomanNumeralSymbol: SubtractiveRomanNumeralSymbolsConvertible {
     // MARK: Public Instance Interface
 
     public var subtractiveRomanNumeralSymbols: [SubtractiveRomanNumeralSymbol] {
-        return [subtractiveRomanNumeralSymbol]
+        [subtractiveRomanNumeralSymbol]
     }
 }

@@ -133,9 +133,9 @@ Addition, subtraction, and multiplication operations are supported (and required
 doing conversions to-and-from `Int`s.
 
 ```swift
-XCTAssertEqual(MD + CMIX, MMCDIX)
-XCTAssertEqual(MMM - DXCI, MMCDIX)
-XCTAssertEqual(XI * CCXIX, MMCDIX)
+XCTAssertEqual(MD + CMIX, MMCDIX)   // True
+XCTAssertEqual(MMM - DXCI, MMCDIX)  // True
+XCTAssertEqual(XI * CCXIX, MMCDIX)  // True
 ```
 
 #### Performance
@@ -196,9 +196,9 @@ if let currentYear = Calendar.current.currentYearAsRomanNumeral {
 }
 
 if let americasBirthYear = Calendar.current.yearAsRomanNumeral(fromDate: americasBirthDate) {
-    print(americasBirthYear)            // Prints "MDCCLXXVI"
-    print(americasBirthYear.intValue)   // Prints "1776"
-    print(americasBirthYear.copyrightText)    // Prints "Copyright © MDCCLXXVI"
+    print(americasBirthYear)                // Prints "MDCCLXXVI"
+    print(americasBirthYear.intValue)       // Prints "1776"
+    print(americasBirthYear.copyrightText)  // Prints "Copyright © MDCCLXXVI"
 }
 ```
 

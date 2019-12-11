@@ -196,7 +196,7 @@ public extension RomanNumeralProtocol {
      - Returns: The string representation of all of the given symbols.
      */
     static func string(from symbols: [RomanNumeralSymbol]) -> String {
-        return symbols.reduce("") { $0.appending(String($1.stringValue)) }
+        symbols.reduce("") { $0.appending(String($1.stringValue)) }
     }
 
     /**
@@ -208,7 +208,7 @@ public extension RomanNumeralProtocol {
      - Returns: The symbols that were represented by the given string.
      */
     static func symbols(from string: String) throws -> [RomanNumeralSymbol] {
-        return try string
+        try string
             .lazy
             .map { String($0) }
             .map { try RomanNumeralSymbol(from: $0) }
@@ -222,17 +222,17 @@ public extension RomanNumeralProtocol {
      For example: "Copyright © MMX"
      */
     var copyrightText: String {
-        return "Copyright © \(stringValue)"
+        "Copyright © \(stringValue)"
     }
 
     /// The current Roman numeral converted into its integer equivalent.
     var intValue: Int {
-        return Self.int(from: symbols)
+        Self.int(from: symbols)
     }
 
     /// The current Roman numeral represented as a string.
     var stringValue: String {
-        return Self.string(from: symbols)
+        Self.string(from: symbols)
     }
 }
 
@@ -256,7 +256,7 @@ extension RomanNumeralProtocol {
     // MARK: Public Instance Interface
 
     public var debugDescription: String {
-        return stringValue
+        stringValue
     }
 }
 
@@ -266,7 +266,7 @@ extension RomanNumeralProtocol {
     // MARK: Public Instance Interface
 
     public var description: String {
-        return stringValue
+        stringValue
     }
 }
 
@@ -314,10 +314,10 @@ extension RomanNumeralProtocol {
     // MARK: Public Instance Interface
 
     public func advanced(by n: Int) -> Self {
-        return Self(integerLiteral: intValue + n)
+        Self(integerLiteral: intValue + n)
     }
 
     public func distance(to other: Self) -> Int {
-        return intValue - other.intValue
+        intValue - other.intValue
     }
 }

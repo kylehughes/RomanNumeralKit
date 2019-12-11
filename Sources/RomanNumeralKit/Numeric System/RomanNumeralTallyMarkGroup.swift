@@ -108,7 +108,7 @@ extension RomanNumeralTallyMarkGroup {
         left: RomanNumeralTallyMarkGroup,
         right: RomanNumeralTallyMarkGroup
     ) -> RomanNumeralTallyMarkGroup {
-        return RomanNumeralTallyMarkGroup(tallyMarks: left.tallyMarks + right.tallyMarks)
+        RomanNumeralTallyMarkGroup(tallyMarks: left.tallyMarks + right.tallyMarks)
     }
 }
 
@@ -118,7 +118,7 @@ extension RomanNumeralTallyMarkGroup: Comparable {
     // MARK: Public Static Interface
 
     public static func < (lhs: RomanNumeralTallyMarkGroup, rhs: RomanNumeralTallyMarkGroup) -> Bool {
-        return lhs.tallyMarks.count < rhs.tallyMarks.count
+        lhs.tallyMarks.count < rhs.tallyMarks.count
     }
 }
 
@@ -126,7 +126,7 @@ extension RomanNumeralTallyMarkGroup: Comparable {
 
 extension RomanNumeralTallyMarkGroup: CustomDebugStringConvertible {
     public var debugDescription: String {
-        return tallyMarks.map { $0.debugDescription }.joined()
+        tallyMarks.map { $0.debugDescription }.joined()
     }
 }
 
@@ -134,7 +134,7 @@ extension RomanNumeralTallyMarkGroup: CustomDebugStringConvertible {
 
 extension RomanNumeralTallyMarkGroup: CustomStringConvertible {
     public var description: String {
-        return tallyMarks.map { $0.description }.joined()
+        tallyMarks.map { $0.description }.joined()
     }
 }
 
@@ -148,6 +148,6 @@ extension RomanNumeralTallyMarkGroup: Sequence {
     // MARK: Public Instance Interface
 
     public func makeIterator() -> IndexingIterator<[RomanNumeralTallyMark]> {
-        return tallyMarks.makeIterator()
+        tallyMarks.makeIterator()
     }
 }

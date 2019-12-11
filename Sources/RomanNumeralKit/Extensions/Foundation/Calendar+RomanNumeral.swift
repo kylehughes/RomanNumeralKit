@@ -30,7 +30,7 @@ extension Calendar {
 
     /// The current year of the `Calendar` represented as a Roman numeral.
     public var currentYearAsRomanNumeral: RomanNumeral? {
-        return yearAsRomanNumeral(fromDate: Date())
+        yearAsRomanNumeral(fromDate: Date())
     }
 
     /**

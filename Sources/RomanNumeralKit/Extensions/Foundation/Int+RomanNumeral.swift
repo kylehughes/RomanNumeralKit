@@ -29,7 +29,7 @@ extension Int: AdditiveRomanNumeralConvertible {
     // MARK: Public Instance Interface
 
     public var additiveRomanNumeral: AdditiveRomanNumeral? {
-        return try? AdditiveRomanNumeral(from: self)
+        try? AdditiveRomanNumeral(from: self)
     }
 }
 
@@ -39,6 +39,6 @@ extension Int: RomanNumeralConvertible {
     // MARK: Public Instance Interface
 
     public var romanNumeral: RomanNumeral? {
-        return try? RomanNumeral(from: self)
+        try? RomanNumeral(from: self)
     }
 }

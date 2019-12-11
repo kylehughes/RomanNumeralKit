@@ -324,7 +324,7 @@ extension AdditiveRomanNumeral: AdditiveRomanNumeralConvertible {
     // MARK: Public Instance Interface
 
     public var additiveRomanNumeral: AdditiveRomanNumeral? {
-        return self
+        self
     }
 }
 
@@ -366,7 +366,7 @@ extension AdditiveRomanNumeral {
     // MARK: Public Instance Interface
 
     public var magnitude: UInt16 {
-        return UInt16(tallyMarkGroup.tallyMarks.count)
+        UInt16(tallyMarkGroup.tallyMarks.count)
     }
 
     // MARK: Internal Static Interface
@@ -440,7 +440,7 @@ extension AdditiveRomanNumeral: RomanNumeralProtocol {
     }
 
     public static func int(from symbols: [RomanNumeralSymbol]) -> Int {
-        return symbols.reduce(0) { $0 + $1.rawValue.tallyMarks.count }
+        symbols.reduce(0) { $0 + $1.rawValue.tallyMarks.count }
     }
 
     public static func symbols(from intValue: Int) -> [RomanNumeralSymbol] {
@@ -464,11 +464,11 @@ extension AdditiveRomanNumeral: RomanNumeralProtocol {
     // MARK: Public Instance Interface
 
     public var symbols: [RomanNumeralSymbol] {
-        return additiveRomanNumeralSymbols
+        additiveRomanNumeralSymbols
     }
 
     public var tallyMarkGroup: RomanNumeralTallyMarkGroup {
-        return symbols.reduce(.nulla) { $0 + $1.rawValue }
+        symbols.reduce(.nulla) { $0 + $1.rawValue }
     }
 }
 

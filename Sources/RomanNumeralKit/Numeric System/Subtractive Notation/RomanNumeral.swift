@@ -147,7 +147,7 @@ public struct RomanNumeral: SubtractiveRomanNumeralSymbolsConvertible {
      - Returns: The cumulative integer value of the given subtractive symbols.
      */
     public static func int(from subtractiveSymbols: [SubtractiveRomanNumeralSymbol]) -> Int {
-        return subtractiveSymbols.reduce(0) { $0 + $1.rawValue.tallyMarks.count }
+        subtractiveSymbols.reduce(0) { $0 + $1.rawValue.tallyMarks.count }
     }
 
     /**
@@ -194,7 +194,7 @@ public struct RomanNumeral: SubtractiveRomanNumeralSymbolsConvertible {
     internal static func convert(
         toSymbolEquivalentSymbols subtractiveSymbols: [SubtractiveRomanNumeralSymbol]
     ) -> [RomanNumeralSymbol] {
-        return subtractiveSymbols.flatMap { $0.romanNumeralSymbols }
+        subtractiveSymbols.flatMap { $0.romanNumeralSymbols }
     }
 
     /**
@@ -208,7 +208,7 @@ public struct RomanNumeral: SubtractiveRomanNumeralSymbolsConvertible {
     internal static func convert(
         toValueEquivalentSymbols subtractiveSymbols: [SubtractiveRomanNumeralSymbol]
     ) -> [RomanNumeralSymbol] {
-        return subtractiveSymbols.flatMap { $0.additiveRomanNumeralSymbols }
+        subtractiveSymbols.flatMap { $0.additiveRomanNumeralSymbols }
     }
 }
 
@@ -326,7 +326,7 @@ extension RomanNumeral: AdditiveRomanNumeralSymbolsConvertible {
     // MARK: - Public Instance Interface
 
     public var additiveRomanNumeralSymbols: [RomanNumeralSymbol] {
-        return RomanNumeral.convert(toValueEquivalentSymbols: subtractiveRomanNumeralSymbols)
+        RomanNumeral.convert(toValueEquivalentSymbols: subtractiveRomanNumeralSymbols)
     }
 }
 
@@ -368,7 +368,7 @@ extension RomanNumeral {
     // MARK: Public Instance Interface
 
     public var magnitude: UInt16 {
-        return UInt16(tallyMarkGroup.tallyMarks.count)
+        UInt16(tallyMarkGroup.tallyMarks.count)
     }
 
     // MARK: Internal Static Interface
@@ -427,17 +427,17 @@ extension RomanNumeral: RomanNumeralProtocol {
     }
 
     public static func symbols(from intValue: Int) -> [RomanNumeralSymbol] {
-        return subtractiveSymbols(from: intValue).flatMap { $0.romanNumeralSymbols }
+        subtractiveSymbols(from: intValue).flatMap { $0.romanNumeralSymbols }
     }
 
     // MARK: Public Instance Interface
 
     public var symbols: [RomanNumeralSymbol] {
-        return RomanNumeral.convert(toSymbolEquivalentSymbols: subtractiveRomanNumeralSymbols)
+        RomanNumeral.convert(toSymbolEquivalentSymbols: subtractiveRomanNumeralSymbols)
     }
 
     public var tallyMarkGroup: RomanNumeralTallyMarkGroup {
-        return subtractiveRomanNumeralSymbols.reduce(.nulla) { $0 + $1.rawValue }
+        subtractiveRomanNumeralSymbols.reduce(.nulla) { $0 + $1.rawValue }
     }
 }
 
@@ -447,7 +447,7 @@ extension RomanNumeral {
     // MARK: Public Instance Interface
 
     public var romanNumeralSymbols: [RomanNumeralSymbol] {
-        return RomanNumeral.convert(toSymbolEquivalentSymbols: subtractiveRomanNumeralSymbols)
+        RomanNumeral.convert(toSymbolEquivalentSymbols: subtractiveRomanNumeralSymbols)
     }
 }
 
@@ -457,6 +457,6 @@ extension RomanNumeral: RomanNumeralConvertible {
     // MARK: - Public Instance Interface
 
     public var romanNumeral: RomanNumeral? {
-        return self
+        self
     }
 }

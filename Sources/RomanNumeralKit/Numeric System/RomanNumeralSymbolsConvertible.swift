@@ -39,7 +39,7 @@ extension RomanNumeralSymbolsConvertible {
     // MARK: Public Instance Interface
 
     public var romanNumeral: RomanNumeral? {
-        return try? RomanNumeral(symbols: romanNumeralSymbols)
+        try? RomanNumeral(symbols: romanNumeralSymbols)
     }
 }
 
@@ -49,6 +49,6 @@ extension RomanNumeralSymbolsConvertible {
     // MARK: Public Instance Interface
 
     public var subtractiveRomanNumeralSymbols: [SubtractiveRomanNumeralSymbol] {
-        return AdditiveRomanNumeral.convert(toSymbolEquivalentSubtractiveSymbols: romanNumeralSymbols)
+        AdditiveRomanNumeral.convert(toSymbolEquivalentSubtractiveSymbols: romanNumeralSymbols)
     }
 }
