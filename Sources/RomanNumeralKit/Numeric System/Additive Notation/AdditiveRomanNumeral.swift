@@ -58,30 +58,6 @@ public struct AdditiveRomanNumeral: AdditiveRomanNumeralSymbolsConvertible {
 
     // MARK: Internal Static Interface
 
-    internal static func condense(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol] {
-        let allSymbols = RomanNumeralSymbol.allSymbolsAscending
-
-        guard let symbolIndex = allSymbols.firstIndex(of: symbol) else {
-            return []
-        }
-
-        let nextHighestSymbolIndex = symbolIndex + 1
-
-        guard nextHighestSymbolIndex < allSymbols.count else {
-            return Array(repeating: symbol, count: count)
-        }
-
-        let nextHighestSymbol = allSymbols[nextHighestSymbolIndex]
-        let nextHighestSymbolAsCurrentSymbols = nextHighestSymbol.expandedIntoLesserSymbol
-        let nextHighestSymbolQuantity = count / nextHighestSymbolAsCurrentSymbols.count
-        let nextHighestSymbols = Array(repeating: nextHighestSymbol, count: nextHighestSymbolQuantity)
-
-        let remainingSymbolQuanity = count % nextHighestSymbolAsCurrentSymbols.count
-        let remainingSymbols = Array(repeating: symbol, count: remainingSymbolQuanity)
-
-        return nextHighestSymbols + remainingSymbols
-    }
-
     /**
      Convert the given additive symbols into their `SubtractiveRomanNumeralSymbol` equivalents.
 
@@ -415,28 +391,10 @@ extension AdditiveRomanNumeral: RomanNumeralProtocol {
     // MARK: Public Static Interface
 
     public static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol] {
-        let orderedSymbols: [RomanNumeralSymbol] = symbols.sorted(by: >)
+        var condenser = AdditiveRomanNumeralSymbolCondenser()
+        condenser.combine(symbols: symbols)
 
-        // TODO: Fix this deviation on the algo, should go RTL, no filtering just track range.
-        var condensedSymbols = orderedSymbols
-        for currentSymbol in RomanNumeralSymbol.allSymbolsAscending {
-            guard
-                let startIndexOfSymbol = condensedSymbols.firstIndex(of: currentSymbol),
-                let endIndexOfSymbol = condensedSymbols.lastIndex(of: currentSymbol)
-            else {
-                continue
-            }
-
-            let currentSymbols = condensedSymbols.filter { $0 == currentSymbol }
-            let currentCondensedSymbols = condense(
-                symbol: currentSymbol,
-                ofCount: currentSymbols.count
-            )
-
-            condensedSymbols.replaceSubrange(startIndexOfSymbol ... endIndexOfSymbol, with: currentCondensedSymbols)
-        }
-
-        return condensedSymbols
+        return condenser.finalize()
     }
 
     public static func int(from symbols: [RomanNumeralSymbol]) -> Int {
