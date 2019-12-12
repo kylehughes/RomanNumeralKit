@@ -377,25 +377,6 @@ extension AdditiveRomanNumeralTests {
         )
     }
 
-    func test_intFromSymbols() {
-        XCTAssertEqual(
-            AdditiveRomanNumeral.int(from: Constants.minimumNumeralSymbols),
-            Constants.minimumNumeralIntValue
-        )
-        XCTAssertEqual(
-            AdditiveRomanNumeral.int(from: Constants.middleNumeralSymbols),
-            Constants.middleNumeralIntValue
-        )
-        XCTAssertEqual(
-            AdditiveRomanNumeral.int(from: Constants.maximumNumeralSymbols),
-            Constants.maximumNumeralIntValue
-        )
-
-        for symbol in RomanNumeralSymbol.allSymbolsAscending {
-            XCTAssertEqual(AdditiveRomanNumeral.int(from: [symbol]), symbol.rawValue.tallyMarks.count)
-        }
-    }
-
     func test_symbolsFromInt() {
         XCTAssertEqual(
             AdditiveRomanNumeral.symbols(from: Constants.minimumNumeralIntValue),

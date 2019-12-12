@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2730E18D23A20D20006472EF /* AdditiveRomanNumeralSymbolCondenser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2730E18C23A20D20006472EF /* AdditiveRomanNumeralSymbolCondenser.swift */; };
+		2731EF7823A2BF51006FD63B /* AdditiveRomanNumeralToIntConversionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731EF7723A2BF51006FD63B /* AdditiveRomanNumeralToIntConversionAlgorithm.swift */; };
+		2731EF7A23A2BF73006FD63B /* SubtractiveRomanNumeralToIntConversionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731EF7923A2BF73006FD63B /* SubtractiveRomanNumeralToIntConversionAlgorithm.swift */; };
 		2739F87B22B15A540075B5C4 /* RomanNumeralTallyMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739F87A22B15A540075B5C4 /* RomanNumeralTallyMark.swift */; };
 		2739F87D22B15A730075B5C4 /* RomanNumeralTallyMarkGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739F87C22B15A730075B5C4 /* RomanNumeralTallyMarkGroup.swift */; };
 		2760A08922CA7AC80025F2C9 /* RomanNumeralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2760A08822CA7AC80025F2C9 /* RomanNumeralConvertible.swift */; };
@@ -44,6 +46,7 @@
 		27C584B223088E1200316CB1 /* RomanNumeralTallyMarkGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C584B123088E1200316CB1 /* RomanNumeralTallyMarkGroupTests.swift */; };
 		27E7C97323A2AB0000F33AB8 /* SubtractiveRomanNumeralSymbolCondenser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E7C97223A2AB0000F33AB8 /* SubtractiveRomanNumeralSymbolCondenser.swift */; };
 		27E7C97523A2B02400F33AB8 /* RomanNumeralSymbolCondenser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E7C97423A2B02400F33AB8 /* RomanNumeralSymbolCondenser.swift */; };
+		27E7C97723A2B9D800F33AB8 /* ConversionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E7C97623A2B9D800F33AB8 /* ConversionAlgorithm.swift */; };
 		27ED071E2161DAB600D3303A /* Int+RomanNumeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ED071D2161DAB600D3303A /* Int+RomanNumeral.swift */; };
 		27ED07202161E0A500D3303A /* RomanNumeralSymbolError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ED071F2161E0A500D3303A /* RomanNumeralSymbolError.swift */; };
 		27F9DDAC2161C0D900CC9903 /* String+RomanNumeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9DDAB2161C0D900CC9903 /* String+RomanNumeral.swift */; };
@@ -63,6 +66,8 @@
 
 /* Begin PBXFileReference section */
 		2730E18C23A20D20006472EF /* AdditiveRomanNumeralSymbolCondenser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditiveRomanNumeralSymbolCondenser.swift; sourceTree = "<group>"; };
+		2731EF7723A2BF51006FD63B /* AdditiveRomanNumeralToIntConversionAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditiveRomanNumeralToIntConversionAlgorithm.swift; sourceTree = "<group>"; };
+		2731EF7923A2BF73006FD63B /* SubtractiveRomanNumeralToIntConversionAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractiveRomanNumeralToIntConversionAlgorithm.swift; sourceTree = "<group>"; };
 		2739F87A22B15A540075B5C4 /* RomanNumeralTallyMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralTallyMark.swift; sourceTree = "<group>"; };
 		2739F87C22B15A730075B5C4 /* RomanNumeralTallyMarkGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralTallyMarkGroup.swift; sourceTree = "<group>"; };
 		2760A08822CA7AC80025F2C9 /* RomanNumeralConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralConvertible.swift; sourceTree = "<group>"; };
@@ -102,6 +107,7 @@
 		27C584B123088E1200316CB1 /* RomanNumeralTallyMarkGroupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralTallyMarkGroupTests.swift; sourceTree = "<group>"; };
 		27E7C97223A2AB0000F33AB8 /* SubtractiveRomanNumeralSymbolCondenser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractiveRomanNumeralSymbolCondenser.swift; sourceTree = "<group>"; };
 		27E7C97423A2B02400F33AB8 /* RomanNumeralSymbolCondenser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralSymbolCondenser.swift; sourceTree = "<group>"; };
+		27E7C97623A2B9D800F33AB8 /* ConversionAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionAlgorithm.swift; sourceTree = "<group>"; };
 		27ED071D2161DAB600D3303A /* Int+RomanNumeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+RomanNumeral.swift"; sourceTree = "<group>"; };
 		27ED071F2161E0A500D3303A /* RomanNumeralSymbolError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralSymbolError.swift; sourceTree = "<group>"; };
 		27F9DDAB2161C0D900CC9903 /* String+RomanNumeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RomanNumeral.swift"; sourceTree = "<group>"; };
@@ -200,6 +206,7 @@
 		27667FBB2084B3C600AB8A66 /* Numeric System */ = {
 			isa = PBXGroup;
 			children = (
+				27E7C97623A2B9D800F33AB8 /* ConversionAlgorithm.swift */,
 				2777F98E22B55D220004F5E1 /* RomanNumeralArithmeticError.swift */,
 				27667FCF2084CDE000AB8A66 /* RomanNumeralError.swift */,
 				27F9DDAD2161C23400CC9903 /* RomanNumeralProtocol.swift */,
@@ -261,6 +268,7 @@
 				2730E18C23A20D20006472EF /* AdditiveRomanNumeralSymbolCondenser.swift */,
 				27C584AF23088CE500316CB1 /* AdditiveRomanNumeralSymbolConvertible.swift */,
 				279B471522C82056004C4D07 /* AdditiveRomanNumeralSymbolsConvertible.swift */,
+				2731EF7723A2BF51006FD63B /* AdditiveRomanNumeralToIntConversionAlgorithm.swift */,
 			);
 			path = "Additive Notation";
 			sourceTree = "<group>";
@@ -274,6 +282,7 @@
 				27E7C97223A2AB0000F33AB8 /* SubtractiveRomanNumeralSymbolCondenser.swift */,
 				279B471D22C87B22004C4D07 /* SubtractiveRomanNumeralSymbolConvertible.swift */,
 				279B471B22C87A39004C4D07 /* SubtractiveRomanNumeralSymbolsConvertible.swift */,
+				2731EF7923A2BF73006FD63B /* SubtractiveRomanNumeralToIntConversionAlgorithm.swift */,
 			);
 			path = "Subtractive Notation";
 			sourceTree = "<group>";
@@ -423,6 +432,7 @@
 				2777F99522C146DB0004F5E1 /* RomanNumeralSymbolProtocol.swift in Sources */,
 				279B471C22C87A39004C4D07 /* SubtractiveRomanNumeralSymbolsConvertible.swift in Sources */,
 				2777F99122B560550004F5E1 /* Sequence+Sorting.swift in Sources */,
+				2731EF7823A2BF51006FD63B /* AdditiveRomanNumeralToIntConversionAlgorithm.swift in Sources */,
 				279B471E22C87B22004C4D07 /* SubtractiveRomanNumeralSymbolConvertible.swift in Sources */,
 				2777F98F22B55D220004F5E1 /* RomanNumeralArithmeticError.swift in Sources */,
 				27F9DDAC2161C0D900CC9903 /* String+RomanNumeral.swift in Sources */,
@@ -435,9 +445,11 @@
 				2767EF0121632F99008B6F85 /* DateComponents+RomanNumeral.swift in Sources */,
 				2760A08922CA7AC80025F2C9 /* RomanNumeralConvertible.swift in Sources */,
 				2767EF032163305A008B6F85 /* Calendar+RomanNumeral.swift in Sources */,
+				2731EF7A23A2BF73006FD63B /* SubtractiveRomanNumeralToIntConversionAlgorithm.swift in Sources */,
 				27667EEB23137BA30099BFB8 /* RomanNumeralSymbolConvertible.swift in Sources */,
 				27E7C97523A2B02400F33AB8 /* RomanNumeralSymbolCondenser.swift in Sources */,
 				27667FD02084CDE000AB8A66 /* RomanNumeralError.swift in Sources */,
+				27E7C97723A2B9D800F33AB8 /* ConversionAlgorithm.swift in Sources */,
 				27E7C97323A2AB0000F33AB8 /* SubtractiveRomanNumeralSymbolCondenser.swift in Sources */,
 				27C584B023088CE500316CB1 /* AdditiveRomanNumeralSymbolConvertible.swift in Sources */,
 				2730E18D23A20D20006472EF /* AdditiveRomanNumeralSymbolCondenser.swift in Sources */,

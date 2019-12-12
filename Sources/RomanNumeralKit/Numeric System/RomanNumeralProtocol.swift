@@ -49,6 +49,7 @@ public protocol RomanNumeralProtocol: CustomDebugStringConvertible,
     // MARK: Typealiases
 
     associatedtype Stride = Int
+    associatedtype ToInt: ConversionAlgorithm where ToInt.From == Self, ToInt.To == Int
 
     // MARK: Initialization
 
@@ -85,16 +86,6 @@ public protocol RomanNumeralProtocol: CustomDebugStringConvertible,
      - Returns: The condensed form of the given symbols.
      */
     static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol]
-
-    /**
-     Convert the given symbols into their cumulative integer value for the implementing notation.
-
-     The order of the symbols should follow the rules of the implementing notation.
-
-     - Parameter symbols: The symbols that should be represented as a cumulative integer value.
-     - Returns: The cumulative integer value of the given symbols.
-     */
-    static func int(from symbols: [RomanNumeralSymbol]) -> Int
 
     /**
      Convert the given integer into the corresponding symbols for the implementing notation.
@@ -227,7 +218,7 @@ public extension RomanNumeralProtocol {
 
     /// The current Roman numeral converted into its integer equivalent.
     var intValue: Int {
-        Self.int(from: symbols)
+        ToInt.convert(from: self)
     }
 
     /// The current Roman numeral represented as a string.

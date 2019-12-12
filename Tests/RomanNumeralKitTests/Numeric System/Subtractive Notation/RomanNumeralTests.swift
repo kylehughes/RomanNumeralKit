@@ -728,25 +728,6 @@ extension RomanNumeralTests {
         )
     }
 
-    func test_protocol_intFromSymbols() {
-        XCTAssertEqual(
-            RomanNumeral.int(from: Constants.minimumNumeralSymbolEquivalentAdditiveSymbols),
-            Constants.minimumNumeralIntValue
-        )
-        XCTAssertEqual(
-            RomanNumeral.int(from: Constants.middleNumeralSymbolEquivalentAdditiveSymbols),
-            Constants.middleNumeralIntValue
-        )
-        XCTAssertEqual(
-            RomanNumeral.int(from: Constants.maximumNumeralSymbolEquivalentAdditiveSymbols),
-            Constants.maximumNumeralIntValue
-        )
-
-        for symbol in SubtractiveRomanNumeralSymbol.allSymbolsAscending {
-            XCTAssertEqual(RomanNumeral.int(from: [symbol]), symbol.rawValue.tallyMarks.count)
-        }
-    }
-
     func test_protocol_symbolsFromInt() {
         XCTAssertEqual(
             RomanNumeral.symbols(from: Constants.minimumNumeralIntValue),

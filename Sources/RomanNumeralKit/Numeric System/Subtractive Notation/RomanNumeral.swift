@@ -406,6 +406,8 @@ extension RomanNumeral {
 // MARK: - RomanNumeralProtocol Extension
 
 extension RomanNumeral: RomanNumeralProtocol {
+    public typealias ToInt = SubtractiveRomanNumeralToIntConversionAlgorithm
+
     // MARK: Public Initialization
 
     public init(symbols: [RomanNumeralSymbol]) throws {
@@ -420,12 +422,6 @@ extension RomanNumeral: RomanNumeralProtocol {
         condenser.combine(symbols: symbols)
 
         return condenser.finalize()
-    }
-
-    public static func int(from symbols: [RomanNumeralSymbol]) -> Int {
-        let convertedSubtractiveSymbols = AdditiveRomanNumeral.convert(toSymbolEquivalentSubtractiveSymbols: symbols)
-
-        return int(from: convertedSubtractiveSymbols)
     }
 
     public static func symbols(from intValue: Int) -> [RomanNumeralSymbol] {

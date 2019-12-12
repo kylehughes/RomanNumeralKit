@@ -64,7 +64,7 @@ public struct AdditiveRomanNumeral: AdditiveRomanNumeralSymbolsConvertible {
     /**
      Convert the given additive symbols into their `SubtractiveRomanNumeralSymbol` equivalents.
 
-     The symbols will be converted directly and will come out in additive notation using the alternate symbol type.
+     The symbols will be converted directly and will come out in subtractive notation using the alternate symbol type.
 
      - Parameter additiveSymbols: The additive symbols to convert.
      - Returns: The `SubtractiveRomanNumeralSymbol` equivalent of the additive symbols.
@@ -370,6 +370,8 @@ extension AdditiveRomanNumeral {
 // MARK: - RomanNumeralProtocol Extension
 
 extension AdditiveRomanNumeral: RomanNumeralProtocol {
+    public typealias ToInt = AdditiveRomanNumeralToIntConversionAlgorithm
+
     // MARK: Public Initialization
 
     public init(symbols: [RomanNumeralSymbol]) throws {
@@ -398,10 +400,6 @@ extension AdditiveRomanNumeral: RomanNumeralProtocol {
         condenser.combine(symbols: symbols)
 
         return condenser.finalize()
-    }
-
-    public static func int(from symbols: [RomanNumeralSymbol]) -> Int {
-        symbols.reduce(0) { $0 + $1.rawValue.tallyMarks.count }
     }
 
     public static func symbols(from intValue: Int) -> [RomanNumeralSymbol] {
