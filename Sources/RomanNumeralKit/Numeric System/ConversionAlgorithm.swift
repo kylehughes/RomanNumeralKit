@@ -27,5 +27,20 @@ public protocol ConversionAlgorithm {
     associatedtype From
     associatedtype To
 
+    // MARK: Static Interface
+
     static func convert(from: From) -> To
+}
+
+// MARK: - Public Extension
+
+public extension ConversionAlgorithm {
+    // MARK: Public Static Interface
+
+    static func convert<BridgeAlgorithm>(
+        from: BridgeAlgorithm.From,
+        bridgedBy bridge: BridgeAlgorithm.Type
+    ) -> To where BridgeAlgorithm: ConversionAlgorithm, BridgeAlgorithm.To == From {
+        convert(from: bridge.convert(from: from))
+    }
 }
