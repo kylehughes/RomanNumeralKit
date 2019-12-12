@@ -312,15 +312,9 @@ extension RomanNumeralTests {
     }
 
     func test_subtraction_perf_100Items() {
-        // Given...
-
-        let mmmdcccxlv: RomanNumeral = "MMMDCCCXLV" // 3,845
-
-        // Then...
-
         measure {
             for _ in 1 ... 100 {
-                _ = Constants.maximumSubtractiveNumeral - mmmdcccxlv
+                _ = Constants.maximumSubtractiveNumeral - MMMDCCCXLV
             }
         }
     }

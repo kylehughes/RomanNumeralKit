@@ -93,39 +93,39 @@ public struct AdditiveRomanNumeral: AdditiveRomanNumeralSymbolsConvertible {
     internal static func convert(
         toSymbolEquivalentSubtractiveSymbols additiveSymbols: [RomanNumeralSymbol]
     ) -> [SubtractiveRomanNumeralSymbol] {
-        var subtractiveSymbols: [SubtractiveRomanNumeralSymbol] = []
         var lastProcessedIndex = -1
 
-        for (index, additiveSymbol) in additiveSymbols.enumerated() {
-            guard lastProcessedIndex < index else {
-                continue
-            }
-
-            let nextIndex = index + 1
-            let subtractiveSymbol: SubtractiveRomanNumeralSymbol
-
-            if nextIndex < additiveSymbols.count {
-                let nextAdditiveSymbol = additiveSymbols[nextIndex]
-                if
-                    additiveSymbol < nextAdditiveSymbol,
-                    let subtractiveSymbolIndex = SubtractiveRomanNumeralSymbol
-                    .allRomanNumeralSymbolsAscending
-                    .firstIndex(of: [additiveSymbol, nextAdditiveSymbol]) {
-                    subtractiveSymbol = SubtractiveRomanNumeralSymbol.allSymbolsAscending[subtractiveSymbolIndex]
-                    lastProcessedIndex = nextIndex
-                } else {
-                    subtractiveSymbol = additiveSymbol.subtractiveRomanNumeralSymbol
-                    lastProcessedIndex = index
+        return additiveSymbols
+            .lazy
+            .enumerated()
+            .compactMap { index, additiveSymbol in
+                guard lastProcessedIndex < index else {
+                    return nil
                 }
-            } else {
-                subtractiveSymbol = additiveSymbol.subtractiveRomanNumeralSymbol
-                lastProcessedIndex = index
+
+                let nextIndex = index + 1
+
+                guard nextIndex < additiveSymbols.count else {
+                    lastProcessedIndex = index
+
+                    return additiveSymbol.subtractiveRomanNumeralSymbol
+                }
+
+                let nextAdditiveSymbol = additiveSymbols[nextIndex]
+
+                guard
+                    let subtractiveSymbolIndex = SubtractiveRomanNumeralSymbol.allRomanNumeralSymbolsAscending
+                    .firstIndex(of: [additiveSymbol, nextAdditiveSymbol])
+                else {
+                    lastProcessedIndex = index
+
+                    return additiveSymbol.subtractiveRomanNumeralSymbol
+                }
+
+                lastProcessedIndex = nextIndex
+
+                return SubtractiveRomanNumeralSymbol.allSymbolsAscending[subtractiveSymbolIndex]
             }
-
-            subtractiveSymbols.append(subtractiveSymbol)
-        }
-
-        return subtractiveSymbols
     }
 
     /**
