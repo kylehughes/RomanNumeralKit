@@ -43,7 +43,10 @@
 public struct AdditiveRomanNumeral: AdditiveRomanNumeralSymbolsConvertible {
     // MARK: Public Static Properties
 
-    public static let maximum = AdditiveRomanNumeral(unsafeSymbols: [.M, .M, .M, .D, .C, .C, .C, .C, .L, .X, .X, .X, .X, .V, .I, .I, .I, .I])
+    public static let maximum = AdditiveRomanNumeral(
+        unsafeSymbols: [.M, .M, .M, .D, .C, .C, .C, .C, .L, .X, .X, .X, .X, .V, .I, .I, .I, .I]
+    )
+
     public static let minimum = AdditiveRomanNumeral(unsafeSymbols: [.I])
 
     // MARK: Public Instance Properties

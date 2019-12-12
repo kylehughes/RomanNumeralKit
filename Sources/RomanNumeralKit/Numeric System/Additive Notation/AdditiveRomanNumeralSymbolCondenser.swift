@@ -23,7 +23,7 @@
 //  THE SOFTWARE.
 //
 
-internal struct AdditiveRomanNumeralSymbolCondenser {
+public struct AdditiveRomanNumeralSymbolCondenser {
     private(set) var countForI: Int
     private(set) var countForV: Int
     private(set) var countForX: Int
@@ -32,9 +32,9 @@ internal struct AdditiveRomanNumeralSymbolCondenser {
     private(set) var countForD: Int
     private(set) var countForM: Int
 
-    // MARK: Internal Initialization
+    // MARK: Public Initialization
 
-    internal init() {
+    public init() {
         countForI = 0
         countForV = 0
         countForX = 0
@@ -42,24 +42,6 @@ internal struct AdditiveRomanNumeralSymbolCondenser {
         countForC = 0
         countForD = 0
         countForM = 0
-    }
-
-    // MARK: Internal Instance Interface
-
-    internal mutating func combine(symbols: [RomanNumeralSymbol]) {
-        symbols.forEach { record(symbol: $0) }
-    }
-
-    internal mutating func finalize() -> [RomanNumeralSymbol] {
-        RomanNumeralSymbol
-            .allSymbolsAscending
-            .forEach { condenseAndRecord(symbol: $0) }
-
-        return RomanNumeralSymbol
-            .allSymbolsDescending
-            .map { ($0, getCount(forSymbol: $0)) }
-            .map(Array.init)
-            .reduce([], +)
     }
 
     // MARK: Private Static Interface
@@ -158,5 +140,26 @@ internal struct AdditiveRomanNumeralSymbolCondenser {
         case .M:
             countForM += 1
         }
+    }
+}
+
+// MARK: - RomanNumeralSymbolCondenser Extension
+
+extension AdditiveRomanNumeralSymbolCondenser: RomanNumeralSymbolCondenser {
+    // MARK: Internal Instance Interface
+
+    public mutating func combine(symbols: [RomanNumeralSymbol]) {
+        symbols.forEach { record(symbol: $0) }
+    }
+
+    public mutating func finalize() -> [RomanNumeralSymbol] {
+        RomanNumeralSymbol
+            .allSymbolsAscending
+            .forEach { condenseAndRecord(symbol: $0) }
+
+        return RomanNumeralSymbol
+            .allSymbolsDescending
+            .map { Array(repeating: $0, count: getCount(forSymbol: $0)) }
+            .reduce([], +)
     }
 }

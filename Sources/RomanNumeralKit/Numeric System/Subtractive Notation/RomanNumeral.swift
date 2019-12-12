@@ -128,11 +128,13 @@ public struct RomanNumeral: SubtractiveRomanNumeralSymbolsConvertible {
      - Parameter subtractiveSymbols: The given subtractive symbols to condense.
      - Returns: The condensed form of the given subtractive symbols.
      */
-    public static func condense(subtractiveSymbols: [SubtractiveRomanNumeralSymbol]) -> [SubtractiveRomanNumeralSymbol] {
-        let symbols = RomanNumeral.convert(toValueEquivalentSymbols: subtractiveSymbols)
-        let condensedSymbols = AdditiveRomanNumeral.condense(symbols: symbols)
+    public static func condense(
+        subtractiveSymbols: [SubtractiveRomanNumeralSymbol]
+    ) -> [SubtractiveRomanNumeralSymbol] {
+        var condenser = SubtractiveRomanNumeralSymbolCondenser()
+        condenser.combine(symbols: subtractiveSymbols)
 
-        return AdditiveRomanNumeral.convert(toValueEquivalentSubtractiveSymbols: condensedSymbols)
+        return condenser.finalize()
     }
 
     /**
@@ -414,10 +416,10 @@ extension RomanNumeral: RomanNumeralProtocol {
     // MARK: Public Static Interface
 
     public static func condense(symbols: [RomanNumeralSymbol]) -> [RomanNumeralSymbol] {
-        let convertedSubtractiveSymbols = AdditiveRomanNumeral.convert(toSymbolEquivalentSubtractiveSymbols: symbols)
-        let condensedSubtractiveSymbols = condense(subtractiveSymbols: convertedSubtractiveSymbols)
+        var condenser = SubtractiveRomanNumeralSymbolCondenser()
+        condenser.combine(symbols: symbols)
 
-        return RomanNumeral.convert(toSymbolEquivalentSymbols: condensedSubtractiveSymbols)
+        return condenser.finalize()
     }
 
     public static func int(from symbols: [RomanNumeralSymbol]) -> Int {
