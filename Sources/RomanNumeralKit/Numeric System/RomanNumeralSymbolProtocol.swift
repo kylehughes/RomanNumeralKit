@@ -34,6 +34,7 @@
 public protocol RomanNumeralSymbolProtocol: Comparable,
     CustomStringConvertible,
     CustomDebugStringConvertible,
+    Hashable,
     RawRepresentable where RawValue == RomanNumeralTallyMarkGroup {
     // MARK: Initialization
 

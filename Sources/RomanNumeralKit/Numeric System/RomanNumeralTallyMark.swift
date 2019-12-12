@@ -34,7 +34,7 @@
 
  - SeeAlso: https://theasciicode.com.ar/ascii-printable-characters/vertical-bar-vbar-vertical-line-vertical-slash-ascii-code-124.html
  */
-public struct RomanNumeralTallyMark: Equatable {
+public struct RomanNumeralTallyMark: Codable, Equatable, Hashable {
     // MARK: Public Initialization
 
     /**
@@ -43,13 +43,13 @@ public struct RomanNumeralTallyMark: Equatable {
     public init() {}
 }
 
-// MARK: - CustomStringConvertible Extension
+// MARK: - Comparable Extension
 
-extension RomanNumeralTallyMark: CustomStringConvertible {
-    // MARK: Public Instance Interface
+extension RomanNumeralTallyMark: Comparable {
+    // MARK: Public Static Interface
 
-    public var description: String {
-        "|"
+    public static func < (_: RomanNumeralTallyMark, _: RomanNumeralTallyMark) -> Bool {
+        false
     }
 }
 
@@ -60,5 +60,15 @@ extension RomanNumeralTallyMark: CustomDebugStringConvertible {
 
     public var debugDescription: String {
         description
+    }
+}
+
+// MARK: - CustomStringConvertible Extension
+
+extension RomanNumeralTallyMark: CustomStringConvertible {
+    // MARK: Public Instance Interface
+
+    public var description: String {
+        "|"
     }
 }

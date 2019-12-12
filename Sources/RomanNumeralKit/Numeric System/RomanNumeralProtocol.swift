@@ -43,6 +43,8 @@
 public protocol RomanNumeralProtocol: CustomDebugStringConvertible,
     CustomStringConvertible,
     ExpressibleByStringLiteral,
+    Hashable,
+    Identifiable,
     Numeric,
     Strideable,
     RomanNumeralSymbolsConvertible {
@@ -296,6 +298,16 @@ extension RomanNumeralProtocol {
                 self = Self.minimum
             }
         }
+    }
+}
+
+// MARK: - Identifiable Extension
+
+extension RomanNumeralProtocol {
+    // MARK: Public Instance Interface
+
+    public var id: Self {
+        self
     }
 }
 

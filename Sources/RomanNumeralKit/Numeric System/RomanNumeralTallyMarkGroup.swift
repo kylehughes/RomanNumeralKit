@@ -28,7 +28,7 @@
 
  For example, `IIIII` contains five tally marks, so the value of the group is five.
  */
-public struct RomanNumeralTallyMarkGroup: Equatable {
+public struct RomanNumeralTallyMarkGroup: Codable, Equatable, Hashable {
     // MARK: Public Static Properties
 
     /// A tally mark group with 0 tally marks.
