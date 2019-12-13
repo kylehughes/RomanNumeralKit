@@ -24,24 +24,12 @@
 //
 
 public struct AdditiveRomanNumeralSymbolCondenser {
-    private(set) var countForI: Int
-    private(set) var countForV: Int
-    private(set) var countForX: Int
-    private(set) var countForL: Int
-    private(set) var countForC: Int
-    private(set) var countForD: Int
-    private(set) var countForM: Int
+    private var storage: RomanNumeralSymbolDictionary<Int>
 
     // MARK: Public Initialization
 
     public init() {
-        countForI = 0
-        countForV = 0
-        countForX = 0
-        countForL = 0
-        countForC = 0
-        countForD = 0
-        countForM = 0
+        storage = RomanNumeralSymbolDictionary(defaultValue: 0)
     }
 
     // MARK: Private Static Interface
@@ -72,74 +60,15 @@ public struct AdditiveRomanNumeralSymbolCondenser {
 
     // MARK: Private Instance Interface
 
-    private mutating func clearRecord(forSymbol symbol: RomanNumeralSymbol) {
-        switch symbol {
-        case .nulla:
-            break
-        case .I:
-            countForI = 0
-        case .V:
-            countForV = 0
-        case .X:
-            countForX = 0
-        case .L:
-            countForL = 0
-        case .C:
-            countForC = 0
-        case .D:
-            countForD = 0
-        case .M:
-            countForM = 0
-        }
-    }
-
     private mutating func condenseAndRecord(symbol: RomanNumeralSymbol) {
-        let count = getCount(forSymbol: symbol)
+        let count = storage[symbol]
         let condensedSymbols = Self.condense(symbol: symbol, ofCount: count)
-        clearRecord(forSymbol: symbol)
+        storage[symbol] = 0
         condensedSymbols.forEach { record(symbol: $0) }
     }
 
-    private mutating func getCount(forSymbol symbol: RomanNumeralSymbol) -> Int {
-        switch symbol {
-        case .nulla:
-            return 0
-        case .I:
-            return countForI
-        case .V:
-            return countForV
-        case .X:
-            return countForX
-        case .L:
-            return countForL
-        case .C:
-            return countForC
-        case .D:
-            return countForD
-        case .M:
-            return countForM
-        }
-    }
-
     private mutating func record(symbol: RomanNumeralSymbol) {
-        switch symbol {
-        case .nulla:
-            break
-        case .I:
-            countForI += 1
-        case .V:
-            countForV += 1
-        case .X:
-            countForX += 1
-        case .L:
-            countForL += 1
-        case .C:
-            countForC += 1
-        case .D:
-            countForD += 1
-        case .M:
-            countForM += 1
-        }
+        storage[symbol] += 1
     }
 }
 
@@ -159,7 +88,7 @@ extension AdditiveRomanNumeralSymbolCondenser: RomanNumeralSymbolCondenser {
 
         return RomanNumeralSymbol
             .allSymbolsDescending
-            .map { Array(repeating: $0, count: getCount(forSymbol: $0)) }
+            .map { Array(repeating: $0, count: storage[$0]) }
             .reduce([], +)
     }
 }
