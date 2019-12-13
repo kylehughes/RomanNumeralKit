@@ -325,27 +325,6 @@ extension RomanNumeralSymbol: RomanNumeralSymbolProtocol {
 
     // MARK: Public Instance Interface
 
-    public var stringValue: String {
-        switch self {
-        case .nulla:
-            return "N"
-        case .I:
-            return "I"
-        case .V:
-            return "V"
-        case .X:
-            return "X"
-        case .L:
-            return "L"
-        case .C:
-            return "C"
-        case .D:
-            return "D"
-        case .M:
-            return "M"
-        }
-    }
-
     public var lesserSymbol: RomanNumeralSymbol? {
         switch self {
         case .nulla:
@@ -364,6 +343,48 @@ extension RomanNumeralSymbol: RomanNumeralSymbolProtocol {
             return .C
         case .M:
             return .D
+        }
+    }
+
+    public var greaterSymbol: RomanNumeralSymbol? {
+        switch self {
+        case .nulla:
+            return .I
+        case .I:
+            return .V
+        case .V:
+            return .X
+        case .X:
+            return .L
+        case .L:
+            return .C
+        case .C:
+            return .D
+        case .D:
+            return .M
+        case .M:
+            return nil
+        }
+    }
+
+    public var stringValue: String {
+        switch self {
+        case .nulla:
+            return "N"
+        case .I:
+            return "I"
+        case .V:
+            return "V"
+        case .X:
+            return "X"
+        case .L:
+            return "L"
+        case .C:
+            return "C"
+        case .D:
+            return "D"
+        case .M:
+            return "M"
         }
     }
 }

@@ -263,36 +263,36 @@ extension SubtractiveRomanNumeralSymbol: RomanNumeralSymbolProtocol {
 
     // MARK: Public Instance Interface
 
-    public var stringValue: String {
+    public var greaterSymbol: SubtractiveRomanNumeralSymbol? {
         switch self {
         case .nulla:
-            return "N"
+            return .I
         case .I:
-            return "I"
+            return .IV
         case .IV:
-            return "IV"
+            return .V
         case .V:
-            return "V"
+            return .IX
         case .IX:
-            return "IX"
+            return .X
         case .X:
-            return "X"
+            return .XL
         case .XL:
-            return "XL"
+            return .L
         case .L:
-            return "L"
+            return .XC
         case .XC:
-            return "XC"
+            return .C
         case .C:
-            return "C"
+            return .CD
         case .CD:
-            return "CD"
+            return .D
         case .D:
-            return "D"
+            return .CM
         case .CM:
-            return "CM"
+            return .M
         case .M:
-            return "M"
+            return nil
         }
     }
 
@@ -326,6 +326,39 @@ extension SubtractiveRomanNumeralSymbol: RomanNumeralSymbolProtocol {
             return .D
         case .M:
             return .CM
+        }
+    }
+
+    public var stringValue: String {
+        switch self {
+        case .nulla:
+            return "N"
+        case .I:
+            return "I"
+        case .IV:
+            return "IV"
+        case .V:
+            return "V"
+        case .IX:
+            return "IX"
+        case .X:
+            return "X"
+        case .XL:
+            return "XL"
+        case .L:
+            return "L"
+        case .XC:
+            return "XC"
+        case .C:
+            return "C"
+        case .CD:
+            return "CD"
+        case .D:
+            return "D"
+        case .CM:
+            return "CM"
+        case .M:
+            return "M"
         }
     }
 }

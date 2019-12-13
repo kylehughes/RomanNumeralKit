@@ -35,27 +35,18 @@ public struct AdditiveRomanNumeralSymbolCondenser {
     // MARK: Private Static Interface
 
     private static func condense(symbol: RomanNumeralSymbol, ofCount count: Int) -> [RomanNumeralSymbol] {
-        let allSymbols = RomanNumeralSymbol.allSymbolsAscending
-
-        guard let symbolIndex = allSymbols.firstIndex(of: symbol) else {
-            return []
-        }
-
-        let nextHighestSymbolIndex = symbolIndex + 1
-
-        guard nextHighestSymbolIndex < allSymbols.count else {
+        guard let nextGreatestSymbol = symbol.greaterSymbol else {
             return Array(repeating: symbol, count: count)
         }
 
-        let nextHighestSymbol = allSymbols[nextHighestSymbolIndex]
-        let nextHighestSymbolAsCurrentSymbols = nextHighestSymbol.expandedIntoLesserSymbol
-        let nextHighestSymbolQuantity = count / nextHighestSymbolAsCurrentSymbols.count
-        let nextHighestSymbols = Array(repeating: nextHighestSymbol, count: nextHighestSymbolQuantity)
+        let nextGreatestSymbolAsCurrentSymbols = nextGreatestSymbol.expandedIntoLesserSymbol
+        let nextGreatestSymbolQuantity = count / nextGreatestSymbolAsCurrentSymbols.count
+        let nextGreatestSymbols = Array(repeating: nextGreatestSymbol, count: nextGreatestSymbolQuantity)
 
-        let remainingSymbolQuanity = count % nextHighestSymbolAsCurrentSymbols.count
+        let remainingSymbolQuanity = count % nextGreatestSymbolAsCurrentSymbols.count
         let remainingSymbols = Array(repeating: symbol, count: remainingSymbolQuanity)
 
-        return nextHighestSymbols + remainingSymbols
+        return nextGreatestSymbols + remainingSymbols
     }
 
     // MARK: Private Instance Interface

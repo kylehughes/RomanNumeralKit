@@ -58,6 +58,15 @@ public protocol RomanNumeralSymbolProtocol: Comparable,
     // MARK: Instance Interface
 
     /**
+     The Roman numeral symbol whose value is next-highest.
+
+     For example, `V` is the greater symbol than `I`, but `V` is not the greater symbol compared to `X`.
+
+     - Note:`M` will return `nil`.
+     */
+    var greaterSymbol: Self? { get }
+
+    /**
      The Roman numeral symbol whose value is next-lowest.
 
      For example, `V` is the lesser symbol to `X`, but `V` is not the lesser symbol to `L`.
