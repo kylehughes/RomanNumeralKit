@@ -1,5 +1,5 @@
 //
-//  SubtractiveRomanNumeralToIntConversionAlgorithm.swift
+//  IntToAdditiveRomanNumeralConversionAlgorithm.swift
 //  RomanNumeralKit
 //
 //  Copyright © 2019 Kyle Hughes.
@@ -23,14 +23,22 @@
 //  THE SOFTWARE.
 //
 
-public struct SubtractiveRomanNumeralToIntConversionAlgorithm {}
+public struct IntToAdditiveRomanNumeralConversionAlgorithm {
+    // MARK: Private Intialization
+
+    private init() {}
+}
 
 // MARK: - ConversionAlgorithm Extension
 
-extension SubtractiveRomanNumeralToIntConversionAlgorithm: ConversionAlgorithm {
+extension IntToAdditiveRomanNumeralConversionAlgorithm: ConversionAlgorithm {
     // MARK: Public Static Interface
 
-    public static func convert(from: RomanNumeral) -> Int {
-        from.subtractiveRomanNumeralSymbols.reduce(0) { $0 + $1.rawValue.tallyMarks.count }
+    public static func convert(from: Int) -> Result<AdditiveRomanNumeral, Error> {
+        let symbols = IntToAdditiveRomanNumeralSymbolsConversionAlgorithm.convert(from: from)
+
+        return Result {
+            try AdditiveRomanNumeral(symbols: symbols)
+        }
     }
 }

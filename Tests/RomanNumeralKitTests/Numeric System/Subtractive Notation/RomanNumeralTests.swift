@@ -177,27 +177,28 @@ class RomanNumeralTests: XCTestCase {
         }
     }
 
-    func test_symbolsFromInt() {
-        XCTAssertEqual(
-            RomanNumeral.subtractiveSymbols(from: Constants.minimumNumeralIntValue),
-            Constants.minimumNumeralSubtractiveSymbols
-        )
-        XCTAssertEqual(
-            RomanNumeral.subtractiveSymbols(from: Constants.middleNumeralIntValue),
-            Constants.middleNumeralSubtractiveSymbols
-        )
-        XCTAssertEqual(
-            RomanNumeral.subtractiveSymbols(from: Constants.maximumNumeralIntValue),
-            Constants.maximumNumeralSubtractiveSymbols
-        )
-
-        for subtractiveSymbol in SubtractiveRomanNumeralSymbol.allSymbolsAscending {
-            XCTAssertEqual(
-                RomanNumeral.subtractiveSymbols(from: subtractiveSymbol.rawValue.tallyMarks.count),
-                [subtractiveSymbol]
-            )
-        }
-    }
+    // TODO: Move to conversion algorithm tests
+//    func test_symbolsFromInt() {
+//        XCTAssertEqual(
+//            RomanNumeral.subtractiveSymbols(from: Constants.minimumNumeralIntValue),
+//            Constants.minimumNumeralSubtractiveSymbols
+//        )
+//        XCTAssertEqual(
+//            RomanNumeral.subtractiveSymbols(from: Constants.middleNumeralIntValue),
+//            Constants.middleNumeralSubtractiveSymbols
+//        )
+//        XCTAssertEqual(
+//            RomanNumeral.subtractiveSymbols(from: Constants.maximumNumeralIntValue),
+//            Constants.maximumNumeralSubtractiveSymbols
+//        )
+//
+//        for subtractiveSymbol in SubtractiveRomanNumeralSymbol.allSymbolsAscending {
+//            XCTAssertEqual(
+//                RomanNumeral.subtractiveSymbols(from: subtractiveSymbol.rawValue.tallyMarks.count),
+//                [subtractiveSymbol]
+//            )
+//        }
+//    }
 }
 
 // MARK: - AdditiveArithmetic Tests
@@ -726,25 +727,6 @@ extension RomanNumeralTests {
             RomanNumeral.condense(symbols: Array(repeating: .I, count: Constants.maximumNumeralIntValue)),
             Constants.maximumNumeralSymbolEquivalentAdditiveSymbols
         )
-    }
-
-    func test_protocol_symbolsFromInt() {
-        XCTAssertEqual(
-            RomanNumeral.symbols(from: Constants.minimumNumeralIntValue),
-            Constants.minimumNumeralSymbolEquivalentAdditiveSymbols
-        )
-        XCTAssertEqual(
-            RomanNumeral.symbols(from: Constants.middleNumeralIntValue),
-            Constants.middleNumeralSymbolEquivalentAdditiveSymbols
-        )
-        XCTAssertEqual(
-            RomanNumeral.symbols(from: Constants.maximumNumeralIntValue),
-            Constants.maximumNumeralSymbolEquivalentAdditiveSymbols
-        )
-
-        for symbol in RomanNumeralSymbol.allSymbolsAscending {
-            XCTAssertEqual(RomanNumeral.symbols(from: symbol.rawValue.tallyMarks.count), [symbol])
-        }
     }
 
     func test_symbols() {

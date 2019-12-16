@@ -164,24 +164,24 @@ public struct RomanNumeral: SubtractiveRomanNumeralSymbolsConvertible {
      - Parameter intValue: The integer to convert into a collection of subtractive symbols.
      - Returns: The symbolic representation of the given integer.
      */
-    public static func subtractiveSymbols(from intValue: Int) -> [SubtractiveRomanNumeralSymbol] {
-        var remainingIntValue = intValue
-        var convertedSubtractiveSymbols: [SubtractiveRomanNumeralSymbol] = []
-
-        SubtractiveRomanNumeralSymbol.allSymbolsDescending.forEach { symbol in
-            let symbolCount: Int = remainingIntValue / symbol.rawValue.tallyMarks.count
-
-            guard symbolCount > 0 else {
-                return
-            }
-
-            let consecutiveSymbols = Array(repeating: symbol, count: symbolCount)
-            convertedSubtractiveSymbols.append(contentsOf: consecutiveSymbols)
-            remainingIntValue -= symbolCount * symbol.rawValue.tallyMarks.count
-        }
-
-        return convertedSubtractiveSymbols
-    }
+//    public static func subtractiveSymbols(from intValue: Int) -> [SubtractiveRomanNumeralSymbol] {
+//        var remainingIntValue = intValue
+//        var convertedSubtractiveSymbols: [SubtractiveRomanNumeralSymbol] = []
+//
+//        SubtractiveRomanNumeralSymbol.allSymbolsDescending.forEach { symbol in
+//            let symbolCount: Int = remainingIntValue / symbol.rawValue.tallyMarks.count
+//
+//            guard symbolCount > 0 else {
+//                return
+//            }
+//
+//            let consecutiveSymbols = Array(repeating: symbol, count: symbolCount)
+//            convertedSubtractiveSymbols.append(contentsOf: consecutiveSymbols)
+//            remainingIntValue -= symbolCount * symbol.rawValue.tallyMarks.count
+//        }
+//
+//        return convertedSubtractiveSymbols
+//    }
 
     // MARK: Internal Static Interface
 
@@ -406,6 +406,9 @@ extension RomanNumeral {
 // MARK: - RomanNumeralProtocol Extension
 
 extension RomanNumeral: RomanNumeralProtocol {
+    // MARK: Public Typealiases
+
+    public typealias FromInt = IntToSubtractiveRomanNumeralConversionAlgorithm
     public typealias ToInt = SubtractiveRomanNumeralToIntConversionAlgorithm
 
     // MARK: Public Initialization
@@ -422,10 +425,6 @@ extension RomanNumeral: RomanNumeralProtocol {
         condenser.combine(symbols: symbols)
 
         return condenser.finalize()
-    }
-
-    public static func symbols(from intValue: Int) -> [RomanNumeralSymbol] {
-        subtractiveSymbols(from: intValue).flatMap { $0.romanNumeralSymbols }
     }
 
     // MARK: Public Instance Interface

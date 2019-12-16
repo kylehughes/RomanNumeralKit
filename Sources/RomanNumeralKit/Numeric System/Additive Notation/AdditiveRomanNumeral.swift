@@ -370,6 +370,9 @@ extension AdditiveRomanNumeral {
 // MARK: - RomanNumeralProtocol Extension
 
 extension AdditiveRomanNumeral: RomanNumeralProtocol {
+    // MARK: Public Typealiases
+
+    public typealias FromInt = IntToAdditiveRomanNumeralConversionAlgorithm
     public typealias ToInt = AdditiveRomanNumeralToIntConversionAlgorithm
 
     // MARK: Public Initialization
@@ -402,23 +405,23 @@ extension AdditiveRomanNumeral: RomanNumeralProtocol {
         return condenser.finalize()
     }
 
-    public static func symbols(from intValue: Int) -> [RomanNumeralSymbol] {
-        var remainingIntValue = intValue
-        var convertedSymbols: [RomanNumeralSymbol] = []
-
-        RomanNumeralSymbol.allSymbolsDescending.forEach { symbol in
-            let symbolCount: Int = remainingIntValue / symbol.rawValue.tallyMarks.count
-            guard symbolCount > 0 else {
-                return
-            }
-
-            let consecutiveSymbols = Array(repeating: symbol, count: symbolCount)
-            convertedSymbols.append(contentsOf: consecutiveSymbols)
-            remainingIntValue -= symbolCount * symbol.rawValue.tallyMarks.count
-        }
-
-        return convertedSymbols
-    }
+//    public static func symbols(from intValue: Int) -> [RomanNumeralSymbol] {
+//        var remainingIntValue = intValue
+//        var convertedSymbols: [RomanNumeralSymbol] = []
+//
+//        RomanNumeralSymbol.allSymbolsDescending.forEach { symbol in
+//            let symbolCount: Int = remainingIntValue / symbol.rawValue.tallyMarks.count
+//            guard symbolCount > 0 else {
+//                return
+//            }
+//
+//            let consecutiveSymbols = Array(repeating: symbol, count: symbolCount)
+//            convertedSymbols.append(contentsOf: consecutiveSymbols)
+//            remainingIntValue -= symbolCount * symbol.rawValue.tallyMarks.count
+//        }
+//
+//        return convertedSymbols
+//    }
 
     // MARK: Public Instance Interface
 

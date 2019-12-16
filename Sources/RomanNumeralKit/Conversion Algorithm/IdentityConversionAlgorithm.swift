@@ -1,5 +1,5 @@
 //
-//  AdditiveRomanNumeralToIntConversionAlgorithm.swift
+//  IdentityConversionAlgorithm.swift
 //  RomanNumeralKit
 //
 //  Copyright © 2019 Kyle Hughes.
@@ -23,17 +23,23 @@
 //  THE SOFTWARE.
 //
 
-public struct AdditiveRomanNumeralToIntConversionAlgorithm {}
+public struct IdentityConversionAlgorithm<Value> {
+    // MARK: Private Intialization
 
-// MARK: - ConversionAlgorithm Extension
+    private init() {}
+}
 
-extension AdditiveRomanNumeralToIntConversionAlgorithm: ConversionAlgorithm {
+// MARK: - UnfailableConversionAlgorithm Extension
+
+extension IdentityConversionAlgorithm: UnfailableConversionAlgorithm {
+    // MARK: Public Typealiases
+
+    public typealias From = Value
+    public typealias To = Value
+
     // MARK: Public Static Interface
 
-    public static func convert(from: AdditiveRomanNumeral) -> Int {
-        var calculator = AdditiveRomanNumeralSymbolCalculator()
-        calculator.add(symbols: from.symbols)
-
-        return calculator.value
+    public static func convert(from: From) -> To {
+        from
     }
 }

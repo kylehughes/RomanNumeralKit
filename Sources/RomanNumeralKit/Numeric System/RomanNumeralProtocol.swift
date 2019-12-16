@@ -47,10 +47,11 @@ public protocol RomanNumeralProtocol: CustomDebugStringConvertible,
     Numeric,
     Strideable,
     RomanNumeralSymbolsConvertible {
-    // MARK: Typealiases
+    // MARK: Associated Types
 
+    associatedtype FromInt: ConversionAlgorithm where FromInt.From == Int, FromInt.To == Self
     associatedtype Stride = Int
-    associatedtype ToInt: ConversionAlgorithm where ToInt.From == Self, ToInt.To == Int
+    associatedtype ToInt: ConversionAlgorithm where ToInt.Failure == Never, ToInt.From == Self, ToInt.To == Int
 
     // MARK: Initialization
 
@@ -97,7 +98,7 @@ public protocol RomanNumeralProtocol: CustomDebugStringConvertible,
      - Parameter intValue: The integer to convert into a collection of symbols.
      - Returns: The symbolic representation of the given integer.
      */
-    static func symbols(from intValue: Int) -> [RomanNumeralSymbol]
+//    static func symbols(from intValue: Int) -> [RomanNumeralSymbol]
 
     // MARK: Instance Interface
 
@@ -152,9 +153,7 @@ public extension RomanNumeralProtocol {
      - Parameter int: The integer value to construct an equivalent Roman numeral from.
      */
     init(from int: Int) throws {
-        let symbols = Self.symbols(from: int)
-
-        try self.init(symbols: symbols)
+        self = try FromInt.convert(from: int)
     }
 
     /**

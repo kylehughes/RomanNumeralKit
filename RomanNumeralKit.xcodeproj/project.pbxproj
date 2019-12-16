@@ -14,6 +14,14 @@
 		2731EF8023A2CD85006FD63B /* AdditiveRomanNumeralSymbolCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731EF7F23A2CD85006FD63B /* AdditiveRomanNumeralSymbolCalculator.swift */; };
 		2739F87B22B15A540075B5C4 /* RomanNumeralTallyMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739F87A22B15A540075B5C4 /* RomanNumeralTallyMark.swift */; };
 		2739F87D22B15A730075B5C4 /* RomanNumeralTallyMarkGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739F87C22B15A730075B5C4 /* RomanNumeralTallyMarkGroup.swift */; };
+		2740503C23A80086001E8017 /* IntToSubtractiveRomanNumeralSymbolsConversionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2740503B23A80086001E8017 /* IntToSubtractiveRomanNumeralSymbolsConversionAlgorithm.swift */; };
+		2740503E23A801D9001E8017 /* IntToAdditiveRomanNumeralSymbolsConversionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2740503D23A801D9001E8017 /* IntToAdditiveRomanNumeralSymbolsConversionAlgorithm.swift */; };
+		2740504023A807AD001E8017 /* BridgedConversionAlgorithmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2740503F23A807AD001E8017 /* BridgedConversionAlgorithmError.swift */; };
+		2740504223A80B83001E8017 /* IntToAdditiveRomanNumeralConversionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2740504123A80B83001E8017 /* IntToAdditiveRomanNumeralConversionAlgorithm.swift */; };
+		2740504423A80C1F001E8017 /* IntToSubtractiveRomanNumeralConversionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2740504323A80C1F001E8017 /* IntToSubtractiveRomanNumeralConversionAlgorithm.swift */; };
+		2740504923A80FDB001E8017 /* UnfailableConversionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2740504823A80FDB001E8017 /* UnfailableConversionAlgorithm.swift */; };
+		2740504C23A810C6001E8017 /* IdentityConversionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2740504B23A810C6001E8017 /* IdentityConversionAlgorithm.swift */; };
+		2740504E23A811AD001E8017 /* Sequence+ConversionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2740504D23A811AD001E8017 /* Sequence+ConversionAlgorithm.swift */; };
 		2760A08922CA7AC80025F2C9 /* RomanNumeralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2760A08822CA7AC80025F2C9 /* RomanNumeralConvertible.swift */; };
 		27667EBE23130E550099BFB8 /* RomanNumerals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27667EBD23130E550099BFB8 /* RomanNumerals.swift */; };
 		27667ED5231368170099BFB8 /* RomanNumeralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27667ED4231368170099BFB8 /* RomanNumeralTests.swift */; };
@@ -75,6 +83,14 @@
 		2731EF7F23A2CD85006FD63B /* AdditiveRomanNumeralSymbolCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditiveRomanNumeralSymbolCalculator.swift; sourceTree = "<group>"; };
 		2739F87A22B15A540075B5C4 /* RomanNumeralTallyMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralTallyMark.swift; sourceTree = "<group>"; };
 		2739F87C22B15A730075B5C4 /* RomanNumeralTallyMarkGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralTallyMarkGroup.swift; sourceTree = "<group>"; };
+		2740503B23A80086001E8017 /* IntToSubtractiveRomanNumeralSymbolsConversionAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntToSubtractiveRomanNumeralSymbolsConversionAlgorithm.swift; sourceTree = "<group>"; };
+		2740503D23A801D9001E8017 /* IntToAdditiveRomanNumeralSymbolsConversionAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntToAdditiveRomanNumeralSymbolsConversionAlgorithm.swift; sourceTree = "<group>"; };
+		2740503F23A807AD001E8017 /* BridgedConversionAlgorithmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgedConversionAlgorithmError.swift; sourceTree = "<group>"; };
+		2740504123A80B83001E8017 /* IntToAdditiveRomanNumeralConversionAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntToAdditiveRomanNumeralConversionAlgorithm.swift; sourceTree = "<group>"; };
+		2740504323A80C1F001E8017 /* IntToSubtractiveRomanNumeralConversionAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntToSubtractiveRomanNumeralConversionAlgorithm.swift; sourceTree = "<group>"; };
+		2740504823A80FDB001E8017 /* UnfailableConversionAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnfailableConversionAlgorithm.swift; sourceTree = "<group>"; };
+		2740504B23A810C6001E8017 /* IdentityConversionAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityConversionAlgorithm.swift; sourceTree = "<group>"; };
+		2740504D23A811AD001E8017 /* Sequence+ConversionAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+ConversionAlgorithm.swift"; sourceTree = "<group>"; };
 		2760A08822CA7AC80025F2C9 /* RomanNumeralConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralConvertible.swift; sourceTree = "<group>"; };
 		27667EBD23130E550099BFB8 /* RomanNumerals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumerals.swift; sourceTree = "<group>"; };
 		27667ED4231368170099BFB8 /* RomanNumeralTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RomanNumeralTests.swift; sourceTree = "<group>"; };
@@ -147,6 +163,48 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2740504523A80F5F001E8017 /* Conversion Algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				2731EF7723A2BF51006FD63B /* AdditiveRomanNumeralToIntConversionAlgorithm.swift */,
+				2740504123A80B83001E8017 /* IntToAdditiveRomanNumeralConversionAlgorithm.swift */,
+				2740503D23A801D9001E8017 /* IntToAdditiveRomanNumeralSymbolsConversionAlgorithm.swift */,
+			);
+			path = "Conversion Algorithms";
+			sourceTree = "<group>";
+		};
+		2740504623A80F6F001E8017 /* Conversion Algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				2740504323A80C1F001E8017 /* IntToSubtractiveRomanNumeralConversionAlgorithm.swift */,
+				2740503B23A80086001E8017 /* IntToSubtractiveRomanNumeralSymbolsConversionAlgorithm.swift */,
+				2731EF7923A2BF73006FD63B /* SubtractiveRomanNumeralToIntConversionAlgorithm.swift */,
+			);
+			path = "Conversion Algorithms";
+			sourceTree = "<group>";
+		};
+		2740504A23A80FF6001E8017 /* Conversion Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				2740503F23A807AD001E8017 /* BridgedConversionAlgorithmError.swift */,
+				27E7C97623A2B9D800F33AB8 /* ConversionAlgorithm.swift */,
+				2740504B23A810C6001E8017 /* IdentityConversionAlgorithm.swift */,
+				2740504823A80FDB001E8017 /* UnfailableConversionAlgorithm.swift */,
+			);
+			path = "Conversion Algorithm";
+			sourceTree = "<group>";
+		};
+		2740504F23A81371001E8017 /* Swift Standard Library */ = {
+			isa = PBXGroup;
+			children = (
+				27ED071D2161DAB600D3303A /* Int+RomanNumeral.swift */,
+				2740504D23A811AD001E8017 /* Sequence+ConversionAlgorithm.swift */,
+				2777F99022B560550004F5E1 /* Sequence+Sorting.swift */,
+				27F9DDAB2161C0D900CC9903 /* String+RomanNumeral.swift */,
+			);
+			path = "Swift Standard Library";
+			sourceTree = "<group>";
+		};
 		27667EDA231369450099BFB8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				27F9DDB92161CE1900CC9903 /* Foundation */,
+				2740504F23A81371001E8017 /* Swift Standard Library */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -212,7 +271,6 @@
 		27667FBB2084B3C600AB8A66 /* Numeric System */ = {
 			isa = PBXGroup;
 			children = (
-				27E7C97623A2B9D800F33AB8 /* ConversionAlgorithm.swift */,
 				2777F98E22B55D220004F5E1 /* RomanNumeralArithmeticError.swift */,
 				27667FCF2084CDE000AB8A66 /* RomanNumeralError.swift */,
 				27F9DDAD2161C23400CC9903 /* RomanNumeralProtocol.swift */,
@@ -252,6 +310,7 @@
 			children = (
 				27667FA32084B37D00AB8A66 /* RomanNumeralKit.h */,
 				27667FA42084B37D00AB8A66 /* Info.plist */,
+				2740504A23A80FF6001E8017 /* Conversion Algorithm */,
 				27667FBA2084B3B300AB8A66 /* Extensions */,
 				27667FBB2084B3C600AB8A66 /* Numeric System */,
 			);
@@ -277,7 +336,7 @@
 				2730E18C23A20D20006472EF /* AdditiveRomanNumeralSymbolCondenser.swift */,
 				27C584AF23088CE500316CB1 /* AdditiveRomanNumeralSymbolConvertible.swift */,
 				279B471522C82056004C4D07 /* AdditiveRomanNumeralSymbolsConvertible.swift */,
-				2731EF7723A2BF51006FD63B /* AdditiveRomanNumeralToIntConversionAlgorithm.swift */,
+				2740504523A80F5F001E8017 /* Conversion Algorithms */,
 			);
 			path = "Additive Notation";
 			sourceTree = "<group>";
@@ -291,7 +350,7 @@
 				27E7C97223A2AB0000F33AB8 /* SubtractiveRomanNumeralSymbolCondenser.swift */,
 				279B471D22C87B22004C4D07 /* SubtractiveRomanNumeralSymbolConvertible.swift */,
 				279B471B22C87A39004C4D07 /* SubtractiveRomanNumeralSymbolsConvertible.swift */,
-				2731EF7923A2BF73006FD63B /* SubtractiveRomanNumeralToIntConversionAlgorithm.swift */,
+				2740504623A80F6F001E8017 /* Conversion Algorithms */,
 			);
 			path = "Subtractive Notation";
 			sourceTree = "<group>";
@@ -301,9 +360,6 @@
 			children = (
 				2767EF022163305A008B6F85 /* Calendar+RomanNumeral.swift */,
 				2767EF0021632F99008B6F85 /* DateComponents+RomanNumeral.swift */,
-				27ED071D2161DAB600D3303A /* Int+RomanNumeral.swift */,
-				2777F99022B560550004F5E1 /* Sequence+Sorting.swift */,
-				27F9DDAB2161C0D900CC9903 /* String+RomanNumeral.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -448,24 +504,32 @@
 				27F9DDAC2161C0D900CC9903 /* String+RomanNumeral.swift in Sources */,
 				27ED071E2161DAB600D3303A /* Int+RomanNumeral.swift in Sources */,
 				279B471A22C877E2004C4D07 /* RomanNumeral.swift in Sources */,
+				2740504E23A811AD001E8017 /* Sequence+ConversionAlgorithm.swift in Sources */,
 				279B471622C82056004C4D07 /* AdditiveRomanNumeralSymbolsConvertible.swift in Sources */,
+				2740503E23A801D9001E8017 /* IntToAdditiveRomanNumeralSymbolsConversionAlgorithm.swift in Sources */,
 				27667FBD2084B3DE00AB8A66 /* RomanNumeralSymbol.swift in Sources */,
+				2740504023A807AD001E8017 /* BridgedConversionAlgorithmError.swift in Sources */,
 				27ED07202161E0A500D3303A /* RomanNumeralSymbolError.swift in Sources */,
 				2739F87D22B15A730075B5C4 /* RomanNumeralTallyMarkGroup.swift in Sources */,
 				2767EF0121632F99008B6F85 /* DateComponents+RomanNumeral.swift in Sources */,
 				2760A08922CA7AC80025F2C9 /* RomanNumeralConvertible.swift in Sources */,
 				2767EF032163305A008B6F85 /* Calendar+RomanNumeral.swift in Sources */,
+				2740503C23A80086001E8017 /* IntToSubtractiveRomanNumeralSymbolsConversionAlgorithm.swift in Sources */,
 				2731EF7A23A2BF73006FD63B /* SubtractiveRomanNumeralToIntConversionAlgorithm.swift in Sources */,
 				27667EEB23137BA30099BFB8 /* RomanNumeralSymbolConvertible.swift in Sources */,
+				2740504923A80FDB001E8017 /* UnfailableConversionAlgorithm.swift in Sources */,
 				27E7C97523A2B02400F33AB8 /* RomanNumeralSymbolCondenser.swift in Sources */,
+				2740504423A80C1F001E8017 /* IntToSubtractiveRomanNumeralConversionAlgorithm.swift in Sources */,
 				27667FD02084CDE000AB8A66 /* RomanNumeralError.swift in Sources */,
 				27E7C97723A2B9D800F33AB8 /* ConversionAlgorithm.swift in Sources */,
 				27E7C97323A2AB0000F33AB8 /* SubtractiveRomanNumeralSymbolCondenser.swift in Sources */,
 				27C584B023088CE500316CB1 /* AdditiveRomanNumeralSymbolConvertible.swift in Sources */,
 				2730E18D23A20D20006472EF /* AdditiveRomanNumeralSymbolCondenser.swift in Sources */,
 				2777F99722C149520004F5E1 /* SubtractiveRomanNumeralSymbol.swift in Sources */,
+				2740504223A80B83001E8017 /* IntToAdditiveRomanNumeralConversionAlgorithm.swift in Sources */,
 				2739F87B22B15A540075B5C4 /* RomanNumeralTallyMark.swift in Sources */,
 				27667EBE23130E550099BFB8 /* RomanNumerals.swift in Sources */,
+				2740504C23A810C6001E8017 /* IdentityConversionAlgorithm.swift in Sources */,
 				2777F99322B569400004F5E1 /* AdditiveRomanNumeral.swift in Sources */,
 				27F9DDAE2161C23400CC9903 /* RomanNumeralProtocol.swift in Sources */,
 				27667EE62313748D0099BFB8 /* RomanNumeralSymbolsConvertible.swift in Sources */,

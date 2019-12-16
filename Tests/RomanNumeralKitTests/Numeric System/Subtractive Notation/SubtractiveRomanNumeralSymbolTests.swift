@@ -59,7 +59,9 @@ class SubtractiveRomanNumeralSymbolTests: XCTestCase {
 extension SubtractiveRomanNumeralSymbolTests {
     func test_basicRomanNumeralSymbols() {
         for symbol in SubtractiveRomanNumeralSymbol.allSymbolsAscending {
-            let expectedBasicRomanNumeralSymbols = AdditiveRomanNumeral.symbols(from: symbol.rawValue.tallyMarks.count)
+            let expectedBasicRomanNumeralSymbols = IntToAdditiveRomanNumeralSymbolsConversionAlgorithm.convert(
+                from: symbol.rawValue.tallyMarks.count
+            )
             XCTAssertEqual(symbol.additiveRomanNumeralSymbols, expectedBasicRomanNumeralSymbols)
         }
     }

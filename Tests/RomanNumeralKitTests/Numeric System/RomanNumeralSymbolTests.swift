@@ -257,8 +257,9 @@ extension RomanNumeralSymbolTests {
 extension RomanNumeralSymbolTests {
     func test_subtractiveRomanNumeralSymbols() {
         for symbol in RomanNumeralSymbol.allSymbolsAscending {
-            let expectedSubtractiveSymbols: [SubtractiveRomanNumeralSymbol] = RomanNumeral
-                .subtractiveSymbols(from: symbol.rawValue.tallyMarks.count)
+            let expectedSubtractiveSymbols = IntToSubtractiveRomanNumeralSymbolsConversionAlgorithm.convert(
+                from: symbol.rawValue.tallyMarks.count
+            )
             XCTAssertEqual(symbol.subtractiveRomanNumeralSymbols, expectedSubtractiveSymbols)
         }
     }

@@ -1,5 +1,5 @@
 //
-//  ConversionAlgorithm.swift
+//  SubtractiveRomanNumeralToIntConversionAlgorithm.swift
 //  RomanNumeralKit
 //
 //  Copyright © 2019 Kyle Hughes.
@@ -23,24 +23,23 @@
 //  THE SOFTWARE.
 //
 
-public protocol ConversionAlgorithm {
-    associatedtype From
-    associatedtype To
+public struct SubtractiveRomanNumeralToIntConversionAlgorithm {
+    // MARK: Private Intialization
 
-    // MARK: Static Interface
-
-    static func convert(from: From) -> To
+    private init() {}
 }
 
-// MARK: - Public Extension
+// MARK: - UnfailableConversionAlgorithm Extension
 
-public extension ConversionAlgorithm {
+extension SubtractiveRomanNumeralToIntConversionAlgorithm: UnfailableConversionAlgorithm {
+    // MARK: Public Typealiases
+
+    public typealias From = RomanNumeral
+    public typealias To = Int
+
     // MARK: Public Static Interface
 
-    static func convert<BridgeAlgorithm>(
-        from: BridgeAlgorithm.From,
-        bridgedBy bridge: BridgeAlgorithm.Type
-    ) -> To where BridgeAlgorithm: ConversionAlgorithm, BridgeAlgorithm.To == From {
-        convert(from: bridge.convert(from: from))
+    public static func convert(from: RomanNumeral) -> Int {
+        from.subtractiveRomanNumeralSymbols.reduce(0) { $0 + $1.rawValue.tallyMarks.count }
     }
 }
