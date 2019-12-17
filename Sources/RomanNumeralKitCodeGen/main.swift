@@ -1,0 +1,3 @@
+let codeGenerator = RomanNumeralKitCodeGenerator(arguments: CommandLine.arguments)
+codeGenerator.generateRomanNumeralConstants()
+codeGenerator.generateTestsForRomanNumeralConstants()

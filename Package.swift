@@ -11,15 +11,18 @@ let package = Package(
         .watchOS(.v3),
     ],
     products: [
+        .executable(name: "romangen", targets: ["RomanNumeralKitCodeGen"]),
         .library(name: "RomanNumeralKit", type: .dynamic, targets: ["RomanNumeralKit"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/JohnSundell/Files", from: "4.0.0"),
+        .package(url: "https://github.com/shibapm/Komondor", from: "1.0.4"),
         .package(url: "https://github.com/nicklockwood/SwiftFormat", from: "0.42.0"),
         .package(url: "https://github.com/Realm/SwiftLint", from: "0.38.0"),
-        .package(url: "https://github.com/shibapm/Komondor", from: "1.0.4"),
     ],
     targets: [
         .target(name: "RomanNumeralKit", dependencies: []),
+        .target(name: "RomanNumeralKitCodeGen", dependencies: ["Files", "RomanNumeralKit"]),
         .testTarget(name: "RomanNumeralKitTests", dependencies: ["RomanNumeralKit"]),
     ],
     swiftLanguageVersions: [
