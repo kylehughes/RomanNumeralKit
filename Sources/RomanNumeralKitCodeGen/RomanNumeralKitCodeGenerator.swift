@@ -1,13 +1,13 @@
 import Files
 import RomanNumeralKit
 
-final class RomanNumeralKitCodeGenerator {
+internal final class RomanNumeralKitCodeGenerator {
     private let executablePath: String
     private let projectPath: String
 
     // MARK: Internal Initialization
 
-    init(arguments: [String]) {
+    internal init(arguments: [String]) {
         guard !arguments.isEmpty else {
             fatalError("The executable path is required")
         }
@@ -23,25 +23,59 @@ final class RomanNumeralKitCodeGenerator {
 
     // MARK: Internal Instance Interface
 
-    func generateRomanNumeralConstants() {
+    internal func generateRomanNumeralConstants() {
         for numeral in RomanNumeral.minimum ... RomanNumeral.maximum {
-            var unsafeSymbolsParameter: String = ""
-
-            for (index, symbol) in numeral.subtractiveRomanNumeralSymbols.enumerated() {
-                unsafeSymbolsParameter += "." + symbol.stringValue
-                guard index + 1 != numeral.subtractiveRomanNumeralSymbols.count else { continue }
-                unsafeSymbolsParameter += ", "
-            }
-
-            print(
-                """
-                /// The Roman numeral representing the Arabic numeral "\(numeral.intValue)".
-                let \(numeral.stringValue) = RomanNumeral(unsafeSymbols: [\(unsafeSymbolsParameter)])
-
-                """
-            )
+            print(numeral.sourceCodeForConstantDeclaration)
+            print()
         }
     }
 
-    func generateTestsForRomanNumeralConstants() {}
+    internal func generateTestsForRomanNumeralConstants() {}
+}
+
+internal protocol ConstantSourceCodeGeneratable {
+    var sourceCodeForConstant: String { get }
+}
+
+internal protocol ConstantDeclarationSourceCodeGeneratable {
+    var sourceCodeForConstantDeclaration: String { get }
+}
+
+extension RomanNumeral: ConstantSourceCodeGeneratable {
+    // MARK: Internal Instance Interface
+
+    internal var sourceCodeForConstant: String {
+        "RomanNumeral(unsafeSymbols: \(subtractiveRomanNumeralSymbols.sourceCodeForConstant))"
+    }
+}
+
+extension RomanNumeral: ConstantDeclarationSourceCodeGeneratable {
+    // MARK: Internal Instance Interface
+
+    internal var sourceCodeForConstantDeclaration: String {
+        """
+        /// The Roman numeral representing the Arabic numeral "\(intValue)".
+        let \(stringValue) = \(sourceCodeForConstant)
+        """
+    }
+}
+
+extension Array: ConstantSourceCodeGeneratable {
+    // MARK: Internal Instance Interface
+
+    internal var sourceCodeForConstant: String {
+        var elements: String = ""
+
+        for (index, element) in enumerated() {
+            elements += ".\(element)"
+
+            guard index + 1 != count else {
+                continue
+            }
+
+            elements += ", "
+        }
+
+        return "[\(elements)]"
+    }
 }

@@ -46,6 +46,9 @@
 		2777F99722C149520004F5E1 /* SubtractiveRomanNumeralSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777F99622C149520004F5E1 /* SubtractiveRomanNumeralSymbol.swift */; };
 		2783664B208ADB06001D131B /* AdditiveRomanNumeralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783664A208ADB06001D131B /* AdditiveRomanNumeralTests.swift */; };
 		2786FB2923A3429A0050AF7C /* RomanNumeralSymbolDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2786FB2823A3429A0050AF7C /* RomanNumeralSymbolDictionary.swift */; };
+		279ABA4D23AAAA1400AEA710 /* RomanNumeralKitCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279ABA4A23AAAA1400AEA710 /* RomanNumeralKitCodeGenerator.swift */; };
+		279ABA4E23AAAA1400AEA710 /* TestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279ABA4B23AAAA1400AEA710 /* TestTemplate.swift */; };
+		279ABA4F23AAAA1400AEA710 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279ABA4C23AAAA1400AEA710 /* main.swift */; };
 		279B471622C82056004C4D07 /* AdditiveRomanNumeralSymbolsConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279B471522C82056004C4D07 /* AdditiveRomanNumeralSymbolsConvertible.swift */; };
 		279B471A22C877E2004C4D07 /* RomanNumeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279B471922C877E2004C4D07 /* RomanNumeral.swift */; };
 		279B471C22C87A39004C4D07 /* SubtractiveRomanNumeralSymbolsConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279B471B22C87A39004C4D07 /* SubtractiveRomanNumeralSymbolsConvertible.swift */; };
@@ -74,6 +77,18 @@
 			remoteInfo = RomanNumeralKit;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		279ABA4023AAAA0000AEA710 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2730E18C23A20D20006472EF /* AdditiveRomanNumeralSymbolCondenser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditiveRomanNumeralSymbolCondenser.swift; sourceTree = "<group>"; };
@@ -118,6 +133,10 @@
 		2777F99622C149520004F5E1 /* SubtractiveRomanNumeralSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractiveRomanNumeralSymbol.swift; sourceTree = "<group>"; };
 		2783664A208ADB06001D131B /* AdditiveRomanNumeralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditiveRomanNumeralTests.swift; sourceTree = "<group>"; };
 		2786FB2823A3429A0050AF7C /* RomanNumeralSymbolDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeralSymbolDictionary.swift; sourceTree = "<group>"; };
+		279ABA4223AAAA0000AEA710 /* RomanNumeralKitCodeGen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RomanNumeralKitCodeGen; sourceTree = BUILT_PRODUCTS_DIR; };
+		279ABA4A23AAAA1400AEA710 /* RomanNumeralKitCodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RomanNumeralKitCodeGenerator.swift; sourceTree = "<group>"; };
+		279ABA4B23AAAA1400AEA710 /* TestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTemplate.swift; sourceTree = "<group>"; };
+		279ABA4C23AAAA1400AEA710 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		279B471522C82056004C4D07 /* AdditiveRomanNumeralSymbolsConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditiveRomanNumeralSymbolsConvertible.swift; sourceTree = "<group>"; };
 		279B471922C877E2004C4D07 /* RomanNumeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumeral.swift; sourceTree = "<group>"; };
 		279B471B22C87A39004C4D07 /* SubtractiveRomanNumeralSymbolsConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractiveRomanNumeralSymbolsConvertible.swift; sourceTree = "<group>"; };
@@ -150,6 +169,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				27667FAA2084B37D00AB8A66 /* RomanNumeralKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		279ABA3F23AAAA0000AEA710 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +265,7 @@
 			children = (
 				27667FA02084B37D00AB8A66 /* RomanNumeralKit.framework */,
 				27667FA92084B37D00AB8A66 /* RomanNumeralKitTests.xctest */,
+				279ABA4223AAAA0000AEA710 /* RomanNumeralKitCodeGen */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				27BEBBB423174CFD00DBC2B5 /* RomanNumeralKit */,
+				279ABA4923AAAA1400AEA710 /* RomanNumeralKitCodeGen */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -303,6 +331,16 @@
 				27F9DDBD2161D50600CC9903 /* Subtractive Notation */,
 			);
 			path = "Numeric System";
+			sourceTree = "<group>";
+		};
+		279ABA4923AAAA1400AEA710 /* RomanNumeralKitCodeGen */ = {
+			isa = PBXGroup;
+			children = (
+				279ABA4A23AAAA1400AEA710 /* RomanNumeralKitCodeGenerator.swift */,
+				279ABA4B23AAAA1400AEA710 /* TestTemplate.swift */,
+				279ABA4C23AAAA1400AEA710 /* main.swift */,
+			);
+			path = RomanNumeralKitCodeGen;
 			sourceTree = "<group>";
 		};
 		27BEBBB423174CFD00DBC2B5 /* RomanNumeralKit */ = {
@@ -431,13 +469,30 @@
 			productReference = 27667FA92084B37D00AB8A66 /* RomanNumeralKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		279ABA4123AAAA0000AEA710 /* RomanNumeralKitCodeGen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 279ABA4823AAAA0000AEA710 /* Build configuration list for PBXNativeTarget "RomanNumeralKitCodeGen" */;
+			buildPhases = (
+				279ABA3E23AAAA0000AEA710 /* Sources */,
+				279ABA3F23AAAA0000AEA710 /* Frameworks */,
+				279ABA4023AAAA0000AEA710 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RomanNumeralKitCodeGen;
+			productName = RomanNumeralKitCodeGen;
+			productReference = 279ABA4223AAAA0000AEA710 /* RomanNumeralKitCodeGen */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		27667F972084B37D00AB8A66 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Kyle Hughes";
 				TargetAttributes = {
@@ -449,6 +504,10 @@
 					27667FA82084B37D00AB8A66 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 1030;
+						ProvisioningStyle = Automatic;
+					};
+					279ABA4123AAAA0000AEA710 = {
+						CreatedOnToolsVersion = 11.3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -468,6 +527,7 @@
 			targets = (
 				27667F9F2084B37D00AB8A66 /* RomanNumeralKit */,
 				27667FA82084B37D00AB8A66 /* RomanNumeralKitTests */,
+				279ABA4123AAAA0000AEA710 /* RomanNumeralKitCodeGen */,
 			);
 		};
 /* End PBXProject section */
@@ -555,6 +615,16 @@
 				27C584AA2306495C00316CB1 /* RomanNumeralErrorTests.swift in Sources */,
 				27667EDF23136BCD0099BFB8 /* DateComponentsTests+RomanNumeral.swift in Sources */,
 				27C584AE2308523500316CB1 /* RomanNumeralSymbolTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		279ABA3E23AAAA0000AEA710 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				279ABA4D23AAAA1400AEA710 /* RomanNumeralKitCodeGenerator.swift in Sources */,
+				279ABA4F23AAAA1400AEA710 /* main.swift in Sources */,
+				279ABA4E23AAAA1400AEA710 /* TestTemplate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,6 +831,33 @@
 			};
 			name = Release;
 		};
+		279ABA4623AAAA0000AEA710 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		279ABA4723AAAA0000AEA710 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -787,6 +884,15 @@
 			buildConfigurations = (
 				27667FB82084B37D00AB8A66 /* Debug */,
 				27667FB92084B37D00AB8A66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		279ABA4823AAAA0000AEA710 /* Build configuration list for PBXNativeTarget "RomanNumeralKitCodeGen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				279ABA4623AAAA0000AEA710 /* Debug */,
+				279ABA4723AAAA0000AEA710 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
