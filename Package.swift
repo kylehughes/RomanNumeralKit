@@ -11,8 +11,8 @@ let package = Package(
         .watchOS(.v3),
     ],
     products: [
-        .executable(name: "rnk-code-gen", targets: ["RomanNumeralKitCodeGen"]),
-        .library(name: "RomanNumeralKit", type: .dynamic, targets: ["RomanNumeralKit"]),
+//        .executable(name: "rnk-code-gen", targets: ["RomanNumeralKitCodeGen"]),
+        .library(name: "RomanNumeralKit", targets: ["RomanNumeralKit"]),
     ],
     dependencies: [
         .package(url: "https://github.com/JohnSundell/Files", from: "4.0.0"),

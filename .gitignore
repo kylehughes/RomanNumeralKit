@@ -1,5 +1,7 @@
 # Xcode
 
+*.xcodeproj/
+
 ## Build generated
 build/
 DerivedData/

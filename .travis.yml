@@ -40,8 +40,10 @@ script:
 
   # Build framework in Debug and run tests if specified
   - if [ $RUN_TESTS == "YES" ]; then
+      swift package generate-xcodeproj;
       xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -c;
     else
+      swift package generate-xcodeproj;
       xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty -c;
     fi
 
