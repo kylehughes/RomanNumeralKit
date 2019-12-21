@@ -1,5 +1,5 @@
 //
-//  main.swift
+//  RomanNumeral+CodeGeneration.swift
 //  RomanNumeralKitCodeGen
 //
 //  Copyright © 2019 Kyle Hughes.
@@ -23,5 +23,27 @@
 //  THE SOFTWARE.
 //
 
-let codeGenerator = RomanNumeralKitCodeGenerator(arguments: CommandLine.arguments)
-print(codeGenerator.generateRomanNumeralConstants())
+import RomanNumeralKit
+
+// MARK: - ConstantSourceCodeGeneratable Extension
+
+extension RomanNumeral: ConstantSourceCodeGeneratable {
+    // MARK: Internal Instance Interface
+
+    internal var sourceCodeForConstant: String {
+        "RomanNumeral(unsafeSymbols: \(subtractiveRomanNumeralSymbols.sourceCodeForConstant))"
+    }
+}
+
+// MARK: - ConstantDeclarationSourceCodeGeneratable Extension
+
+extension RomanNumeral: ConstantDeclarationSourceCodeGeneratable {
+    // MARK: Internal Instance Interface
+
+    internal var sourceCodeForConstantDeclaration: String {
+        """
+        /// The Roman numeral representing the Arabic numeral "\(intValue)".
+        let \(stringValue) = \(sourceCodeForConstant)
+        """
+    }
+}

@@ -23,6 +23,7 @@
 		2740504C23A810C6001E8017 /* IdentityConversionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2740504B23A810C6001E8017 /* IdentityConversionAlgorithm.swift */; };
 		2740504E23A811AD001E8017 /* Sequence+ConversionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2740504D23A811AD001E8017 /* Sequence+ConversionAlgorithm.swift */; };
 		2760A08922CA7AC80025F2C9 /* RomanNumeralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2760A08822CA7AC80025F2C9 /* RomanNumeralConvertible.swift */; };
+		276214E623AD856A0067C268 /* RomanNumeralKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27667FA02084B37D00AB8A66 /* RomanNumeralKit.framework */; };
 		27667EBE23130E550099BFB8 /* RomanNumerals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27667EBD23130E550099BFB8 /* RomanNumerals.swift */; };
 		27667ED5231368170099BFB8 /* RomanNumeralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27667ED4231368170099BFB8 /* RomanNumeralTests.swift */; };
 		27667ED72313684F0099BFB8 /* RomanNumeralArithmeticErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27667ED62313684F0099BFB8 /* RomanNumeralArithmeticErrorTests.swift */; };
@@ -176,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				276214E623AD856A0067C268 /* RomanNumeralKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

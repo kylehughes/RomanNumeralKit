@@ -1,5 +1,5 @@
 //
-//  main.swift
+//  Array+CodeGeneration.swift
 //  RomanNumeralKitCodeGen
 //
 //  Copyright © 2019 Kyle Hughes.
@@ -23,5 +23,24 @@
 //  THE SOFTWARE.
 //
 
-let codeGenerator = RomanNumeralKitCodeGenerator(arguments: CommandLine.arguments)
-print(codeGenerator.generateRomanNumeralConstants())
+// MARK: - ConstantSourceCodeGeneratable Extension
+
+extension Array: ConstantSourceCodeGeneratable {
+    // MARK: Internal Instance Interface
+
+    internal var sourceCodeForConstant: String {
+        var elements: String = ""
+
+        for (index, element) in enumerated() {
+            elements += ".\(element)"
+
+            guard index + 1 != count else {
+                continue
+            }
+
+            elements += ", "
+        }
+
+        return "[\(elements)]"
+    }
+}

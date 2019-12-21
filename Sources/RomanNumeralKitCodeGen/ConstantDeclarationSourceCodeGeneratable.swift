@@ -1,5 +1,5 @@
 //
-//  main.swift
+//  ConstantDeclarationSourceCodeGeneratable.swift
 //  RomanNumeralKitCodeGen
 //
 //  Copyright © 2019 Kyle Hughes.
@@ -23,5 +23,8 @@
 //  THE SOFTWARE.
 //
 
-let codeGenerator = RomanNumeralKitCodeGenerator(arguments: CommandLine.arguments)
-print(codeGenerator.generateRomanNumeralConstants())
+internal protocol ConstantDeclarationSourceCodeGeneratable {
+    // MARK: Internal Instance Interface
+
+    var sourceCodeForConstantDeclaration: String { get }
+}

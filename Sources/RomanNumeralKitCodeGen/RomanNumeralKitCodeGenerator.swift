@@ -48,59 +48,9 @@ internal final class RomanNumeralKitCodeGenerator {
 
     // MARK: Internal Instance Interface
 
-    internal func generateRomanNumeralConstants() {
-        for numeral in RomanNumeral.minimum ... RomanNumeral.maximum {
-            print(numeral.sourceCodeForConstantDeclaration)
-            print()
-        }
-    }
-
-    internal func generateTestsForRomanNumeralConstants() {}
-}
-
-internal protocol ConstantSourceCodeGeneratable {
-    var sourceCodeForConstant: String { get }
-}
-
-internal protocol ConstantDeclarationSourceCodeGeneratable {
-    var sourceCodeForConstantDeclaration: String { get }
-}
-
-extension RomanNumeral: ConstantSourceCodeGeneratable {
-    // MARK: Internal Instance Interface
-
-    internal var sourceCodeForConstant: String {
-        "RomanNumeral(unsafeSymbols: \(subtractiveRomanNumeralSymbols.sourceCodeForConstant))"
-    }
-}
-
-extension RomanNumeral: ConstantDeclarationSourceCodeGeneratable {
-    // MARK: Internal Instance Interface
-
-    internal var sourceCodeForConstantDeclaration: String {
-        """
-        /// The Roman numeral representing the Arabic numeral "\(intValue)".
-        let \(stringValue) = \(sourceCodeForConstant)
-        """
-    }
-}
-
-extension Array: ConstantSourceCodeGeneratable {
-    // MARK: Internal Instance Interface
-
-    internal var sourceCodeForConstant: String {
-        var elements: String = ""
-
-        for (index, element) in enumerated() {
-            elements += ".\(element)"
-
-            guard index + 1 != count else {
-                continue
-            }
-
-            elements += ", "
-        }
-
-        return "[\(elements)]"
+    internal func generateRomanNumeralConstants() -> String {
+        stride(from: RomanNumeral.minimum, to: RomanNumeral.maximum, by: 1)
+            .map { $0.sourceCodeForConstantDeclaration }
+            .reduce("", +)
     }
 }
