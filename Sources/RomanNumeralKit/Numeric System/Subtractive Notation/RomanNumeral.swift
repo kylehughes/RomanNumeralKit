@@ -414,7 +414,9 @@ extension RomanNumeral: RomanNumeralProtocol {
     // MARK: Public Initialization
 
     public init(symbols: [RomanNumeralSymbol]) throws {
-        let convertedSubtractiveSymbols = AdditiveRomanNumeral.convert(toSymbolEquivalentSubtractiveSymbols: symbols)
+        let convertedSubtractiveSymbols = AdditiveRomanNumeral
+            .SymbolsToSymbolEquivalentSubtractiveRomanNumeralSymbols
+            .convert(from: symbols)
         try self.init(subtractiveSymbols: convertedSubtractiveSymbols)
     }
 

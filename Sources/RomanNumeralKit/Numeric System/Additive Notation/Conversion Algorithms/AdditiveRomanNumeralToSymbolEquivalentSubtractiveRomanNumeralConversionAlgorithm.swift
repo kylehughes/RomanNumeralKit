@@ -1,6 +1,6 @@
 //
-//  RomanNumeralSymbolsConvertible.swift
-//  RomanNumeralKitTests
+//  AdditiveRomanNumeralToSymbolEquivalentSubtractiveRomanNumeralConversionAlgorithm.swift
+//  RomanNumeralKit
 //
 //  Copyright © 2019 Kyle Hughes.
 //
@@ -23,32 +23,29 @@
 //  THE SOFTWARE.
 //
 
-/**
- A type that can be represented as a collection of Roman numeral symbols using subtractive notation.
- */
-public protocol RomanNumeralSymbolsConvertible: SubtractiveRomanNumeralSymbolsConvertible {
-    // MARK: Instance Interface
+public struct AdditiveRomanNumeralToSymbolEquivalentSubtractiveRomanNumeralConversionAlgorithm {
+    // MARK: Private Initialization
 
-    /// The representation of this instance as a collection of Roman numeral symbols using subtractive notation.
-    var romanNumeralSymbols: [RomanNumeralSymbol] { get }
+    private init() {}
 }
 
-// MARK: - RomanNumeralConvertible Extension
+// MARK: - ConversionAlgorithm Extension
 
-extension RomanNumeralSymbolsConvertible {
-    // MARK: Public Instance Interface
+extension AdditiveRomanNumeralToSymbolEquivalentSubtractiveRomanNumeralConversionAlgorithm: ConversionAlgorithm {
+    // MARK: Public Typealiases
 
-    public var romanNumeral: RomanNumeral? {
-        try? RomanNumeral(symbols: romanNumeralSymbols)
-    }
-}
+    public typealias From = AdditiveRomanNumeral
+    public typealias To = RomanNumeral
 
-// MARK: - SubtractiveRomanNumeralSymbolsConvertible Extension
+    // MARK: Public Static Interface
 
-extension RomanNumeralSymbolsConvertible {
-    // MARK: Public Instance Interface
+    public static func convert(from: From) -> Result<RomanNumeral, Error> {
+        let convertedSubtractiveSymbols = From
+            .SymbolsToSymbolEquivalentSubtractiveRomanNumeralSymbols
+            .convert(from: from.additiveRomanNumeralSymbols)
 
-    public var subtractiveRomanNumeralSymbols: [SubtractiveRomanNumeralSymbol] {
-        AdditiveRomanNumeral.SymbolsToSymbolEquivalentSubtractiveRomanNumeralSymbols.convert(from: romanNumeralSymbols)
+        return Result {
+            try RomanNumeral(subtractiveSymbols: convertedSubtractiveSymbols)
+        }
     }
 }

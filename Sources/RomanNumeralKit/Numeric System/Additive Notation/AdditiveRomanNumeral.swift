@@ -41,6 +41,11 @@
  - SeeAlso: https://en.wikipedia.org/wiki/Roman_numerals#Use_of_additive_notation
  */
 public struct AdditiveRomanNumeral: AdditiveRomanNumeralSymbolsConvertible {
+    // MARK: Public Typealiases
+
+    public typealias SymbolsToSymbolEquivalentSubtractiveRomanNumeralSymbols =
+        AdditiveRomanNumeralSymbolsToSymbolEquivalentSubtractiveRomanNumeralSymbolsConversionAlgorithm
+
     // MARK: Public Static Properties
 
     public static let maximum = AdditiveRomanNumeral(
@@ -69,43 +74,12 @@ public struct AdditiveRomanNumeral: AdditiveRomanNumeralSymbolsConvertible {
      - Parameter additiveSymbols: The additive symbols to convert.
      - Returns: The `SubtractiveRomanNumeralSymbol` equivalent of the additive symbols.
      */
-    internal static func convert(
-        toSymbolEquivalentSubtractiveSymbols additiveSymbols: [RomanNumeralSymbol]
-    ) -> [SubtractiveRomanNumeralSymbol] {
-        var lastProcessedIndex = -1
-
-        return additiveSymbols
-            .lazy
-            .enumerated()
-            .compactMap { index, additiveSymbol in
-                guard lastProcessedIndex < index else {
-                    return nil
-                }
-
-                let nextIndex = index + 1
-
-                guard nextIndex < additiveSymbols.count else {
-                    lastProcessedIndex = index
-
-                    return additiveSymbol.subtractiveRomanNumeralSymbol
-                }
-
-                let nextAdditiveSymbol = additiveSymbols[nextIndex]
-
-                guard
-                    let subtractiveSymbolIndex = SubtractiveRomanNumeralSymbol.allRomanNumeralSymbolsAscending
-                    .firstIndex(of: [additiveSymbol, nextAdditiveSymbol])
-                else {
-                    lastProcessedIndex = index
-
-                    return additiveSymbol.subtractiveRomanNumeralSymbol
-                }
-
-                lastProcessedIndex = nextIndex
-
-                return SubtractiveRomanNumeralSymbol.allSymbolsAscending[subtractiveSymbolIndex]
-            }
-    }
+//    internal static func convert(
+//        toSymbolEquivalentSubtractiveSymbols additiveSymbols: [RomanNumeralSymbol]
+//    ) -> [SubtractiveRomanNumeralSymbol] {
+//        AdditiveRomanNumeralSymbolsToSymbolEquivalentSubtractiveRomanNumeralSymbolsConversionAlgorithm.convert(
+//            from: additiveSymbols)
+//    }
 
     /**
      Convert the given additive symbols into their `SubtractiveRomanNumeralSymbol` equivalent using subtractive
@@ -404,24 +378,6 @@ extension AdditiveRomanNumeral: RomanNumeralProtocol {
 
         return condenser.finalize()
     }
-
-//    public static func symbols(from intValue: Int) -> [RomanNumeralSymbol] {
-//        var remainingIntValue = intValue
-//        var convertedSymbols: [RomanNumeralSymbol] = []
-//
-//        RomanNumeralSymbol.allSymbolsDescending.forEach { symbol in
-//            let symbolCount: Int = remainingIntValue / symbol.rawValue.tallyMarks.count
-//            guard symbolCount > 0 else {
-//                return
-//            }
-//
-//            let consecutiveSymbols = Array(repeating: symbol, count: symbolCount)
-//            convertedSymbols.append(contentsOf: consecutiveSymbols)
-//            remainingIntValue -= symbolCount * symbol.rawValue.tallyMarks.count
-//        }
-//
-//        return convertedSymbols
-//    }
 
     // MARK: Public Instance Interface
 

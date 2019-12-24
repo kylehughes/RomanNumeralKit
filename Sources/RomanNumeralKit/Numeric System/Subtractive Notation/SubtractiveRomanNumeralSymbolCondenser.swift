@@ -49,7 +49,10 @@ extension SubtractiveRomanNumeralSymbolCondenser: RomanNumeralSymbolCondenser {
     // MARK: Internal Instance Interface
 
     public mutating func combine(symbols: [RomanNumeralSymbol]) {
-        combine(symbols: AdditiveRomanNumeral.convert(toSymbolEquivalentSubtractiveSymbols: symbols))
+        let convertedSymbols = AdditiveRomanNumeral
+            .SymbolsToSymbolEquivalentSubtractiveRomanNumeralSymbols
+            .convert(from: symbols)
+        combine(symbols: convertedSymbols)
     }
 
     public mutating func finalize() -> [RomanNumeralSymbol] {
