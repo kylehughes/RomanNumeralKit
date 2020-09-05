@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.2
 
 import PackageDescription
 
@@ -11,7 +11,7 @@ let package = Package(
         .watchOS(.v3),
     ],
     products: [
-        .library(name: "RomanNumeralKit", type: .dynamic, targets: ["RomanNumeralKit"]),
+        .library(name: "RomanNumeralKit", targets: ["RomanNumeralKit"]),
     ],
     dependencies: [
         .package(url: "https://github.com/nicklockwood/SwiftFormat", from: "0.42.0"),
