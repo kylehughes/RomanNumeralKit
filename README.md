@@ -214,21 +214,6 @@ print("MMCDIX".romanNumeral)                // Prints "MMCDIX"
 print("MMCCCCVIIII".additiveRomanNumeral)   // Prints "MMCCCCVIIII"
 ```
 
-## Development
-
-### Pre-Commit Hooks
-
-We use [Komondor](https://github.com/shibapm/Komondor) to install pre-commit hooks to run formatting and linting.
-The following command should be run once after cloning the repository.
-
-```sh
-swift run komondor install
-```
-
-## License
-
-`RomanNumeralKit` is available under the MIT License.
-
 ## Authors
 
 Kyle Hughes
@@ -237,3 +222,11 @@ Kyle Hughes
 
 [social_twitter_image]: https://img.shields.io/badge/Twitter-@KyleHughes-blue.svg
 [social_twitter_url]: https://www.twitter.com/KyleHughes
+
+## Contributions
+
+`RomanNumeralKit` is not accepting source contributions at this time.
+
+## License
+
+`RomanNumeralKit` is available under the MIT License.

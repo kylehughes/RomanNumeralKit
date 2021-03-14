@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.3
 
 import PackageDescription
 
@@ -11,33 +11,29 @@ let package = Package(
         .watchOS(.v3),
     ],
     products: [
-        .library(name: "RomanNumeralKit", targets: ["RomanNumeralKit"]),
+        .library(
+            name: "RomanNumeralKit",
+            targets: [
+                "RomanNumeralKit"
+            ]
+        ),
     ],
     dependencies: [
-        .package(url: "https://github.com/nicklockwood/SwiftFormat", from: "0.42.0"),
-        .package(url: "https://github.com/Realm/SwiftLint", from: "0.38.0"),
-        .package(url: "https://github.com/shibapm/Komondor", from: "1.0.4"),
     ],
     targets: [
-        .target(name: "RomanNumeralKit", dependencies: []),
-        .testTarget(name: "RomanNumeralKitTests", dependencies: ["RomanNumeralKit"]),
+        .target(
+            name: "RomanNumeralKit",
+            dependencies: [
+            ]
+        ),
+        .testTarget(
+            name: "RomanNumeralKitTests",
+            dependencies: [
+                "RomanNumeralKit"
+            ]
+        ),
     ],
     swiftLanguageVersions: [
         .v5,
     ]
 )
-
-#if canImport(PackageConfig)
-    import PackageConfig
-
-    let config = PackageConfiguration([
-        "komondor": [
-            "pre-push": "swift test",
-            "pre-commit": [
-                "swift run swiftformat .",
-                "swift run swiftlint autocorrect --path Sources/",
-                "git add .",
-            ],
-        ],
-    ]).write()
-#endif
