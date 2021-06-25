@@ -14,7 +14,7 @@ let package = Package(
         .library(
             name: "RomanNumeralKit",
             targets: [
-                "RomanNumeralKit"
+                "RomanNumeralKit",
             ]
         ),
     ],
@@ -24,12 +24,18 @@ let package = Package(
         .target(
             name: "RomanNumeralKit",
             dependencies: [
+            ],
+            exclude: [
+                "Info.plist",
             ]
         ),
         .testTarget(
             name: "RomanNumeralKitTests",
             dependencies: [
-                "RomanNumeralKit"
+                "RomanNumeralKit",
+            ],
+            exclude: [
+                "Info.plist",
             ]
         ),
     ],
