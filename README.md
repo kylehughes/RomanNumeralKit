@@ -7,8 +7,6 @@
 [![Build Status](https://travis-ci.org/kylehughes/RomanNumeralKit.svg?branch=mainline)](https://travis-ci.org/kylehughes/RomanNumeralKit)
 [![codecov](https://codecov.io/gh/kylehughes/RomanNumeralKit/branch/mainline/graph/badge.svg)](https://codecov.io/gh/kylehughes/RomanNumeralKit)
 
-[![Twitter](https://img.shields.io/badge/twitter-@RomanNumeralKit-blue.svg)](https://twitter.com/RomanNumeralKit)
-
 First-class Roman numeral support for Swift.
 
 *When in Rome, code as the Romans code.*
