@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name = "RomanNumeralKit"
-    s.version = "1.2.0"
+    s.version = "1.2.1"
     s.license = "MIT"
     s.summary = "First-class Roman numeral support for Swift."
     s.homepage = "https://github.com/kylehughes/RomanNumeralKit"
